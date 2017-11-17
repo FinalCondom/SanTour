@@ -11,9 +11,9 @@ public class POD {
     private int id_pod;
     private String name;
     private String description;
-    private Image picture;
+    private String picture;
 
-    public POD(int id_pod, String name, String description, Image picture) {
+    public POD(int id_pod, String name, String description, String picture) {
         this.id_pod = id_pod;
         this.name = name;
         this.description = description;
@@ -45,11 +45,12 @@ public class POD {
         this.description = description;
     }
 
-    public Image getPicture() {
+
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(Image picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 }
