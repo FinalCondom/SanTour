@@ -7,30 +7,31 @@ package objects;
 public class Role {
 
 
-    private int id;
-    private String nom;
-    private String color;
-    private String poids;
-    private String taille;
-    private String text;
+    private int id_role;
+    private String name;
 
 
-    public Oiseau(int id, String nom, String color, String poids, String taille, String text) {
-        this.id = id;
-        this.nom = nom;
-        this.color = color;
-        this.poids = poids;
-        this.taille = taille;
-        this.text = text;
-    }
 
-    public Oiseau(String nom, String color, String poids, String taille, String text) {
-        this.nom = nom;
-        this.color = color;
-        this.poids = poids;
-        this.taille = taille;
-        this.text = text;
+    public Role(int id_role, String name) {
+
+        this.id_role=id_role;
+        this.name=name;
     }
 
 
+    public int getId_role() {
+        return id_role;
+    }
+
+    public void setId_role(int id_role) {
+        this.id_role = id_role;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
