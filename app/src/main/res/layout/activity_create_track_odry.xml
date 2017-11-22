@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ch.hes.santour.test">
-
+    tools:context="ch.hes.santour.CreateTrackOdryActivity">
 
     <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView2"
+        android:id="@+id/mapView"
         android:layout_width="276dp"
         android:layout_height="162dp"
         android:layout_marginBottom="22dp"
@@ -143,7 +142,6 @@
         android:src="@drawable/ic_add_pod"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
-
 
 
 </android.support.constraint.ConstraintLayout>

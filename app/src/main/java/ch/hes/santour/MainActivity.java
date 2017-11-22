@@ -16,18 +16,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         //button create track
-        Button buttonCreate = (Button) findViewById(R.id.createTrack);
+        Button buttonCreate = findViewById(R.id.createTrack);
         buttonCreate.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, CreateTrackActivity.class);
+                Intent intent = new Intent(MainActivity.this, CreateTrackOdryActivity.class);
                 startActivity(intent);
             }
         });
 
         // button about
-        Button buttonAbout = (Button) findViewById(R.id.about);
+        Button buttonAbout =  findViewById(R.id.about);
         buttonAbout.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
