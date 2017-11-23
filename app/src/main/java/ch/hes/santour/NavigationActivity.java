@@ -1,4 +1,4 @@
-package ch.hes.santour;
+/*package ch.hes.santour;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -36,7 +36,7 @@ public class NavigationActivity extends AppCompatActivity
         ft = fm.beginTransaction();
 
         //this.setTitle(R.string.location);
-        ft.replace(R.id.content_layout, new CreateTrackFragment()).commit();
+       // ft.replace(R.id.content_layout, new CreateTrackFragment()).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -50,20 +50,7 @@ public class NavigationActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if(fragmentManager.getBackStackEntryCount() > 0)
-        {
-            Fragment currentFragment = fragmentManager.findFragmentById(R.id.main_container);
-            if(currentFragment instanceof CreateTrackFragment ){
-                navigation.getMenu().getItem(0).setChecked(true);
-                finish();
-            }
-            else if(currentFragment instanceof AboutFragment){
-                navigation.getMenu().getItem(1).setChecked(true);
-                finish();
-            }
-            else
-                super.onBackPressed();
-        }
+
     }
 
     @Override
@@ -113,3 +100,4 @@ public class NavigationActivity extends AppCompatActivity
         return true;
     }
 }
+*/

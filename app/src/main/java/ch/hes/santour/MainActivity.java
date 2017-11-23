@@ -1,6 +1,9 @@
 package ch.hes.santour;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,31 +14,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = new HomeFragement();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_container, fragment).commit();
+        transaction.addToBackStack(null);
+
         setContentView(R.layout.activity_main);
-
-
-        //button create track
-        Button buttonCreate = findViewById(R.id.createTrack);
-        buttonCreate.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, CreateTrackActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // button about
-        Button buttonAbout =  findViewById(R.id.about);
-        buttonAbout.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-
-                startActivity(intent);
-            }
-        });
 
     }
 
