@@ -28,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".test" />
-        <activity android:name=".CreateTrackActivity" />
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
