@@ -1,0 +1,147 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.hes.santour.CreateTrackFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="276dp"
+        android:layout_height="162dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_trackName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_trackName"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="86dp"
+        android:text="@string/track_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/km"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Track Name" />
+
+    <Chronometer
+        android:id="@+id/chronometer2"
+        android:layout_width="75dp"
+        android:layout_height="27dp"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="309dp" />
+
+    <Button
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginLeft="16dp"
+        android:text="Timer"
+        app:layout_constraintBottom_toTopOf="@+id/tvPoi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="Timer"
+        android:background="@color/button"/>
+
+    <Button
+        android:id="@+id/km"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
+        android:layout_marginLeft="132dp"
+        android:text="Km"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="Km"
+        android:background="@color/button"/>
+
+    <Button
+        android:id="@+id/Start"
+        android:layout_width="109dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="45dp"
+        android:layout_marginRight="16dp"
+        android:text="Start"
+        app:layout_constraintBottom_toTopOf="@+id/stop"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Start"
+        android:background="@color/button"/>
+
+    <TextView
+        android:id="@+id/tvPoi"
+        android:layout_width="72dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="32dp"
+        android:text="POI"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/IbPoi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="POI" />
+
+    <TextView
+        android:id="@+id/tvPod"
+        android:layout_width="72dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="148dp"
+        android:text="POD"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/IbPod"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="POD" />
+
+    <ImageButton
+        android:id="@+id/IbPod"
+        android:layout_width="72dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="148dp"
+        android:background="@null"
+        android:clickable="true"
+        android:src="@drawable/ic_add_pod"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="106dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="42dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/button"
+        android:text="Stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Stop" />
+
+    <ImageButton
+        android:id="@+id/IbPoi"
+        android:layout_width="72dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:background="@null"
+        android:clickable="true"
+        android:src="@drawable/ic_add_poi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>
+
