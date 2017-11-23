@@ -5,4 +5,21 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000</color>
     <color name="button">#80CBC4</color>
+    <color name="img">#B2DFDB</color>
+    <color name="camera">#009688</color>
+    <color name="red">#E53935</color>
+    <color name="cancel">#B71C1C</color>
+    <color name="white">#FFFF</color>
+    <color name="textColor">#546E7A</color>
+    <color name="textTitle">#37474F</color>
+
+
+
+
+
+
+
+
+
+
 </resources>

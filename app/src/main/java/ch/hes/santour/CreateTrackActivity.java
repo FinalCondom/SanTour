@@ -25,7 +25,7 @@ public class CreateTrackActivity extends AppCompatActivity implements OnMapReady
         setContentView(R.layout.activity_create_track);
 
         //set the title on the app
-        //setTitle(R.string.title_course);
+        setTitle(R.string.create_track);
 
 
         //MAP
