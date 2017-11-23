@@ -11,16 +11,15 @@ public class User {
     private String password;
     private String mail;
     private String phoneNumber;
+    private int roleId;
 
-
-    public User(int id_user, String name,String password,String mail,String phoneNumber) {
-
-     this.id_user=id_user;
-     this.name=name;
-     this.password=password;
-     this.mail=mail;
-     this.phoneNumber=phoneNumber;
-
+    public User(int id_user, String name, String password, String mail, String phoneNumber, int roleId) {
+        this.id_user = id_user;
+        this.name = name;
+        this.password = password;
+        this.mail = mail;
+        this.phoneNumber = phoneNumber;
+        this.roleId = roleId;
     }
 
     public int getId_user() {
@@ -61,6 +60,14 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 }
 

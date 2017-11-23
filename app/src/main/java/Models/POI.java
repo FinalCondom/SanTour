@@ -10,17 +10,15 @@ public class POI {
     private String name;
     private String description;
     private String picture;
+    private Coordinate coordinate;
 
-
-
-    public POI(int id_POI, String name,String description,String picture) {
-
-        this.id_POI=id_POI;
-        this.name=name;
-        this.description=description;
-        this.picture=picture;
+    public POI(int id_POI, String name, String description, String picture, Coordinate coordinate) {
+        this.id_POI = id_POI;
+        this.name = name;
+        this.description = description;
+        this.picture = picture;
+        this.coordinate = coordinate;
     }
-
 
     public int getId_POI() {
         return id_POI;
@@ -52,5 +50,13 @@ public class POI {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 }

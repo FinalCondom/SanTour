@@ -4,27 +4,24 @@ package Models;
  * Created by kevin on 17.11.2017.
  */
 
-public class Difficulties {
+public class Difficulty {
 
-    private int id_difficulties;
+    private int id_difficulty;
     private String name;
     private int gradient;
 
-
-    public Difficulties(int id_difficulties, String name, int gradient) {
-
-  this.id_difficulties=id_difficulties;
-  this.name=name;
-  this.gradient=gradient;
+    public Difficulty(int id_difficulty, String name, int gradient) {
+        this.id_difficulty = id_difficulty;
+        this.name = name;
+        this.gradient = gradient;
     }
 
-
-    public int getId_difficulties() {
-        return id_difficulties;
+    public int getId_difficulty() {
+        return id_difficulty;
     }
 
-    public void setId_difficulties(int id_difficulties) {
-        this.id_difficulties = id_difficulties;
+    public void setId_difficulty(int id_difficulty) {
+        this.id_difficulty = id_difficulty;
     }
 
     public String getName() {

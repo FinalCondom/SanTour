@@ -17,19 +17,15 @@ public class Coordinate {
     private Date date;
 
 
-
-    public Coordinate(int id_coordinate, double x,double y,double z, double gdop, int nbre_sat, Date date) {
-
-        this.id_coordinate=id_coordinate;
-        this.x=x;
-        this.y=y;
-        this.z=z;
+    public Coordinate(int id_coordinate, double x, double y, double z, double gdop, int nbre_sat, Date date) {
+        this.id_coordinate = id_coordinate;
+        this.x = x;
+        this.y = y;
+        this.z = z;
         this.gdop = gdop;
-        this.nbre_sat = nbre_sat ;
-        this.date = date ;
-
+        this.nbre_sat = nbre_sat;
+        this.date = date;
     }
-
 
     public int getId_coordinate() {
         return id_coordinate;
