@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +24,7 @@
     <ImageView
         android:id="@+id/iv_poi_img"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="150dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/et_poi"
@@ -39,7 +38,7 @@
         android:layout_below="@+id/iv_poi_img"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:id="@+id/linearLayout1">
+        android:id="@+id/poi_linearLayout1">
 
         <ImageButton
             android:id="@+id/ib_poi_delete_picture"
@@ -68,11 +67,11 @@
 
 
     <TextView
-        android:id="@+id/tv_gps_data_longitude"
+        android:id="@+id/tv_poi_gps_data_longitude"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tv_gps_data_latitude"
-        android:layout_alignBottom="@+id/tv_gps_data_latitude"
+        android:layout_alignBaseline="@+id/tv_poi_gps_data_latitude"
+        android:layout_alignBottom="@+id/tv_poi_gps_data_latitude"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="14dp"
@@ -83,15 +82,15 @@
         android:text="Long. x"
         android:textAlignment="center"
         android:textColor="@color/textColor"
-        android:textSize="25dp" />
+        android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/tv_gps_data_latitude"
+        android:id="@+id/tv_poi_gps_data_latitude"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout1"
+        android:layout_below="@+id/poi_linearLayout1"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="14dp"
@@ -101,31 +100,30 @@
         android:text="Lat. y"
         android:textAlignment="center"
         android:textColor="@color/textColor"
-        android:textSize="25dp"
-      />
+        android:textSize="20dp"
+        />
 
 
     <EditText
         android:id="@+id/et_poi_description"
         android:layout_width="380dp"
-        android:layout_height="150dp"
-        android:layout_below="@+id/tv_gps_data_longitude"
+        android:layout_height="100dp"
+        android:layout_below="@+id/tv_poi_gps_data_longitude"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
         android:ems="30"
         android:gravity="left|top"
         android:inputType="textMultiLine"
         android:text="Description"
-        android:textSize="25dp"
         android:textColor="@color/textColor"
-        />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/bt_poi_save"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_alignBaseline="@+id/bt_poi_cancel"
-        android:layout_alignBottom="@+id/bt_poi_cancel"
+        android:layout_alignBottom="@+id/bt_pod_cancel"
         android:layout_alignEnd="@+id/et_poi_description"
         android:layout_alignRight="@+id/et_poi_description"
         android:layout_marginEnd="20dp"
