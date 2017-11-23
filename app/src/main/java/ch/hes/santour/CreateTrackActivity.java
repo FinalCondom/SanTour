@@ -1,8 +1,7 @@
 package ch.hes.santour;
 
-
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 
-
-
-
-public class CreateTrackFragment extends Fragment  implements OnMapReadyCallback {
+public class CreateTrackActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     //Google Map
     private MapView mapView;
@@ -24,24 +20,20 @@ public class CreateTrackFragment extends Fragment  implements OnMapReadyCallback
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_create_track1, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_track);
 
         //set the title on the app
-        //getActivity().setTitle(R.string.title_course);
-
+        //setTitle(R.string.title_course);
 
 
         //MAP
-        mapView = rootView.findViewById(R.id.mapView);
+        mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-
-        return  rootView;
     }
-
 
 
     @Override
@@ -52,6 +44,7 @@ public class CreateTrackFragment extends Fragment  implements OnMapReadyCallback
         map.moveCamera(CameraUpdateFactory.newLatLng(coordinate));
 
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -75,12 +68,5 @@ public class CreateTrackFragment extends Fragment  implements OnMapReadyCallback
         super.onLowMemory();
         mapView.onLowMemory();
     }
-
-
-
-
-
-
-
 
 }
