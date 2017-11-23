@@ -23,7 +23,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/mapView"
         android:text="@string/track_name"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -31,40 +31,67 @@
 
     <Chronometer
         android:id="@+id/timer"
-        android:layout_width="86dp"
-        android:layout_height="48dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="327dp"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_trackName"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
         android:background="@color/button"
-        android:textSize="20dp"
+        android:gravity="center"
         android:textAlignment="center"
-        />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="327dp" />
 
     <Button
         android:id="@+id/km"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:layout_marginLeft="132dp"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/timer"
+        android:layout_alignBottom="@+id/timer"
+        android:layout_alignLeft="@+id/ib_stop"
+        android:layout_alignStart="@+id/ib_stop"
+        android:background="@color/button"
         android:text="Km"
-        tools:text="Km"
-        android:background="@color/button"/>
+        android:textSize="20dp"
+        tools:text="Km" />
 
-    <Button
-        android:id="@+id/Start"
-        android:layout_width="109dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="45dp"
-        android:layout_marginRight="16dp"
-        android:text="Start"
-        tools:text="Start"
-        android:background="@color/button"/>
+    <ImageButton
+        android:id="@+id/ib_play"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/timer"
+        android:layout_alignStart="@+id/timer"
+        android:layout_below="@+id/timer"
+        android:layout_marginTop="11dp"
+        android:background="@color/button"
+        android:src="@drawable/ic_play" />
+
+    <ImageButton
+        android:id="@+id/ib_stop"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/ib_play"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/ib_play"
+        android:layout_toRightOf="@+id/ib_play"
+        android:background="@color/button"
+        android:src="@drawable/ic_stop" />
+
 
     <TextView
         android:id="@+id/tvPoi"
         android:layout_width="72dp"
         android:layout_height="27dp"
-        android:layout_marginLeft="32dp"
+        android:layout_alignLeft="@+id/IbPoi"
+        android:layout_alignStart="@+id/IbPoi"
+        android:layout_below="@+id/ib_play"
+        android:layout_marginTop="11dp"
         android:text="POI"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -76,7 +103,10 @@
         android:id="@+id/tvPod"
         android:layout_width="72dp"
         android:layout_height="27dp"
-        android:layout_marginLeft="148dp"
+        android:layout_alignBaseline="@+id/tvPoi"
+        android:layout_alignBottom="@+id/tvPoi"
+        android:layout_alignLeft="@+id/ib_stop"
+        android:layout_alignStart="@+id/ib_stop"
         android:text="POD"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -88,32 +118,22 @@
         android:id="@+id/IbPod"
         android:layout_width="72dp"
         android:layout_height="68dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="148dp"
+        android:layout_alignLeft="@+id/tvPod"
+        android:layout_alignStart="@+id/tvPod"
+        android:layout_below="@+id/tvPod"
         android:background="@null"
         android:clickable="true"
-        android:src="@drawable/ic_add_pod"
-        />
-
-    <Button
-        android:id="@+id/stop"
-        android:layout_width="106dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="42dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/button"
-        android:text="Stop"
-        tools:text="Stop" />
+        android:src="@drawable/ic_add_pod" />
 
     <ImageButton
         android:id="@+id/IbPoi"
         android:layout_width="72dp"
         android:layout_height="68dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="32dp"
+        android:layout_alignEnd="@+id/ib_play"
+        android:layout_alignRight="@+id/ib_play"
+        android:layout_below="@+id/tvPoi"
         android:background="@null"
         android:clickable="true"
-        android:src="@drawable/ic_add_poi"
-        />
+        android:src="@drawable/ic_add_poi" />
 
 </RelativeLayout>
