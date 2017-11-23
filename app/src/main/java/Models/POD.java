@@ -1,6 +1,4 @@
-package objects;
-
-import android.media.Image;
+package Models;
 
 /**
  * Created by kevin on 17.11.2017.

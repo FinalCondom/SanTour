@@ -33,6 +33,28 @@ public class CreateTrackActivity extends AppCompatActivity implements OnMapReady
         map.moveCamera(CameraUpdateFactory.newLatLng(coordinate));
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
 
 }
