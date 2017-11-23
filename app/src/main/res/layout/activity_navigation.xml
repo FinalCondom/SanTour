@@ -22,4 +22,13 @@
         app:headerLayout="@layout/nav_header_navigation"
         app:menu="@menu/activity_navigation_drawer" />
 
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation"
+        android:layout_alignParentTop="true"
+        >
+    </FrameLayout>
+
 </android.support.v4.widget.DrawerLayout>
