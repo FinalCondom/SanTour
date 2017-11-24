@@ -56,7 +56,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/iv_pod_img"
             android:layout_weight="1"
-            android:background="@color/camera"
+            android:background="@color/green"
             android:src="@drawable/ic_photo_camera" />
 
 
@@ -76,7 +76,7 @@
         android:background="@drawable/border"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
-        android:text="Long. x"
+        android:text="@string/longi"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="20dp" />
@@ -94,11 +94,10 @@
         android:background="@drawable/border"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
-        android:text="Lat. y"
+        android:text="@string/lati"
         android:textAlignment="center"
         android:textColor="@color/textColor"
-        android:textSize="20dp"
-        />
+        android:textSize="20dp" />
 
 
     <EditText
@@ -111,24 +110,9 @@
         android:ems="30"
         android:gravity="left|top"
         android:inputType="textMultiLine"
-        android:text="Description"
+        android:text="@string/description"
         android:textColor="@color/textColor"
         android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/bt_pod_save"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_alignBaseline="@+id/bt_pod_cancel"
-        android:layout_alignBottom="@+id/bt_pod_cancel"
-        android:layout_alignEnd="@+id/et_pod_description"
-        android:layout_alignRight="@+id/et_pod_description"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/camera"
-        android:text="NEXT"
-        android:textColor="@color/white"
-        android:textSize="20dp"/>
 
     <Button
         android:id="@+id/bt_pod_cancel"
@@ -141,8 +125,23 @@
         android:layout_marginLeft="26dp"
         android:layout_marginStart="26dp"
         android:background="@color/red"
-        android:text="CANCEL"
+        android:text="@string/cancel"
         android:textColor="@color/white"
-        android:textSize="20dp"/>
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/bt_pod_save"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/bt_pod_cancel"
+        android:layout_alignBottom="@+id/bt_pod_cancel"
+        android:layout_alignEnd="@+id/et_pod_description"
+        android:layout_alignRight="@+id/et_pod_description"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/green"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
 </RelativeLayout>

@@ -1,13 +1,90 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ch.hes.santour.PoiPodListFragment">
+    tools:context="ch.hes.santour.PoiPodListFragment"
+    android:id="@+id/po_list_fg">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <SearchView
+        android:id="@+id/sv_poi_pod_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/img"
+        android:orientation="horizontal"
+        android:visibility="visible">
 
-</FrameLayout>
+    </SearchView>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/sv_poi_pod_list"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/tv_poi_add_list"
+        android:layout_width="72dp"
+        android:layout_height="27dp"
+        android:layout_above="@+id/ib_pod_add_list"
+        android:layout_alignLeft="@+id/ib_pod_add_list"
+        android:layout_alignStart="@+id/ib_pod_add_list"
+        android:text="@string/poi"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        tools:text="POI" />
+
+    <TextView
+        android:id="@+id/tv_pod_add_list"
+        android:layout_width="72dp"
+        android:layout_height="27dp"
+        android:layout_above="@+id/ib_poi_add_list"
+        android:layout_alignLeft="@+id/ib_poi_add_list"
+        android:layout_alignStart="@+id/ib_poi_add_list"
+        android:text="@string/pod"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        tools:text="POD" />
+
+    <ImageButton
+        android:id="@+id/ib_pod_add_list"
+        android:layout_width="72dp"
+        android:layout_height="68dp"
+        android:layout_below="@+id/tv_pod_add_list"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_toEndOf="@+id/tv_pod_add_list"
+        android:layout_toRightOf="@+id/tv_pod_add_list"
+        android:background="@null"
+        android:clickable="true"
+        android:src="@drawable/ic_add_pod" />
+
+    <ImageButton
+        android:id="@+id/ib_poi_add_list"
+        android:layout_width="72dp"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="13dp"
+        android:layout_marginLeft="106dp"
+        android:layout_marginStart="106dp"
+        android:background="@null"
+        android:clickable="true"
+        android:src="@drawable/ic_add_poi" />
+
+
+</RelativeLayout>

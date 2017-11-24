@@ -16,6 +16,20 @@
     <string name="pod_name">POD name</string>
     <string name="poi_name">POI name</string>
     <string name="name">Name</string>
+    <string name="km">KM</string>
+    <string name="poi">POI</string>
+    <string name="pod">POD</string>
+    <string name="longi">Long.</string>
+    <string name="lati">Lat.</string>
+    <string name="description">Description</string>
+    <string name="cancel">CANCEL</string>
+    <string name="save">SAVE</string>
+    <string name="next">NEXT</string>
+    <string name="vertical">Verticality</string>
+    <string name="rocks">Rocks</string>
+    <string name="slope">Slope</string>
+
+
 
 
     <!-- TODO: Remove or change this placeholder text -->
