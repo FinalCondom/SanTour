@@ -18,6 +18,7 @@ public class CreatePoiFragment extends Fragment {
     FragmentTransaction transaction ;
 
     public CreatePoiFragment() {
+
         // Required empty public constructor
     }
 
@@ -39,10 +40,9 @@ public class CreatePoiFragment extends Fragment {
                 fragmentManager = getFragmentManager();
                 fragment = new CreateTrackFragement();
                 transaction = fragmentManager.beginTransaction();
+
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
-
-
             }
         });
 

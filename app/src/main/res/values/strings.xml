@@ -13,7 +13,8 @@
     <string name="track_name">Track name</string>
     <string name="create_track">Create track</string>
     <string name="create_poi">Create POI</string>
-    <string name="poi_details">Details POI</string>
+    <string name="pod_details">Details POD</string>
+    <string name="poi_pod_list">POI-POD List</string>
     <string name="create_pod">Create POD</string>
     <string name="pod_name">POD name</string>
     <string name="poi_name">POI name</string>

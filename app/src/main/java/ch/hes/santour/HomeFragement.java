@@ -1,8 +1,5 @@
 package ch.hes.santour;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -26,7 +23,12 @@ public class HomeFragement extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView = inflater.inflate(R.layout.fragment_home_fragement, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+        //set the title on the app
+        getActivity().setTitle(R.string.app_name);
+
 
         // button createTrack
         Button btnCreateTrack =  rootView.findViewById(R.id.createTrack);
