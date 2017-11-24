@@ -1,13 +1,5 @@
 apply plugin: 'com.android.application'
 
-
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
-
-}
-
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -36,49 +28,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.google.firebase:firebase-database:11.6.0'
+    implementation 'com.google.firebase:firebase-core:11.6.0'
     implementation 'com.google.android.gms:play-services-maps:11.6.0'
     implementation 'com.google.android.gms:play-services-location:11.6.0'
+    implementation 'com.android.support:support-v4:26.+'
 }
 
-
-
-
-
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
-dependencies {
-    implementation 'com.android.support:support-v4:26.+'
-}
 apply plugin: 'com.google.gms.google-services'
