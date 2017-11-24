@@ -1,7 +1,5 @@
 package BLL;
 
-import android.util.Log;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,10 +26,7 @@ public class TrackManager {
 
     //This function will create a track
     public void createTrack(String trackName){
-        Log.d(TAG, trackName+" Added in the database");
-        Chronometer chronometer = new Chronometer();
         track = new Track(trackName, 0, 0.0, 1);
-        chronometer.start();
         mTrackRef.setValue(track);
         track.setId_track(mTrackRef.getKey());
     }

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -36,7 +37,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     public final String TAG = "TAG";
     private ImageButton playButton;
     private EditText trackNameEditText;
-
+    private Chronometer chronometer;
 
     public CreateTrackFragement() {
         // Required empty public constructor
@@ -52,6 +53,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         mapView = rootView.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
+        chronometer = rootView.findViewById(R.id.timer);
 
         // button POD
         ImageButton ibPod =  rootView.findViewById(R.id.IbPod);
@@ -81,7 +84,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
             }
         });
 
-        //Start track
+        //Button Start track
         trackNameEditText = rootView.findViewById(R.id.et_track_name);
         playButton = rootView.findViewById(R.id.ib_play);
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +93,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 String trackName = trackNameEditText.getText().toString();
                 if(!trackName.equals("")){
                     trackManager.createTrack(trackName);
+                    chronometer.start();
                 }else{
                     //if no name has been written, we will display a message
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
