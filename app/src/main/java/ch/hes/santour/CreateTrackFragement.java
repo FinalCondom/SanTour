@@ -4,14 +4,11 @@ package ch.hes.santour;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,6 +16,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+
+import BLL.TrackManager;
 
 public class CreateTrackFragement extends Fragment implements OnMapReadyCallback {
 
@@ -30,6 +29,13 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     private MapView mapView;
     private GoogleMap map;
 
+    private TrackManager trackManager = new TrackManager();
+
+    public final String TAG = "TAG";
+    private ImageButton playButton;
+    private EditText trackNameEditText;
+
+
     public CreateTrackFragement() {
         // Required empty public constructor
     }
@@ -38,7 +44,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView = inflater.inflate(R.layout.fragment_create_track_fragement, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_create_track, container, false);
 
         //MAP
         mapView = rootView.findViewById(R.id.mapView);
@@ -71,6 +77,21 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 transaction.replace(R.id.main_container, fragment).commit();
                 transaction.addToBackStack(null);
 
+            }
+        });
+
+        //Start track
+        trackNameEditText = rootView.findViewById(R.id.et_track_name);
+        playButton = rootView.findViewById(R.id.ib_play);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String trackName = trackNameEditText.getText().toString();
+                if(!trackName.equals("")){
+                    trackManager.createTrack(trackName);
+                }else{
+                    //TODO show a dialog that inform the user to choose a name
+                }
             }
         });
 
