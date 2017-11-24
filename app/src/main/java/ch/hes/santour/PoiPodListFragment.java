@@ -37,8 +37,8 @@ public class PoiPodListFragment extends Fragment {
                 fragmentManager = getFragmentManager();
                 fragment = new CreatePodFragment();
                 transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.po_list_fg, fragment).commit();
                 transaction.addToBackStack(null);
+                transaction.replace(R.id.po_list_fg, fragment).commit();
             }
         });
 
@@ -50,9 +50,8 @@ public class PoiPodListFragment extends Fragment {
                 fragmentManager = getFragmentManager();
                 fragment = new CreatePoiFragment();
                 transaction = fragmentManager.beginTransaction();
-
-                transaction.replace(R.id.po_list_fg, fragment).commit();
                 transaction.addToBackStack(null);
+                transaction.replace(R.id.po_list_fg, fragment).commit();
 
             }
         });

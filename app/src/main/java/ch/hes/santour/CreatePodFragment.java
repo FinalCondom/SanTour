@@ -42,9 +42,9 @@ public class CreatePodFragment extends Fragment {
                 fragmentManager = getFragmentManager();
                 fragment = new PoiPodListFragment();
                 transaction = fragmentManager.beginTransaction();
-
-                transaction.replace(R.id.main_container, fragment).commit();
                 transaction.addToBackStack(null);
+                transaction.replace(R.id.main_container, fragment).commit();
+
 
             }
         });
