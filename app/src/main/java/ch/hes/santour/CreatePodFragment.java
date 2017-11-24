@@ -1,13 +1,16 @@
 package ch.hes.santour;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class CreatePodFragment extends Fragment {
@@ -36,13 +39,21 @@ public class CreatePodFragment extends Fragment {
         bt_pod_cancel.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragment = new CreateTrackFragement();
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
+                getFragmentManager().popBackStack();
             }
         });
+
+        /* button Picture
+        ImageButton ib_pod_take_picture =  rootView.findViewById(R.id.ib_pod_take_picture);
+        bt_pod_cancel.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePictureIntent, 100);
+            }
+        });
+        */
+
 
         // button NEXT
         Button bt_pod_next =  rootView.findViewById(R.id.bt_pod_next);
@@ -61,7 +72,5 @@ public class CreatePodFragment extends Fragment {
 
         return rootView;
     }
-
-
 
 }

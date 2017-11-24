@@ -37,12 +37,7 @@ public class DetailsPodFragment extends Fragment {
         bt_pod_details_cancel.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragment = new CreateTrackFragement();
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
-
+                getFragmentManager().popBackStack();
 
             }
         });

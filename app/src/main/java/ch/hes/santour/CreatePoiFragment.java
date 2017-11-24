@@ -37,12 +37,7 @@ public class CreatePoiFragment extends Fragment {
         bt_poi_cancel.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragment = new CreateTrackFragement();
-                transaction = fragmentManager.beginTransaction();
-
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
+                getFragmentManager().popBackStack();
             }
         });
 
