@@ -29,8 +29,8 @@ public class PoiPodListFragment extends Fragment {
 
 
         // button POD
-        ImageButton ibPod =  rootView.findViewById(R.id.ib_pod_add_list);
-        ibPod.setOnClickListener(new View.OnClickListener() {
+        ImageButton ib_pod_add_list =  rootView.findViewById(R.id.ib_pod_add_list);
+        ib_pod_add_list.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
@@ -38,20 +38,20 @@ public class PoiPodListFragment extends Fragment {
                 fragment = new CreatePodFragment();
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
-                transaction.replace(R.id.po_list_fg, fragment).commit();
+                transaction.replace(R.id.main_container, fragment).commit();
             }
         });
 
         // button POI
-        ImageButton ibPoi =  rootView.findViewById(R.id.ib_poi_add_list);
-        ibPoi.setOnClickListener(new View.OnClickListener() {
+        ImageButton ib_poi_add_list =  rootView.findViewById(R.id.ib_poi_add_list);
+        ib_poi_add_list.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 fragmentManager = getFragmentManager();
                 fragment = new CreatePoiFragment();
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
-                transaction.replace(R.id.po_list_fg, fragment).commit();
+                transaction.replace(R.id.main_container, fragment).commit();
 
             }
         });

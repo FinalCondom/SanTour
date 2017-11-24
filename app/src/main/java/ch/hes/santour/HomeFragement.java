@@ -42,14 +42,6 @@ public class HomeFragement extends Fragment {
             }
         });
 
-        // button CreatePOIPOD
-        Button CreatePoiPod =  rootView.findViewById(R.id.CreatePoiPod);
-        CreatePoiPod.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-            }
-        });
 
         // button PoIDPODList
         Button POIPODList =  rootView.findViewById(R.id.POIPODList);
@@ -64,6 +56,7 @@ public class HomeFragement extends Fragment {
                 transaction.replace(R.id.main_container, fragment).commit();
             }
         });
+
         // button about
         Button buttonAbout =  rootView.findViewById(R.id.about);
         buttonAbout.setOnClickListener(new View.OnClickListener() {

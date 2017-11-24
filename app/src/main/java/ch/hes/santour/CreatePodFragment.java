@@ -40,7 +40,7 @@ public class CreatePodFragment extends Fragment {
 
             public void onClick(View v) {
                 fragmentManager = getFragmentManager();
-                fragment = new PoiPodListFragment();
+                fragment = new PodDetailsFragment();
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
