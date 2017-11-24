@@ -2,11 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ch.hes.santour.DetailsPoiFragment">
+    tools:context="ch.hes.santour.DetailsPodFragment">
 
 
     <CheckBox
-        android:id="@+id/cb_poi_delais_vertical"
+        android:id="@+id/cb_pod_delais_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,66 +20,66 @@
         android:textSize="25dp" />
 
     <ProgressBar
-        android:id="@+id/pb_poi_details_vertical"
+        android:id="@+id/pb_pod_details_vertical"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="350dp"
         android:layout_height="50dp"
 
-        android:layout_alignLeft="@+id/cb_poi_delais_vertical"
-        android:layout_alignStart="@+id/cb_poi_delais_vertical"
-        android:layout_below="@+id/cb_poi_delais_vertical" />
+        android:layout_alignLeft="@+id/cb_pod_delais_vertical"
+        android:layout_alignStart="@+id/cb_pod_delais_vertical"
+        android:layout_below="@+id/cb_pod_delais_vertical" />
 
     <CheckBox
-        android:id="@+id/cb_poi_delais_rocks"
+        android:id="@+id/cb_pod_delais_rocks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignLeft="@+id/pb_poi_details_vertical"
-        android:layout_alignStart="@+id/pb_poi_details_vertical"
-        android:layout_below="@+id/pb_poi_details_vertical"
+        android:layout_alignLeft="@+id/pb_pod_details_vertical"
+        android:layout_alignStart="@+id/pb_pod_details_vertical"
+        android:layout_below="@+id/pb_pod_details_vertical"
         android:layout_marginTop="27dp"
         android:text="@string/rocks"
         android:textColor="@color/textColor"
         android:textSize="25dp" />
 
     <ProgressBar
-        android:id="@+id/pb_poi_details_rocks"
+        android:id="@+id/pb_pod_details_rocks"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/cb_poi_delais_rocks"
-        android:layout_alignStart="@+id/cb_poi_delais_rocks"
-        android:layout_below="@+id/cb_poi_delais_rocks" />
+        android:layout_alignLeft="@+id/cb_pod_delais_rocks"
+        android:layout_alignStart="@+id/cb_pod_delais_rocks"
+        android:layout_below="@+id/cb_pod_delais_rocks" />
 
     <CheckBox
-        android:id="@+id/cb_poi_delais_slope"
+        android:id="@+id/cb_pod_delais_slope"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pb_poi_details_rocks"
-        android:layout_alignStart="@+id/pb_poi_details_rocks"
-        android:layout_below="@+id/pb_poi_details_rocks"
+        android:layout_alignLeft="@+id/pb_pod_details_rocks"
+        android:layout_alignStart="@+id/pb_pod_details_rocks"
+        android:layout_below="@+id/pb_pod_details_rocks"
         android:layout_marginTop="27dp"
         android:text="@string/slope"
         android:textColor="@color/textColor"
         android:textSize="25dp" />
 
     <ProgressBar
-        android:id="@+id/pb_poi_details_slope"
+        android:id="@+id/pb_pod_details_slope"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/cb_poi_delais_slope"
-        android:layout_alignStart="@+id/cb_poi_delais_slope"
-        android:layout_below="@+id/cb_poi_delais_slope" />
+        android:layout_alignLeft="@+id/cb_pod_delais_slope"
+        android:layout_alignStart="@+id/cb_pod_delais_slope"
+        android:layout_below="@+id/cb_pod_delais_slope" />
 
 
     <Button
-        android:id="@+id/bt_poi_details_cancel"
+        android:id="@+id/bt_pod_details_cancel"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/pb_poi_details_slope"
+        android:layout_alignLeft="@+id/pb_pod_details_slope"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/pb_poi_details_slope"
+        android:layout_alignStart="@+id/pb_pod_details_slope"
         android:layout_marginBottom="28dp"
         android:layout_marginLeft="14dp"
         android:layout_marginStart="14dp"
@@ -89,14 +89,14 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/bt_poi_details_save"
+        android:id="@+id/bt_pod_details_save"
         android:layout_width="150dp"
         android:layout_height="50dp"
 
-        android:layout_alignBaseline="@+id/bt_poi_details_cancel"
-        android:layout_alignBottom="@+id/bt_poi_details_cancel"
-        android:layout_alignEnd="@+id/pb_poi_details_slope"
-        android:layout_alignRight="@+id/pb_poi_details_slope"
+        android:layout_alignBaseline="@+id/bt_pod_details_cancel"
+        android:layout_alignBottom="@+id/bt_pod_details_cancel"
+        android:layout_alignEnd="@+id/pb_pod_details_slope"
+        android:layout_alignRight="@+id/pb_pod_details_slope"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         android:background="@color/green"

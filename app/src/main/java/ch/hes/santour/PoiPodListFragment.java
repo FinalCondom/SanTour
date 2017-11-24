@@ -27,6 +27,9 @@ public class PoiPodListFragment extends Fragment {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_poi_pod_list, container, false);
 
+        //set the title on the app
+        getActivity().setTitle(R.string.poi_pod_list);
+
 
         // button POD
         ImageButton ib_pod_add_list =  rootView.findViewById(R.id.ib_pod_add_list);

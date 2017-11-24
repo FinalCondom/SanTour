@@ -49,6 +49,11 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_create_track, container, false);
 
+
+        //set the title on the app
+        getActivity().setTitle(R.string.create_track);
+
+
         //MAP
         mapView = rootView.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
