@@ -34,7 +34,22 @@ public class CreatePodFragment extends Fragment {
         getActivity().setTitle(R.string.create_pod);
 
 
-        // button POI
+        // button CANCEL
+        Button bt_pod_cancel =  rootView.findViewById(R.id.bt_pod_cancel);
+        bt_pod_cancel.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                fragmentManager = getFragmentManager();
+                fragment = new CreateTrackFragement();
+                transaction = fragmentManager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.main_container, fragment).commit();
+
+
+            }
+        });
+
+        // button NEXT
         Button bt_pod_next =  rootView.findViewById(R.id.bt_pod_next);
         bt_pod_next.setOnClickListener(new View.OnClickListener() {
 

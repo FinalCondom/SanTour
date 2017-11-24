@@ -8,10 +8,14 @@ import android.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 public class CreatePoiFragment extends Fragment {
 
+    FragmentManager fragmentManager;
+    Fragment fragment;
+    FragmentTransaction transaction ;
 
     public CreatePoiFragment() {
         // Required empty public constructor
@@ -26,6 +30,21 @@ public class CreatePoiFragment extends Fragment {
 
         //set the title on the app
         getActivity().setTitle(R.string.create_poi);
+
+        //button CANCEL
+        Button bt_poi_cancel =  rootView.findViewById(R.id.bt_poi_cancel);
+        bt_poi_cancel.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                fragmentManager = getFragmentManager();
+                fragment = new CreateTrackFragement();
+                transaction = fragmentManager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.main_container, fragment).commit();
+
+
+            }
+        });
 
         return rootView;
     }
