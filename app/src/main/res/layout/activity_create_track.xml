@@ -32,7 +32,7 @@
         android:layout_below="@+id/mapView"
         android:text="@string/track_name"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/textTitle"
         android:textSize="20dp"
         android:textStyle="bold"
         tools:text="Track Name" />
@@ -53,7 +53,8 @@
         android:textSize="20dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="327dp" />
+        tools:layout_editor_absoluteY="327dp"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/km"
@@ -64,7 +65,8 @@
         android:layout_alignLeft="@+id/ib_stop"
         android:layout_alignStart="@+id/ib_stop"
         android:background="@color/button"
-        android:text="Km"
+        android:text="@string/km"
+        android:textColor="@color/white"
         android:textSize="20dp"
         tools:text="Km" />
 
@@ -100,9 +102,9 @@
         android:layout_alignStart="@+id/IbPoi"
         android:layout_below="@+id/ib_play"
         android:layout_marginTop="11dp"
-        android:text="POI"
+        android:text="@string/poi"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:textSize="20dp"
         android:textStyle="bold"
         tools:text="POI" />
@@ -115,9 +117,9 @@
         android:layout_alignBottom="@+id/tvPoi"
         android:layout_alignLeft="@+id/ib_stop"
         android:layout_alignStart="@+id/ib_stop"
-        android:text="POD"
+        android:text="@string/pod"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:textSize="20dp"
         android:textStyle="bold"
         tools:text="POD" />
