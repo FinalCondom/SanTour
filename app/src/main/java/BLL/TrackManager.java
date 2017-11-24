@@ -21,7 +21,6 @@ public class TrackManager {
 
     public TrackManager(){
         //We get the instance of the firebase DB and we keep data if we are offline
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         mRootRef = FirebaseDatabase.getInstance().getReference();
         //We get the reference to a track child
         mTrackRef = mRootRef.child("tracks").push();
