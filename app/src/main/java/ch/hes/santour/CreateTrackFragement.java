@@ -1,9 +1,11 @@
 package ch.hes.santour;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,7 +91,20 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 if(!trackName.equals("")){
                     trackManager.createTrack(trackName);
                 }else{
-                    //TODO show a dialog that inform the user to choose a name
+                    //if no name has been written, we will display a message
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                    builder.setMessage(R.string.track_no_name_msg)
+                            .setTitle(R.string.track_no_name_title);
+
+                    builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User cancelled the dialog
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
         });
