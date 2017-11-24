@@ -77,7 +77,6 @@
         android:id="@+id/bt_poi_details_cancel"
         android:layout_width="150dp"
         android:layout_height="50dp"
-
         android:layout_alignLeft="@+id/pb_poi_details_slope"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/pb_poi_details_slope"
