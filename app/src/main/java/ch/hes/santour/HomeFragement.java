@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,7 @@ public class HomeFragement extends Fragment {
 
     FragmentManager fragmentManager ;
     Fragment fragment ;
+    FragmentTransaction transaction ;
 
     public HomeFragement() {
         // Required empty public constructor
@@ -27,14 +28,17 @@ public class HomeFragement extends Fragment {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_home_fragement, container, false);
 
-        //button create track
-        Button buttonCreate = rootView.findViewById(R.id.createTrack);
-        buttonCreate.setOnClickListener(new View.OnClickListener() {
+        // button createTrack
+        Button btnCreateTrack =  rootView.findViewById(R.id.createTrack);
+        btnCreateTrack.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), CreateTrackActivity.class);
-                startActivity(intent);
+                fragmentManager = getFragmentManager();
+                fragment = new CreateTrackFragement();
+                transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.main_container, fragment).commit();
+                transaction.addToBackStack(null);
             }
         });
 
@@ -55,7 +59,7 @@ public class HomeFragement extends Fragment {
 
                 fragmentManager = getFragmentManager();
                 fragment = new PoiPodListFragment();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.main_container, fragment).commit();
                 transaction.addToBackStack(null);
             }
@@ -67,7 +71,7 @@ public class HomeFragement extends Fragment {
             public void onClick(View v) {
                 fragmentManager = getFragmentManager();
                 fragment = new AboutFragment();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.main_container, fragment).commit();
                 transaction.addToBackStack(null);
 
