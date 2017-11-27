@@ -81,7 +81,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         });
 
         // button POI
-        ImageButton ibPoi =  rootView.findViewById(R.id.IbPoi);
+        ImageButton ibPoi =  rootView.findViewById(R.id.ib_create_track_poi);
         ibPoi.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {

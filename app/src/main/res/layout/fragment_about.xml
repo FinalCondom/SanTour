@@ -7,8 +7,24 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tv_about"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:text="@string/aboutText"
+        android:textColor="@color/textColor"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_about_copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"/>
 
 </FrameLayout>

@@ -49,7 +49,7 @@
         tools:layout_editor_absoluteY="327dp" />
 
     <Button
-        android:id="@+id/km"
+        android:id="@+id/bt_km"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_alignBaseline="@+id/timer"
@@ -87,11 +87,11 @@
 
 
     <TextView
-        android:id="@+id/tvPoi"
+        android:id="@+id/tv_create_track_poi"
         android:layout_width="72dp"
         android:layout_height="27dp"
-        android:layout_alignLeft="@+id/IbPoi"
-        android:layout_alignStart="@+id/IbPoi"
+        android:layout_alignLeft="@+id/ib_create_track_poi"
+        android:layout_alignStart="@+id/ib_create_track_poi"
         android:layout_below="@+id/ib_play"
         android:layout_marginTop="11dp"
         android:text="@string/poi"
@@ -102,11 +102,11 @@
         tools:text="POI" />
 
     <TextView
-        android:id="@+id/tvPod"
+        android:id="@+id/tv_create_track_pod"
         android:layout_width="72dp"
         android:layout_height="27dp"
-        android:layout_alignBaseline="@+id/tvPoi"
-        android:layout_alignBottom="@+id/tvPoi"
+        android:layout_alignBaseline="@+id/tv_create_track_poi"
+        android:layout_alignBottom="@+id/tv_create_track_poi"
         android:layout_alignLeft="@+id/ib_stop"
         android:layout_alignStart="@+id/ib_stop"
         android:text="@string/pod"
@@ -117,23 +117,23 @@
         tools:text="POD" />
 
     <ImageButton
-        android:id="@+id/IbPod"
+        android:id="@+id/ib_create_track_pod"
         android:layout_width="72dp"
         android:layout_height="68dp"
-        android:layout_alignLeft="@+id/tvPod"
-        android:layout_alignStart="@+id/tvPod"
-        android:layout_below="@+id/tvPod"
+        android:layout_alignLeft="@+id/tv_create_track_pod"
+        android:layout_alignStart="@+id/tv_create_track_pod"
+        android:layout_below="@+id/tv_create_track_pod"
         android:background="@null"
         android:clickable="true"
         android:src="@drawable/ic_add_pod" />
 
     <ImageButton
-        android:id="@+id/IbPoi"
+        android:id="@+id/ib_create_track_poi"
         android:layout_width="72dp"
         android:layout_height="68dp"
         android:layout_alignEnd="@+id/ib_play"
         android:layout_alignRight="@+id/ib_play"
-        android:layout_below="@+id/tvPoi"
+        android:layout_below="@+id/tv_create_track_poi"
         android:background="@null"
         android:clickable="true"
         android:src="@drawable/ic_add_poi" />
