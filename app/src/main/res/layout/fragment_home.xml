@@ -13,13 +13,15 @@
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:background="@color/button"
+        android:background="@color/green"
         android:text="@string/create_track"
         app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
 
     <Button
         android:id="@+id/about"
@@ -28,12 +30,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="76dp"
-        android:background="@color/button"
+        android:background="@color/green"
         android:text="About"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/POIPODList" />
+        app:layout_constraintTop_toBottomOf="@+id/POIPODList"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
 
     <Button
         android:id="@+id/CreatePoiPod"
@@ -42,12 +46,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="56dp"
-        android:background="@color/button"
+        android:background="@color/green"
         android:text="Create POI-POD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createTrack" />
+        app:layout_constraintTop_toBottomOf="@+id/createTrack"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
 
     <Button
         android:id="@+id/POIPODList"
@@ -56,20 +62,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
-        android:background="@color/button"
+        android:background="@color/green"
         android:text="POI-POD List"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreatePoiPod" />
+        app:layout_constraintTop_toBottomOf="@+id/CreatePoiPod"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="300dp"
-        android:src="@drawable/ic_trail"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/ic_santour_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />

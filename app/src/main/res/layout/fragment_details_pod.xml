@@ -72,17 +72,24 @@
         android:layout_alignStart="@+id/cb_pod_delais_slope"
         android:layout_below="@+id/cb_pod_delais_slope" />
 
+    <LinearLayout
+        android:id="@+id/linearlayout_details1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/pb_pod_details_slope"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:weightSum="2"
+        android:gravity="bottom"
+        >
 
     <Button
         android:id="@+id/bt_pod_details_cancel"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/pb_pod_details_slope"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/pb_pod_details_slope"
-        android:layout_marginBottom="28dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:layout_marginRight="20dp"
         android:background="@color/red"
         android:text="@string/cancel"
         android:textColor="@color/white"
@@ -92,16 +99,12 @@
         android:id="@+id/bt_pod_details_save"
         android:layout_width="150dp"
         android:layout_height="50dp"
-
-        android:layout_alignBaseline="@+id/bt_pod_details_cancel"
-        android:layout_alignBottom="@+id/bt_pod_details_cancel"
-        android:layout_alignEnd="@+id/pb_pod_details_slope"
-        android:layout_alignRight="@+id/pb_pod_details_slope"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
         android:background="@color/green"
         android:text="@string/save"
         android:textColor="@color/white"
         android:textSize="20dp" />
+    </LinearLayout>
 
 </RelativeLayout>

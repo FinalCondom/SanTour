@@ -67,8 +67,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         chronometer = rootView.findViewById(R.id.timer);
 
         // button POD
-        ImageButton ibPod =  rootView.findViewById(R.id.IbPod);
-        ibPod.setOnClickListener(new View.OnClickListener() {
+        ImageButton ib_create_track_pod =  rootView.findViewById(R.id.ib_create_track_pod);
+        ib_create_track_pod.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
@@ -81,8 +81,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         });
 
         // button POI
-        ImageButton ibPoi =  rootView.findViewById(R.id.ib_create_track_poi);
-        ibPoi.setOnClickListener(new View.OnClickListener() {
+        ImageButton ib_create_track_poi =  rootView.findViewById(R.id.ib_create_track_poi);
+        ib_create_track_poi.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 fragmentManager = getFragmentManager();

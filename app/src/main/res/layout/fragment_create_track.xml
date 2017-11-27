@@ -20,122 +20,157 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/mapView"
-        android:hint="@string/track_name"
         android:gravity="center"
+        android:hint="@string/track_name"
         android:textColor="@color/textTitle"
         android:textSize="20dp"
         android:textStyle="bold"
-        tools:text="Track Name" />
+        tools:text="Track Name"
+        android:background="@android:color/transparent"
+        />
 
-    <Chronometer
-        android:id="@+id/timer"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/et_track_name"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/button"
-        android:gravity="center"
-        android:countDown="false"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="327dp" />
+    <LinearLayout
+        android:id="@+id/linearlayout_create_track1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_track_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:weightSum="2">
 
-    <Button
-        android:id="@+id/bt_km"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_alignBaseline="@+id/timer"
-        android:layout_alignBottom="@+id/timer"
-        android:layout_alignLeft="@+id/ib_stop"
-        android:layout_alignStart="@+id/ib_stop"
-        android:background="@color/button"
-        android:text="@string/km"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        tools:text="Km" />
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:countDown="false"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="327dp" />
 
-    <ImageButton
-        android:id="@+id/ib_play"
-        android:layout_width="170dp"
-        android:layout_height="80dp"
-        android:layout_alignLeft="@+id/timer"
-        android:layout_alignStart="@+id/timer"
-        android:layout_below="@+id/timer"
-        android:layout_marginTop="11dp"
-        android:background="@color/button"
-        android:src="@drawable/ic_play" />
-
-    <ImageButton
-        android:id="@+id/ib_stop"
-        android:layout_width="170dp"
-        android:layout_height="80dp"
-        android:layout_alignTop="@+id/ib_play"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:layout_toEndOf="@+id/ib_play"
-        android:layout_toRightOf="@+id/ib_play"
-        android:background="@color/button"
-        android:src="@drawable/ic_stop" />
+        <Button
+            android:id="@+id/bt_km"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:text="@string/km"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            tools:text="Km" />
+    </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/tv_create_track_poi"
-        android:layout_width="72dp"
-        android:layout_height="27dp"
-        android:layout_alignLeft="@+id/ib_create_track_poi"
-        android:layout_alignStart="@+id/ib_create_track_poi"
-        android:layout_below="@+id/ib_play"
-        android:layout_marginTop="11dp"
-        android:text="@string/poi"
-        android:textAlignment="center"
-        android:textColor="@color/textColor"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        tools:text="POI" />
+    <LinearLayout
+        android:id="@+id/linearlayout_create_track2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearlayout_create_track1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="2">
 
-    <TextView
-        android:id="@+id/tv_create_track_pod"
-        android:layout_width="72dp"
-        android:layout_height="27dp"
-        android:layout_alignBaseline="@+id/tv_create_track_poi"
-        android:layout_alignBottom="@+id/tv_create_track_poi"
-        android:layout_alignLeft="@+id/ib_stop"
-        android:layout_alignStart="@+id/ib_stop"
-        android:text="@string/pod"
-        android:textAlignment="center"
-        android:textColor="@color/textColor"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        tools:text="POD" />
+        <ImageButton
+            android:id="@+id/ib_play"
+            android:layout_width="170dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:src="@drawable/ic_play" />
 
-    <ImageButton
-        android:id="@+id/ib_create_track_pod"
-        android:layout_width="72dp"
-        android:layout_height="68dp"
-        android:layout_alignLeft="@+id/tv_create_track_pod"
-        android:layout_alignStart="@+id/tv_create_track_pod"
-        android:layout_below="@+id/tv_create_track_pod"
-        android:background="@null"
-        android:clickable="true"
-        android:src="@drawable/ic_add_pod" />
+        <ImageButton
+            android:id="@+id/ib_stop"
+            android:layout_width="170dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:src="@drawable/ic_stop" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ib_create_track_poi"
-        android:layout_width="72dp"
-        android:layout_height="68dp"
-        android:layout_alignEnd="@+id/ib_play"
-        android:layout_alignRight="@+id/ib_play"
-        android:layout_below="@+id/tv_create_track_poi"
-        android:background="@null"
-        android:clickable="true"
-        android:src="@drawable/ic_add_poi" />
+    <LinearLayout
+        android:id="@+id/linearlayout_create_track3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linearlayout_create_track2"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom|center_horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/linearlayout_create_track4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_create_track_poi"
+                android:layout_width="72dp"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:text="@string/poi"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                tools:text="POI" />
+
+            <ImageButton
+                android:id="@+id/ib_create_track_poi"
+                android:layout_width="72dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:clickable="true"
+                android:src="@drawable/ic_add_poi" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_list3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+
+            <TextView
+                android:id="@+id/tv_create_track_pod"
+                android:layout_width="72dp"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:text="@string/pod"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                tools:text="POD" />
+
+            <ImageButton
+                android:id="@+id/ib_create_track_pod"
+                android:layout_width="72dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:clickable="true"
+                android:src="@drawable/ic_add_pod" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
