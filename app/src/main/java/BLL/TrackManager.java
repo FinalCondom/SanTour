@@ -31,6 +31,11 @@ public class TrackManager {
         track.setId_track(mTrackRef.getKey());
     }
 
+    public void endTrack(long time){
+        track.setTimer(time);
+        mTrackRef.setValue(track);
+    }
+
     public long getSeconds(){
         long second = getMinutes()%60000;
         return second/1000;

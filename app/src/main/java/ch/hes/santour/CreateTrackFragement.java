@@ -7,6 +7,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +38,11 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     public final String TAG = "TAG";
     private ImageButton playButton;
+    private ImageButton stopButton;
     private EditText trackNameEditText;
     private Chronometer chronometer;
+    private boolean isRecording = false;
+    private long time;
 
     public CreateTrackFragement() {
         // Required empty public constructor
@@ -96,24 +101,42 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 String trackName = trackNameEditText.getText().toString();
-                if(!trackName.equals("")){
-                    trackManager.createTrack(trackName);
-                    chronometer.start();
-                }else{
-                    //if no name has been written, we will display a message
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                if(!isRecording) {
+                    if(!trackName.equals("")){
+                        trackManager.createTrack(trackName);
+                        isRecording = true;
+                        chronometer.setBase(SystemClock.elapsedRealtime());
+                        chronometer.start();
+                    }else{
+                        //if no name has been written, we will display a message
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                    builder.setMessage(R.string.track_no_name_msg)
-                            .setTitle(R.string.track_no_name_title);
+                        builder.setMessage(R.string.track_no_name_msg)
+                                .setTitle(R.string.track_no_name_title);
 
-                    builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-                        }
-                    });
+                        builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
 
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                }
+            }
+        });
+
+        //Button stop track
+        stopButton = rootView.findViewById(R.id.ib_stop);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isRecording){
+                    chronometer.stop();
+                    time = (SystemClock.elapsedRealtime() - chronometer.getBase());
+                    isRecording = false;
+                    trackManager.endTrack(time);
                 }
             }
         });

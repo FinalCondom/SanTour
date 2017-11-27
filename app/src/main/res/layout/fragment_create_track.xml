@@ -41,7 +41,6 @@
         android:background="@color/button"
         android:gravity="center"
         android:countDown="false"
-        android:text=" "
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp"
