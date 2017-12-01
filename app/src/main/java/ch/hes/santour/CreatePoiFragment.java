@@ -63,6 +63,15 @@ public class CreatePoiFragment extends Fragment {
             }
         });
 
+        //button SAVE
+        Button bt_poi_save =  rootView.findViewById(R.id.bt_poi_save);
+        bt_poi_save.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                poiManager.createPOI(poiName.getText().toString(), poiDescription.getText().toString());
+                getFragmentManager().popBackStack();
+            }
+        });
 
         ImageButton ib_poi_take_picture = rootView.findViewById(R.id.ib_poi_take_picture);
         ib_poi_take_picture.setOnClickListener(new View.OnClickListener() {

@@ -1,24 +1,17 @@
 package ch.hes.santour;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
-import BLL.CurrentRecordingTrack;
 import BLL.PODManager;
-import BLL.POIManager;
-import Models.POD;
-import Models.Track;
 
 
 public class CreatePodFragment extends Fragment {
@@ -83,12 +76,14 @@ public class CreatePodFragment extends Fragment {
 
             public void onClick(View v) {
                 podManager.createPOD(podName.getText().toString(), podDescription.getText().toString());
+                //TODO remove this line later
+                getFragmentManager().popBackStack();
 
-                fragmentManager = getFragmentManager();
-                fragment = new DetailsPodFragment();
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
+//                fragmentManager = getFragmentManager();
+//                fragment = new DetailsPodFragment();
+//                transaction = fragmentManager.beginTransaction();
+//                transaction.addToBackStack(null);
+//                transaction.replace(R.id.main_container, fragment).commit();
             }
         });
 

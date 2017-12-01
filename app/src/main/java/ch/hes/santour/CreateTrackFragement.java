@@ -141,6 +141,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                     time = (SystemClock.elapsedRealtime() - chronometer.getBase());
                     isRecording = false;
                     trackManager.endTrack(time);
+                    CurrentRecordingTrack.setTrack(null);
+                    trackManager.clearTrack();
                 }
             }
         });

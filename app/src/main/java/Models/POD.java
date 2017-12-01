@@ -6,8 +6,13 @@ import java.util.ArrayList;
  * Created by kevin on 17.11.2017.
  */
 
-public class POD extends POI{
+public class POD{
 
+    protected String id_POD;
+    protected String name;
+    protected String description;
+    protected String picture;
+    protected Coordinate coordinate;
     private ArrayList<Difficulty> difficulties;
 
     public POD(){
@@ -15,13 +20,60 @@ public class POD extends POI{
     }
 
     public POD(String name, String description, String picture, Coordinate coordinate) {
-        super(name, description, picture, coordinate);
+        this.name = name;
+        this.description = description;
+        this.picture = picture;
+        this.coordinate = coordinate;
         difficulties = new ArrayList<Difficulty>();
     }
 
-    public POD(String id_pod, String name, String description, String picture, Coordinate coordinate) {
-        super(id_pod, name, description, picture, coordinate);
+    public POD(String id_POD, String name, String description, String picture, Coordinate coordinate) {
+        this.id_POD = id_POD;
+        this.name = name;
+        this.description = description;
+        this.picture = picture;
+        this.coordinate = coordinate;
         difficulties = new ArrayList<Difficulty>();
+    }
+
+    public String getId_POD() {
+        return id_POD;
+    }
+
+    public void setId_POD(String id_POD) {
+        this.id_POD = id_POD;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 
     public ArrayList<Difficulty> getDifficulties() {

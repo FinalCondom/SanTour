@@ -1,6 +1,5 @@
 package Models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -15,8 +14,8 @@ public class Track {
     private long timer;
     private double length;
     private int userId;
-    private ArrayList<POD>pods;
-    private ArrayList<POI>pois;
+    private ArrayList<POD> PODs;
+    private ArrayList<POI> POIs;
     private ArrayList<Coordinate>coordinates;
 
     public Track(String id_track, String name, long timer, double length, int userId) {
@@ -25,8 +24,8 @@ public class Track {
         this.timer = timer;
         this.length = length;
         this.userId = userId;
-        pois = new ArrayList<>();
-        pods = new ArrayList<>();
+        POIs = new ArrayList<>();
+        PODs = new ArrayList<>();
         coordinates = new ArrayList<>();
     }
 
@@ -34,8 +33,8 @@ public class Track {
         this.name = name;
         this.timer = timer;
         this.length = length;
-        pois = new ArrayList<>();
-        pods = new ArrayList<>();
+        POIs = new ArrayList<>();
+        PODs = new ArrayList<>();
         coordinates = new ArrayList<>();
     }
 
@@ -83,27 +82,27 @@ public class Track {
         this.coordinates.add(coordinate);
     }
 
-    public ArrayList<POD> getPods() {
-        return pods;
+    public ArrayList<POD> getPODs() {
+        return PODs;
     }
 
-    public void setPods(ArrayList<POD> pods) {
-        this.pods = pods;
+    public void setPODs(ArrayList<POD> PODs) {
+        this.PODs = PODs;
     }
 
     public void addPod(POD pod){
-        this.pods.add(pod);
+        this.PODs.add(pod);
     }
 
-    public ArrayList<POI> getPois() {
-        return pois;
+    public ArrayList<POI> getPOIs() {
+        return POIs;
     }
 
-    public void setPois(ArrayList<POI> pois) {
-        this.pois = pois;
+    public void setPOIs(ArrayList<POI> POIs) {
+        this.POIs = POIs;
     }
 
     public void addPoo(POI poi){
-        this.pois.add(poi);
+        this.POIs.add(poi);
     }
 }

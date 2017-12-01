@@ -109,15 +109,15 @@
     <EditText
         android:id="@+id/et_poi_description"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/linearlayout_create_poi2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:ems="30"
         android:gravity="left|top"
-        android:inputType="textMultiLine"
         android:hint="@string/description"
+        android:inputType="textMultiLine"
         android:textColor="@color/textColor"
         android:textSize="20dp" />
 
