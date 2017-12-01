@@ -12,7 +12,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
-        android:text="@string/pod_name"
+        android:hint="@string/pod_name"
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold"

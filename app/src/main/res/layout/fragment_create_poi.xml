@@ -15,7 +15,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
-        android:text="@string/poi_name"
+        android:hint="@string/poi_name"
         android:textAlignment="center"
         android:textColor="@color/textTitle"
         android:textSize="30dp"
@@ -116,7 +116,7 @@
         android:ems="30"
         android:gravity="left|top"
         android:inputType="textMultiLine"
-        android:text="@string/description"
+        android:hint="@string/description"
         android:textColor="@color/textColor"
         android:textSize="20dp" />
 
