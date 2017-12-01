@@ -10,7 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+
+import BLL.PODManager;
+import BLL.POIManager;
+import Models.POD;
 
 
 public class CreatePodFragment extends Fragment {
@@ -18,6 +23,10 @@ public class CreatePodFragment extends Fragment {
     FragmentManager fragmentManager;
     Fragment fragment;
     FragmentTransaction transaction ;
+    private EditText podDescription;
+    private EditText podName;
+
+    private PODManager podManager;
 
     public CreatePodFragment() {
         // Required empty public constructor
@@ -29,6 +38,12 @@ public class CreatePodFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_pod, container, false);
+
+        //We set up pod informations
+        podName = rootView.findViewById(R.id.et_pod_name);
+        podDescription = rootView.findViewById(R.id.et_pod_description);
+        podManager = new PODManager();
+
 
         //set the title on the app
         getActivity().setTitle(R.string.create_pod);
@@ -60,13 +75,13 @@ public class CreatePodFragment extends Fragment {
         bt_pod_next.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                podManager.createPOD(podName.getText().toString(), podDescription.getText().toString());
+
                 fragmentManager = getFragmentManager();
                 fragment = new DetailsPodFragment();
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
-
-
             }
         });
 

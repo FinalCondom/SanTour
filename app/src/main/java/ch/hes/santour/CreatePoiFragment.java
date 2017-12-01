@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
+import BLL.POIManager;
 
 
 public class CreatePoiFragment extends Fragment {
@@ -16,6 +19,10 @@ public class CreatePoiFragment extends Fragment {
     FragmentManager fragmentManager;
     Fragment fragment;
     FragmentTransaction transaction ;
+
+    private EditText poiDescription;
+    private EditText poiName;
+    private POIManager poiManager;
 
     public CreatePoiFragment() {
 
@@ -28,6 +35,11 @@ public class CreatePoiFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_poi, container, false);
+
+        //We set up poi informations
+        poiName = rootView.findViewById(R.id.et_poi_name);
+        poiDescription = rootView.findViewById(R.id.et_poi_description);
+        poiManager = new POIManager();
 
         //set the title on the app
         getActivity().setTitle(R.string.create_poi);

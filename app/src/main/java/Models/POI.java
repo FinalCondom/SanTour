@@ -6,13 +6,24 @@ package Models;
 
 public class POI {
 
-    private int id_POI;
-    private String name;
-    private String description;
-    private String picture;
-    private Coordinate coordinate;
+    protected String id_POI;
+    protected String name;
+    protected String description;
+    protected String picture;
+    protected Coordinate coordinate;
 
-    public POI(int id_POI, String name, String description, String picture, Coordinate coordinate) {
+    public POI(){
+
+    }
+
+    public POI(String name, String description, String picture, Coordinate coordinate) {
+        this.name = name;
+        this.description = description;
+        this.picture = picture;
+        this.coordinate = coordinate;
+    }
+
+    public POI(String id_POI, String name, String description, String picture, Coordinate coordinate) {
         this.id_POI = id_POI;
         this.name = name;
         this.description = description;
@@ -20,11 +31,11 @@ public class POI {
         this.coordinate = coordinate;
     }
 
-    public int getId_POI() {
+    public String getId_POI() {
         return id_POI;
     }
 
-    public void setId_POI(int id_POI) {
+    public void setId_POI(String id_POI) {
         this.id_POI = id_POI;
     }
 

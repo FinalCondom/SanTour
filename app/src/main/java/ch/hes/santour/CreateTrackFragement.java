@@ -71,12 +71,13 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         ib_create_track_pod.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-                fragmentManager = getFragmentManager();
-                fragment = new CreatePodFragment();
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
+                if(isRecording) {
+                    fragmentManager = getFragmentManager();
+                    fragment = new CreatePodFragment();
+                    transaction = fragmentManager.beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.main_container, fragment).commit();
+                }
             }
         });
 
@@ -85,12 +86,13 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         ib_create_track_poi.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragment = new CreatePoiFragment();
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
-
+                if(isRecording) {
+                    fragmentManager = getFragmentManager();
+                    fragment = new CreatePoiFragment();
+                    transaction = fragmentManager.beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.main_container, fragment).commit();
+                }
             }
         });
 
