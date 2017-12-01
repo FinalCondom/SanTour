@@ -1,6 +1,7 @@
 package ch.hes.santour;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -52,6 +53,21 @@ public class CreatePoiFragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
+
+
+        Button bt_poi_take_picture =  (Button)rootView.findViewById(R.id.ib_poi_take_picture);
+        bt_poi_cancel.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
+
+            }
+        });
+
+
+
 
         return rootView;
     }
