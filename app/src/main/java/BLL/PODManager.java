@@ -1,5 +1,7 @@
 package BLL;
 
+import android.graphics.Bitmap;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,9 +23,9 @@ public class PODManager{
     private Coordinate coordinate;
 
     //This function will create a track
-    public void createPOD(String poiName, String poiDescription){
+    public void createPOD(String poiName, String poiDescription, Bitmap photo){
         coordinate = new Coordinate(0, 0, 0, 0,0, 0, new Date());
-        pod = new POD(poiName, poiDescription, "nice picture here", coordinate);
+        pod = new POD(poiName, poiDescription,  photo, coordinate);
         CurrentRecordingTrack.getTrack().addPod(pod);
     }
 }

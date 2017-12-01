@@ -1,5 +1,6 @@
 package BLL;
 
+import android.graphics.Bitmap;
 import android.text.method.DateTimeKeyListener;
 import android.util.Log;
 
@@ -23,9 +24,9 @@ public class POIManager {
     private Coordinate coordinate;
 
     //This function will create a track
-    public void createPOI(String poiName, String poiDescription){
+    public void createPOI(String poiName, String poiDescription, Bitmap photo){
         coordinate = new Coordinate(0, 0, 0, 0,0, 0, new Date());
-        poi = new POI(poiName, poiDescription, "nice picture here", coordinate);
+        poi = new POI(poiName, poiDescription, photo, coordinate);
         CurrentRecordingTrack.getTrack().addPoo(poi);
     }
 }

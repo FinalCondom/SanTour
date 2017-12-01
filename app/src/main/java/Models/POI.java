@@ -1,5 +1,7 @@
 package Models;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by kevin on 17.11.2017.
  */
@@ -9,21 +11,21 @@ public class POI {
     protected String id_POI;
     protected String name;
     protected String description;
-    protected String picture;
+    protected Bitmap picture;
     protected Coordinate coordinate;
 
     public POI(){
 
     }
 
-    public POI(String name, String description, String picture, Coordinate coordinate) {
+    public POI(String name, String description, Bitmap picture, Coordinate coordinate) {
         this.name = name;
         this.description = description;
         this.picture = picture;
         this.coordinate = coordinate;
     }
 
-    public POI(String id_POI, String name, String description, String picture, Coordinate coordinate) {
+    public POI(String id_POI, String name, String description, Bitmap picture, Coordinate coordinate) {
         this.id_POI = id_POI;
         this.name = name;
         this.description = description;
@@ -55,11 +57,11 @@ public class POI {
         this.description = description;
     }
 
-    public String getPicture() {
+    public Bitmap getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(Bitmap picture) {
         this.picture = picture;
     }
 

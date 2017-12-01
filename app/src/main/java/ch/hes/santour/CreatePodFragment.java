@@ -30,6 +30,7 @@ public class CreatePodFragment extends Fragment {
     private PODManager podManager;
     private final int CAMERA_REQUEST = 1;
     private ImageView imageView;
+    private Bitmap photo;
 
     public CreatePodFragment() {
         // Required empty public constructor
@@ -71,8 +72,6 @@ public class CreatePodFragment extends Fragment {
         ib_pod_take_picture.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,CAMERA_REQUEST);
             }
@@ -85,7 +84,7 @@ public class CreatePodFragment extends Fragment {
         bt_pod_next.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                podManager.createPOD(podName.getText().toString(), podDescription.getText().toString());
+                podManager.createPOD(podName.getText().toString(), podDescription.getText().toString(), photo);
                 //TODO remove this line later
                 getFragmentManager().popBackStack();
 
@@ -106,7 +105,7 @@ public class CreatePodFragment extends Fragment {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
 
             Bundle extras = data.getExtras();
-            Bitmap photo = (Bitmap) extras.get("data");
+            photo = (Bitmap) extras.get("data");
 
             imageView.setImageBitmap(photo);
         }

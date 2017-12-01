@@ -1,5 +1,7 @@
 package Models;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 
 /**
@@ -8,18 +10,18 @@ import java.util.ArrayList;
 
 public class POD{
 
-    protected String id_POD;
-    protected String name;
-    protected String description;
-    protected String picture;
-    protected Coordinate coordinate;
+    private String id_POD;
+    private String name;
+    private String description;
+    private Bitmap picture;
+    private Coordinate coordinate;
     private ArrayList<Difficulty> difficulties;
 
     public POD(){
         super();
     }
 
-    public POD(String name, String description, String picture, Coordinate coordinate) {
+    public POD(String name, String description, Bitmap picture, Coordinate coordinate) {
         this.name = name;
         this.description = description;
         this.picture = picture;
@@ -27,7 +29,7 @@ public class POD{
         difficulties = new ArrayList<Difficulty>();
     }
 
-    public POD(String id_POD, String name, String description, String picture, Coordinate coordinate) {
+    public POD(String id_POD, String name, String description, Bitmap picture, Coordinate coordinate) {
         this.id_POD = id_POD;
         this.name = name;
         this.description = description;
@@ -60,11 +62,11 @@ public class POD{
         this.description = description;
     }
 
-    public String getPicture() {
+    public Bitmap getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(Bitmap picture) {
         this.picture = picture;
     }
 

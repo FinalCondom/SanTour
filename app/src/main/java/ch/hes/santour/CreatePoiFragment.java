@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import BLL.CurrentRecordingTrack;
 import BLL.POIManager;
 
 
@@ -32,7 +33,7 @@ public class CreatePoiFragment extends Fragment {
     private EditText poiName;
     private POIManager poiManager;
     private ImageView imageView;
-
+    private Bitmap photo;
     public CreatePoiFragment() {
 
         // Required empty public constructor
@@ -44,7 +45,7 @@ public class CreatePoiFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_poi, container, false);
-        imageView = (ImageView) rootView.findViewById(R.id.iv_poi_img);
+        imageView = rootView.findViewById(R.id.iv_poi_img);
         //We set up poi informations
         poiName = rootView.findViewById(R.id.et_poi_name);
         poiDescription = rootView.findViewById(R.id.et_poi_description);
@@ -68,7 +69,7 @@ public class CreatePoiFragment extends Fragment {
         bt_poi_save.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                poiManager.createPOI(poiName.getText().toString(), poiDescription.getText().toString());
+                poiManager.createPOI(poiName.getText().toString(), poiDescription.getText().toString(), photo);
                 getFragmentManager().popBackStack();
             }
         });
@@ -94,7 +95,7 @@ public class CreatePoiFragment extends Fragment {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
 
             Bundle extras = data.getExtras();
-            Bitmap photo = (Bitmap) extras.get("data");
+            photo = (Bitmap) extras.get("data");
 
             imageView.setImageBitmap(photo);
         }
