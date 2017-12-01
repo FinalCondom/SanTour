@@ -26,6 +26,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/et_pod_name"
         android:background="@color/img"
+        android:scaleType="centerCrop"
         android:gravity="bottom"
         android:src="@drawable/ic_img" />
 

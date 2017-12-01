@@ -64,7 +64,7 @@ public class CreatePoiFragment extends Fragment {
         });
 
         //button SAVE
-        Button bt_poi_save =  rootView.findViewById(R.id.bt_poi_save);
+        Button bt_poi_save = rootView.findViewById(R.id.bt_poi_save);
         bt_poi_save.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -79,13 +79,7 @@ public class CreatePoiFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,CAMERA_REQUEST);
-
-
-
-
-
-
+                startActivityForResult(intent, CAMERA_REQUEST);
 
 
             }
