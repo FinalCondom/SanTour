@@ -20,12 +20,17 @@ public class TrackManager {
     public TrackManager(){
         //We get the instance of the firebase DB and we keep data if we are offline
         mRootRef = FirebaseDatabase.getInstance().getReference();
-        //We get the reference to a track child
-        mTrackRef = mRootRef.child("tracks").push();
+    }
+
+    public void clearTrack(){
+        track = null;
     }
 
     //This function will create a track
     public void createTrack(String trackName){
+        //We get the reference to a track child
+        mTrackRef = mRootRef.child("tracks").push();
+
         track = new Track(trackName, 0, 0.0, 1);
         mTrackRef.setValue(track);
         track.setId_track(mTrackRef.getKey());
@@ -33,6 +38,8 @@ public class TrackManager {
 
     public void endTrack(long time){
         track.setTimer(time);
+        track.setPODs(CurrentRecordingTrack.getTrack().getPODs());
+        track.setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
         mTrackRef.setValue(track);
     }
 
