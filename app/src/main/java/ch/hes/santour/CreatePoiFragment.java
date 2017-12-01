@@ -4,6 +4,7 @@ package ch.hes.santour;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -72,6 +73,12 @@ public class CreatePoiFragment extends Fragment {
                 startActivityForResult(intent,CAMERA_REQUEST);
 
 
+
+
+
+
+
+
             }
         });
 
@@ -85,7 +92,7 @@ public class CreatePoiFragment extends Fragment {
 
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) extras.get("data");
-            Log.i("YOLOYOLO", "YOLO :" + data);
+
             imageView.setImageBitmap(photo);
         }
     }
