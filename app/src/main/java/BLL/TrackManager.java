@@ -36,6 +36,10 @@ public class TrackManager {
         mTrackRef.setValue(track);
     }
 
+    public Track getTrack(){
+        return track;
+    }
+
     public long getSeconds(){
         long second = getMinutes()%60000;
         return second/1000;

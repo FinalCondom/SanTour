@@ -1,5 +1,6 @@
 package ch.hes.santour;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -13,9 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import BLL.CurrentRecordingTrack;
 import BLL.PODManager;
 import BLL.POIManager;
 import Models.POD;
+import Models.Track;
 
 
 public class CreatePodFragment extends Fragment {
@@ -25,11 +28,15 @@ public class CreatePodFragment extends Fragment {
     FragmentTransaction transaction ;
     private EditText podDescription;
     private EditText podName;
-
     private PODManager podManager;
 
     public CreatePodFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach (Context context) {
+        super.onAttach(context);
     }
 
 

@@ -22,6 +22,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 
+import BLL.CurrentRecordingTrack;
 import BLL.TrackManager;
 
 public class CreateTrackFragement extends Fragment implements OnMapReadyCallback {
@@ -35,7 +36,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     private GoogleMap map;
 
     private TrackManager trackManager = new TrackManager();
-
+    private CurrentRecordingTrack track;
     public final String TAG = "TAG";
     private ImageButton playButton;
     private ImageButton stopButton;
@@ -106,6 +107,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 if(!isRecording) {
                     if(!trackName.equals("")){
                         trackManager.createTrack(trackName);
+                        track.setTrack(trackManager.getTrack());
                         isRecording = true;
                         chronometer.setBase(SystemClock.elapsedRealtime());
                         chronometer.start();

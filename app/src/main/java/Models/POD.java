@@ -19,7 +19,7 @@ public class POD extends POI{
         difficulties = new ArrayList<Difficulty>();
     }
 
-    public POD(int id_pod, String name, String description, String picture, Coordinate coordinate) {
+    public POD(String id_pod, String name, String description, String picture, Coordinate coordinate) {
         super(id_pod, name, description, picture, coordinate);
         difficulties = new ArrayList<Difficulty>();
     }
