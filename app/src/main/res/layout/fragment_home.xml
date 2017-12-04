@@ -81,6 +81,7 @@
         android:src="@drawable/ic_santour_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+       />
 
 </android.support.constraint.ConstraintLayout>
