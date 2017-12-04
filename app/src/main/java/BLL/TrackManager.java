@@ -36,23 +36,23 @@ public class TrackManager {
         //We get the reference to a track child
         mTrackRef = mRootRef.child("tracks").push();
 
-        track = new Track(trackName, 0, 0.0, 1);
+        CurrentRecordingTrack.setTrack(new Track(trackName, 0, 0.0, 1));
         coordinates = new ArrayList<Coordinate>();
-        mTrackRef.setValue(track);
-        track.setId_track(mTrackRef.getKey());
+        mTrackRef.setValue(CurrentRecordingTrack.getTrack());
+        CurrentRecordingTrack.getTrack().setId_track(mTrackRef.getKey());
+    }
+
+    public void updateTrack(){
+        mTrackRef.setValue(CurrentRecordingTrack.getTrack());
     }
 
     public void endTrack(long time, double km){
-        track.setTimer(time);
-        track.setPODs(CurrentRecordingTrack.getTrack().getPODs());
-        track.setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
-        track.setLength(km);
-        track.setCoordinates(coordinates);
-        mTrackRef.setValue(track);
-    }
-
-    public Track getTrack(){
-        return track;
+        CurrentRecordingTrack.getTrack().setTimer(time);
+        CurrentRecordingTrack.getTrack().setPODs(CurrentRecordingTrack.getTrack().getPODs());
+        CurrentRecordingTrack.getTrack().setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
+        CurrentRecordingTrack.getTrack().setLength(km);
+        CurrentRecordingTrack.getTrack().setCoordinates(coordinates);
+        mTrackRef.setValue(CurrentRecordingTrack.getTrack());
     }
 
     public long getSeconds(){

@@ -85,14 +85,13 @@ public class CreatePodFragment extends Fragment {
 
             public void onClick(View v) {
                 podManager.createPOD(podName.getText().toString(), podDescription.getText().toString(), photo);
-                //TODO remove this line later
-                getFragmentManager().popBackStack();
 
-//                fragmentManager = getFragmentManager();
-//                fragment = new DetailsPodFragment();
-//                transaction = fragmentManager.beginTransaction();
-//                transaction.addToBackStack(null);
-//                transaction.replace(R.id.main_container, fragment).commit();
+                fragmentManager = getFragmentManager();
+                fragment = new DetailsPodFragment();
+                transaction = fragmentManager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.main_container, fragment).commit();
+                getFragmentManager().popBackStack();
             }
         });
 
