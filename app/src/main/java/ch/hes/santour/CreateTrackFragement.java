@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
 
     private TrackManager trackManager = new TrackManager();
-    private CurrentRecordingTrack track;
     public final String TAG = "TAG";
     private ImageButton playButton;
     private ImageButton stopButton;
@@ -109,6 +109,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
             public void onClick(View v) {
                 if(isRecording) {
+                    CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
+                    isRecording = false;
                     fragmentManager = getFragmentManager();
                     fragment = new CreatePodFragment();
                     transaction = fragmentManager.beginTransaction();
@@ -124,6 +126,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
             public void onClick(View v) {
                 if(isRecording) {
+                    CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
+                    isRecording = false;
                     fragmentManager = getFragmentManager();
                     fragment = new CreatePoiFragment();
                     transaction = fragmentManager.beginTransaction();
@@ -143,7 +147,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 if(!isRecording) {
                     if(!trackName.equals("")){
                         trackManager.createTrack(trackName);
-                        track.setTrack(trackManager.getTrack());
                         isRecording = true;
                         chronometer.setBase(SystemClock.elapsedRealtime());
                         chronometer.start();
@@ -179,8 +182,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 if(isRecording){
-                    chronometer.stop();
                     time = (SystemClock.elapsedRealtime() - chronometer.getBase());
+                    chronometer.stop();
                     isRecording = false;
                     trackManager.endTrack(time, calculeDistance());
                     CurrentRecordingTrack.setTrack(null);
@@ -188,9 +191,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 }
             }
         });
-
-
-
         return rootView;
     }
 
@@ -221,6 +221,12 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     @Override
     public void onResume() {
+        if(CurrentRecordingTrack.getTrack()!=null){
+            isRecording = true;
+            Log.i(TAG, "THIS IS THE TIMER"+CurrentRecordingTrack.getTrack().getTimer());
+            chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
+            chronometer.start();
+        }
         mapView.onResume();
         super.onResume();
     }
@@ -242,7 +248,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     }
 
         client.connect();
-        Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
     }
 
     @Override
