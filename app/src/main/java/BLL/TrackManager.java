@@ -17,8 +17,8 @@ import Models.Track;
 public class TrackManager {
     public final String TAG = "TAG";
 
-    private DatabaseReference mRootRef;
-    private DatabaseReference mTrackRef;
+    private static   DatabaseReference mRootRef;
+    private static DatabaseReference mTrackRef;
 
     private Track track;
     private CoordinateManager coordinateManager;
@@ -39,7 +39,7 @@ public class TrackManager {
 
         CurrentRecordingTrack.setTrack(new Track(trackName, 0, 0.0, 1));
         CurrentRecordingTrack.getTrack().addCoordinate(coordinateManager.createCoordonateFromLocation(location));
-        mTrackRef.setValue(CurrentRecordingTrack.getTrack());
+        updateTrack();
         CurrentRecordingTrack.getTrack().setId_track(mTrackRef.getKey());
     }
 
@@ -52,7 +52,7 @@ public class TrackManager {
         CurrentRecordingTrack.getTrack().setPODs(CurrentRecordingTrack.getTrack().getPODs());
         CurrentRecordingTrack.getTrack().setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
         CurrentRecordingTrack.getTrack().setLength(km);
-        mTrackRef.setValue(CurrentRecordingTrack.getTrack());
+        updateTrack();
     }
 
     public long getSeconds(){
@@ -71,5 +71,6 @@ public class TrackManager {
 
     public void addCoordinate(Coordinate coordinate){
         CurrentRecordingTrack.getTrack().addCoordinate(coordinate);
+        updateTrack();
     }
 }
