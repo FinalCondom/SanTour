@@ -39,7 +39,7 @@ public class HomeFragement extends Fragment {
                 fragmentManager = getFragmentManager();
                 fragment = new CreateTrackFragement();
                 transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack("track");
+                transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
             }
         });
