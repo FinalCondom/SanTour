@@ -40,4 +40,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="msp_info_title">current location</string>
+    <string name="map_info_snippet">this is your location</string>
+    <string name="pick_place">Pick your place</string>
 </resources>

@@ -16,6 +16,12 @@ public class Coordinate {
     private int nbre_sat;
     private Date date;
 
+    public Coordinate(double x, double y)
+    {
+        this.x = x;
+        this.y = y;
+        this.date = new Date();
+    }
 
     public Coordinate(int id_coordinate, double x, double y, double z, double gdop, int nbre_sat, Date date) {
         this.id_coordinate = id_coordinate;
