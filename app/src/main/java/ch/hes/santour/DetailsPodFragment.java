@@ -42,6 +42,18 @@ public class DetailsPodFragment extends Fragment {
             }
         });
 
+        // button Save
+        Button bt_pod_details_save =  rootView.findViewById(R.id.bt_pod_details_save);
+        bt_pod_details_save.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // ICI AJOUTER LA METHODE POUR AJOUTER DANS LA BD
+                getFragmentManager().popBackStack();
+
+            }
+        });
+
+
         return rootView;
     }
 
