@@ -91,7 +91,7 @@ public class CreatePodFragment extends Fragment {
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
-                getFragmentManager().popBackStack();
+
             }
         });
 
