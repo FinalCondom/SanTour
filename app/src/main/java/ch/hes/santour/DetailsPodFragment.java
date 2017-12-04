@@ -48,7 +48,7 @@ public class DetailsPodFragment extends Fragment {
 
             public void onClick(View v) {
                 // ICI AJOUTER LA METHODE POUR AJOUTER DANS LA BD
-                getFragmentManager().popBackStack();
+                getFragmentManager().popBackStack("track",0);
 
             }
         });
