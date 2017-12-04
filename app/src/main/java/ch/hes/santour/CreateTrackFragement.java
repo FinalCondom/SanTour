@@ -263,9 +263,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
             LocationServices.FusedLocationApi.requestLocationUpdates(client,locationRequest,this);
         }
 
-
-
-
     }
 
     @Override
@@ -332,7 +329,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         currentLocationMarker = mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(0));
 
         if(client != null)
         {
@@ -347,8 +343,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     public double calculeDistance()
     {
-
-       double Rayon = 6378000; //Rayon de la terre en mètre
 
 
         double lat_a_degre = FirstPoint.latitude;

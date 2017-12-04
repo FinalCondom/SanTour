@@ -32,7 +32,7 @@ public class CreatePoiFragment extends Fragment {
     private EditText poiDescription;
     private EditText poiName;
     private POIManager poiManager;
-    private ImageButton imageButton;
+    private ImageView imageView;
     private Bitmap photo;
     public CreatePoiFragment() {
 
@@ -45,7 +45,7 @@ public class CreatePoiFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_poi, container, false);
-        imageButton = rootView.findViewById(R.id.ib_poi_take_picture);
+        imageView = rootView.findViewById(R.id.iv_poi_img);
         //We set up poi informations
         poiName = rootView.findViewById(R.id.et_poi_name);
         poiDescription = rootView.findViewById(R.id.et_poi_description);
@@ -97,7 +97,7 @@ public class CreatePoiFragment extends Fragment {
             Bundle extras = data.getExtras();
             photo = (Bitmap) extras.get("data");
 
-            imageButton.setImageBitmap(photo);
+            imageView.setImageBitmap(photo);
         }
     }
 
