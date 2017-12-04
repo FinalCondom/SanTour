@@ -242,7 +242,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     }
 
         client.connect();
-        Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
     }
 
     @Override
