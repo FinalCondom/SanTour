@@ -15,7 +15,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -221,12 +220,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     @Override
     public void onResume() {
-        if(CurrentRecordingTrack.getTrack()!=null){
-            isRecording = true;
-            Log.i(TAG, "THIS IS THE TIMER"+CurrentRecordingTrack.getTrack().getTimer());
-            chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
-            chronometer.start();
-        }
         mapView.onResume();
         super.onResume();
     }
@@ -318,6 +311,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
         if(isRecording == true)
         {
+
             kmButton.setText(calculeDistance()+"");
 
             trackManager.addCoordinate(new Coordinate(latLng.latitude, latLng.longitude));
@@ -332,12 +326,9 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         currentLocationMarker = mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(0));
 
-        if(client != null)
-        {
-            LocationServices.FusedLocationApi.removeLocationUpdates(client,this);
-        }
+
+
 
     }
 
@@ -371,9 +362,18 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         dist = dist * 60 * 1.1515;
 
 
-        dist = dist * 1.609344;
+        dist = dist * 1.609344/1000;
 
+        dist = round(dist, 3);
         return dist;
 
+    }
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 }
