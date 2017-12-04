@@ -15,7 +15,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,9 +38,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import BLL.CoordinateManager;
 import BLL.CurrentRecordingTrack;
 import BLL.TrackManager;
-import Models.Coordinate;
 
 public class CreateTrackFragement extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
@@ -68,9 +67,10 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     private Chronometer chronometer;
     private boolean isRecording = false;
     private long time;
+    private CoordinateManager coordinateManager;
 
-    private LatLng FirstPoint;
-    private LatLng ActualPoint;
+    private Location firstLocation;
+    private Location actualLocation;
 
 
 
@@ -83,7 +83,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_create_track, container, false);
-
+        coordinateManager = new CoordinateManager();
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
             checkLocationPermission();
@@ -146,13 +146,11 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 String trackName = trackNameEditText.getText().toString();
                 if(!isRecording) {
                     if(!trackName.equals("")){
-                        trackManager.createTrack(trackName);
+                        trackManager.createTrack(trackName, firstLocation);
                         isRecording = true;
                         chronometer.setBase(SystemClock.elapsedRealtime());
                         chronometer.start();
                         kmButton.setText(calculeDistance()+"");
-                        trackManager.addCoordinate(new Coordinate(FirstPoint.latitude, FirstPoint.longitude));
-
 
                     }else{
                         //if no name has been written, we will display a message
@@ -223,7 +221,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     public void onResume() {
         if(CurrentRecordingTrack.getTrack()!=null){
             isRecording = true;
-            Log.i(TAG, "THIS IS THE TIMER"+CurrentRecordingTrack.getTrack().getTimer());
             chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
             chronometer.start();
         }
@@ -307,23 +304,22 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         }
 
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        if(firstLocation == null)
+            firstLocation = location;
 
-        if(FirstPoint == null)
-            FirstPoint = latLng;
-
-        ActualPoint = latLng;
+        actualLocation = location;
 
         if(isRecording == true)
         {
             kmButton.setText(calculeDistance()+"");
 
-            trackManager.addCoordinate(new Coordinate(latLng.latitude, latLng.longitude));
+            trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
         }
 
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("Votre position");
+        markerOptions.title(String.valueOf(R.string.yourPosition));
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
         currentLocationMarker = mMap.addMarker(markerOptions);
@@ -345,10 +341,10 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     {
 
 
-        double lat_a_degre = FirstPoint.latitude;
-        double lon_a_degre = FirstPoint.longitude;
-        double lat_b_degre = ActualPoint.latitude;
-        double lon_b_degre = ActualPoint.longitude;
+        double lat_a_degre = firstLocation.getLatitude();
+        double lon_a_degre = firstLocation.getLongitude();
+        double lat_b_degre = actualLocation.getLatitude();
+        double lon_b_degre = actualLocation.getLongitude();
 
 
         double lat_a = convertRad(lat_a_degre);

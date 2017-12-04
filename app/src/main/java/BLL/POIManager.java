@@ -1,17 +1,9 @@
 package BLL;
 
 import android.graphics.Bitmap;
-import android.text.method.DateTimeKeyListener;
-import android.util.Log;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Date;
 
 import Models.Coordinate;
 import Models.POI;
-import Models.Track;
 
 /**
  * Created by lucien on 01.12.2017.
@@ -23,10 +15,10 @@ public class POIManager {
     private POI poi;
     private Coordinate coordinate;
 
-    //This function will create a track
+    //This function will create a POI
     public void createPOI(String poiName, String poiDescription, Bitmap photo){
-        coordinate = new Coordinate(0, 0, 0, 0,0, 0, new Date());
+        coordinate = CurrentRecordingTrack.getTrack().getCoordinates().get(CurrentRecordingTrack.getTrack().getCoordinates().size()-1);
         poi = new POI(poiName, poiDescription, photo, coordinate);
-        CurrentRecordingTrack.getTrack().addPoo(poi);
+        CurrentRecordingTrack.getTrack().addPoi(poi);
     }
 }

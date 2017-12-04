@@ -2,15 +2,8 @@ package BLL;
 
 import android.graphics.Bitmap;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Date;
-
 import Models.Coordinate;
 import Models.POD;
-import Models.POI;
-import Models.Track;
 
 /**
  * Created by lucien on 01.12.2017.
@@ -22,10 +15,10 @@ public class PODManager{
     private POD pod;
     private Coordinate coordinate;
 
-    //This function will create a track
+    //This function will create a POD
     public void createPOD(String poiName, String poiDescription, Bitmap photo){
-        coordinate = new Coordinate(0, 0, 0, 0,0, 0, new Date());
-        pod = new POD(poiName, poiDescription,  photo, coordinate);
+        coordinate = CurrentRecordingTrack.getTrack().getCoordinates().get(CurrentRecordingTrack.getTrack().getCoordinates().size()-1);
+        pod = new POD(poiName, poiDescription, photo, coordinate);
         CurrentRecordingTrack.getTrack().addPod(pod);
     }
 }

@@ -1,5 +1,7 @@
 package BLL;
 
+import android.location.Location;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,13 +20,12 @@ public class TrackManager {
     private DatabaseReference mRootRef;
     private DatabaseReference mTrackRef;
 
-    private ArrayList<Coordinate> coordinates;
     private Track track;
-
+    private CoordinateManager coordinateManager;
     public TrackManager(){
         //We get the instance of the firebase DB and we keep data if we are offline
         mRootRef = FirebaseDatabase.getInstance().getReference();
-
+        coordinateManager = new CoordinateManager();
     }
 
     public void clearTrack(){
@@ -32,12 +33,12 @@ public class TrackManager {
     }
 
     //This function will create a track
-    public void createTrack(String trackName){
+    public void createTrack(String trackName, Location location){
         //We get the reference to a track child
         mTrackRef = mRootRef.child("tracks").push();
 
         CurrentRecordingTrack.setTrack(new Track(trackName, 0, 0.0, 1));
-        coordinates = new ArrayList<Coordinate>();
+        CurrentRecordingTrack.getTrack().addCoordinate(coordinateManager.createCoordonateFromLocation(location));
         mTrackRef.setValue(CurrentRecordingTrack.getTrack());
         CurrentRecordingTrack.getTrack().setId_track(mTrackRef.getKey());
     }
@@ -51,7 +52,6 @@ public class TrackManager {
         CurrentRecordingTrack.getTrack().setPODs(CurrentRecordingTrack.getTrack().getPODs());
         CurrentRecordingTrack.getTrack().setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
         CurrentRecordingTrack.getTrack().setLength(km);
-        CurrentRecordingTrack.getTrack().setCoordinates(coordinates);
         mTrackRef.setValue(CurrentRecordingTrack.getTrack());
     }
 
@@ -70,10 +70,6 @@ public class TrackManager {
     }
 
     public void addCoordinate(Coordinate coordinate){
-        this.coordinates.add(coordinate);
-    }
-
-    public ArrayList<Coordinate> getCoordinates() {
-        return coordinates;
+        CurrentRecordingTrack.getTrack().addCoordinate(coordinate);
     }
 }

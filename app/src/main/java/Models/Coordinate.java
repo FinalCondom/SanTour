@@ -1,68 +1,49 @@
 package Models;
 
-import java.util.Date;
-
 /**
  * Created by kevin on 17.11.2017.
  */
 
 public class Coordinate {
 
-    private int id_coordinate;
-    private double x;
-    private double y;
-    private double z;
+    private double latitude;
+    private double longitude;
+    private double altitude;
     private double gdop;
     private int nbre_sat;
-    private Date date;
+    private long date;
 
-    public Coordinate(double x, double y)
-    {
-        this.x = x;
-        this.y = y;
-        this.date = new Date();
-    }
-
-    public Coordinate(int id_coordinate, double x, double y, double z, double gdop, int nbre_sat, Date date) {
-        this.id_coordinate = id_coordinate;
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public Coordinate(double latitude, double longitude, double altitude, double gdop, int nbre_sat, long date) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.altitude = altitude;
         this.gdop = gdop;
         this.nbre_sat = nbre_sat;
         this.date = date;
     }
 
-    public int getId_coordinate() {
-        return id_coordinate;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setId_coordinate(int id_coordinate) {
-        this.id_coordinate = id_coordinate;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
-    public double getX() {
-        return x;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
-    public double getY() {
-        return y;
+    public double getAltitude() {
+        return altitude;
     }
 
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    public double getZ() {
-        return z;
-    }
-
-    public void setZ(double z) {
-        this.z = z;
+    public void setAltitude(double altitude) {
+        this.altitude = altitude;
     }
 
     public double getGdop() {
@@ -81,11 +62,11 @@ public class Coordinate {
         this.nbre_sat = nbre_sat;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 }

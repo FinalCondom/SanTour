@@ -102,7 +102,7 @@ public class Track {
         this.POIs = POIs;
     }
 
-    public void addPoo(POI poi){
+    public void addPoi(POI poi){
         this.POIs.add(poi);
     }
 }
