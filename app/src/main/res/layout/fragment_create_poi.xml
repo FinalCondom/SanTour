@@ -21,49 +21,26 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/iv_poi_img"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/et_poi_name"
-        android:background="@color/img"
-        android:scaleType="centerCrop"
-        android:gravity="bottom"
-        android:src="@drawable/ic_img" />
 
     <LinearLayout
-        android:id="@+id/linearlayout_create_poi1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_poi_img"
+        android:layout_below="@+id/et_poi_name"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="1"
+        android:id="@+id/linearlayout_create_poi1">
 
-        <ImageButton
-            android:id="@+id/ib_poi_delete_picture"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/iv_poi_img"
-            android:layout_weight="1"
-            android:background="@color/red"
-            android:src="@drawable/ic_trash" />
 
         <ImageButton
             android:id="@+id/ib_poi_take_picture"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/iv_poi_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/et_poi_name"
             android:layout_weight="1"
-            android:background="@color/green"
-            android:src="@drawable/ic_photo_camera" />
-
-
+            android:background="@color/img"
+            android:src="@drawable/ic_photo_camera"
+            android:scaleType="fitCenter"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -129,12 +106,12 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:gravity="bottom"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:gravity="bottom">
 
         <Button
             android:id="@+id/bt_poi_cancel"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
@@ -145,14 +122,16 @@
 
         <Button
             android:id="@+id/bt_poi_save"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:background="@color/green"
             android:text="@string/save"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            />
     </LinearLayout>
 
 </RelativeLayout>

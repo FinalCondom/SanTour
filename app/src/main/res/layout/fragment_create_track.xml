@@ -67,7 +67,9 @@
             android:text="@string/km"
             android:textColor="@color/white"
             android:textSize="20dp"
-            tools:text="Km" />
+            tools:text="Km"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            />
     </LinearLayout>
 
 
