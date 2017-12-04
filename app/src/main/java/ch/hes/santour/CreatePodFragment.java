@@ -29,7 +29,7 @@ public class CreatePodFragment extends Fragment {
     private EditText podName;
     private PODManager podManager;
     private final int CAMERA_REQUEST = 1;
-    private ImageView imageView;
+    private ImageButton imageButton;
     private Bitmap photo;
 
     public CreatePodFragment() {
@@ -47,7 +47,7 @@ public class CreatePodFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_pod, container, false);
-        imageView = (ImageView) rootView.findViewById(R.id.iv_pod_img);
+        imageButton = rootView.findViewById(R.id.ib_pod_take_picture);
         //We set up pod informations
         podName = rootView.findViewById(R.id.et_pod_name);
         podDescription = rootView.findViewById(R.id.et_pod_description);
@@ -107,7 +107,7 @@ public class CreatePodFragment extends Fragment {
             Bundle extras = data.getExtras();
             photo = (Bitmap) extras.get("data");
 
-            imageView.setImageBitmap(photo);
+            imageButton.setImageBitmap(photo);
         }
     }
 }
