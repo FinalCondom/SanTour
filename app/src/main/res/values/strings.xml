@@ -35,6 +35,10 @@
     <string name="about">About</string>
     <string name="aboutText">This 645-2 project proposes to develop an android application providing specific interfaces for collecting the GPS points of an itinerary while on the way as well as allowing the user to collect Points of Interests (POI) and Points of Difficulty (POD) with specific categorization. Those points may be linked to a picture and have a description and name.</string>
     <string name="copyright">Copyright ©2017 SanTour</string>
+    <string name="user">User</string>
+    <string name="psw">Password</string>
+    <string name="login">Login</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -93,7 +93,9 @@
         android:background="@color/red"
         android:text="@string/cancel"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
 
     <Button
         android:id="@+id/bt_pod_details_save"
@@ -104,7 +106,9 @@
         android:background="@color/green"
         android:text="@string/save"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
     </LinearLayout>
 
 </RelativeLayout>

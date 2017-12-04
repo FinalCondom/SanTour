@@ -21,7 +21,9 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         android:textColor="@color/white"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
 
     <Button
         android:id="@+id/about"
@@ -37,7 +39,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/POIPODList"
         android:textColor="@color/white"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
 
     <Button
         android:id="@+id/CreatePoiPod"
@@ -53,7 +57,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createTrack"
         android:textColor="@color/white"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
 
     <Button
         android:id="@+id/POIPODList"
@@ -69,7 +75,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CreatePoiPod"
         android:textColor="@color/white"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
 
     <ImageView
         android:id="@+id/imageView3"
