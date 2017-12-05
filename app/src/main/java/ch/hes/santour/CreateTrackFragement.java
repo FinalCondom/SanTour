@@ -145,29 +145,17 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
             public void onClick(View view) {
                 String trackName = trackNameEditText.getText().toString();
                 if(!isRecording) {
-                    if(!trackName.equals("")){
+                    //TODO remove the comments to manage errors
+//                    if(!trackName.equals("")){
                         trackManager.createTrack(trackName, firstLocation);
                         isRecording = true;
                         chronometer.setBase(SystemClock.elapsedRealtime());
                         chronometer.start();
                         kmButton.setText(calculeDistance()+"");
-
-                    }else{
-                        //if no name has been written, we will display a message
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                        builder.setMessage(R.string.track_no_name_msg)
-                                .setTitle(R.string.track_no_name_title);
-
-                        builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // User cancelled the dialog
-                            }
-                        });
-
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
-                    }
+//                    }else{
+//                        //if no name has been written, we will display a message
+//                        Toast.makeText(rootView.getContext(), R.string.track_no_name_msg, Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });
@@ -259,10 +247,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         {
             LocationServices.FusedLocationApi.requestLocationUpdates(client,locationRequest,this);
         }
-
-
-
-
     }
 
     @Override
