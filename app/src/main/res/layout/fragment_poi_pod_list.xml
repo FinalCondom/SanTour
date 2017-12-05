@@ -10,7 +10,6 @@
         android:id="@+id/sv_poi_pod_list"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
@@ -20,35 +19,82 @@
 
     </SearchView>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:layout_below="@+id/sv_poi_pod_list"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/textColor" />
-
     <LinearLayout
         android:id="@+id/linearlayout_list1"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_below="@id/sv_poi_pod_list"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tv_list_poi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listView"
+            android:layout_marginLeft="20dp"
+            android:text="@string/poi"
+            android:textColor="@color/textTitle"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/listView"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_list_pod"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/textColor"
+        android:layout_weight="1"
+            >
+        </ListView>
+
+        <TextView
+            android:id="@+id/tv_list_pod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/pod"
+            android:layout_below="@+id/listView2"
+            android:textColor="@color/textTitle"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <ListView
+            android:id="@+id/listView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/textColor"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_list2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearlayout_list1"
         android:layout_marginBottom="20dp"
         android:gravity="bottom|center_horizontal"
         android:weightSum="2">
 
         <LinearLayout
-            android:id="@+id/linearlayout_list2"
+            android:id="@+id/linearlayout_list3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_below="@id/linearlayout_list2"
             android:weightSum="2">
 
             <TextView
                 android:id="@+id/tv_poi_add_list"
-                android:layout_width="72dp"
-                android:layout_height="27dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/poi"
                 android:textAlignment="center"
@@ -59,8 +105,8 @@
 
             <ImageButton
                 android:id="@+id/ib_poi_add_list"
-                android:layout_width="72dp"
-                android:layout_height="68dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null"
                 android:clickable="true"
@@ -68,16 +114,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearlayout_list3"
+            android:id="@+id/linearlayout_list4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_below="@id/linearlayout_list2"
             android:weightSum="2">
 
             <TextView
                 android:id="@+id/tv_pod_add_list"
-                android:layout_width="72dp"
-                android:layout_height="27dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/pod"
                 android:textAlignment="center"
@@ -88,15 +135,13 @@
 
             <ImageButton
                 android:id="@+id/ib_pod_add_list"
-                android:layout_width="72dp"
-                android:layout_height="68dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null"
                 android:clickable="true"
                 android:src="@drawable/ic_add_pod" />
         </LinearLayout>
-
-
     </LinearLayout>
 
 

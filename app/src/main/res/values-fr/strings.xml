@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="track_no_name_msg">"Veuillez insérer un nom de chemin "</string>
+    <string name="track_no_name_title">pas de nom de chemin</string>
+</resources>
