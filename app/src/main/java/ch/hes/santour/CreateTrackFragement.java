@@ -1,19 +1,15 @@
 package ch.hes.santour;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,10 +80,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_create_track, container, false);
         coordinateManager = new CoordinateManager();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            checkLocationPermission();
-        }
+
 
         //set the title on the app
         getActivity().setTitle(R.string.create_track);
@@ -224,7 +217,9 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         {
             buildGoogleAPIClient();
             mMap.setMyLocationEnabled(true);
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         }
+
     }
 
     protected synchronized void buildGoogleAPIClient()
@@ -259,28 +254,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     }
 
-    public boolean checkLocationPermission()
-    {
-        if(ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-        {
-            if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION))
-            {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION_CODE);
-
-            }
-            else
-            {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION_CODE);
-
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
     @Override
     public void onLocationChanged(Location location) {
         lastLocation = location;
@@ -312,12 +285,9 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         currentLocationMarker = mMap.addMarker(markerOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(0));
 
-        if(client != null)
-        {
-            LocationServices.FusedLocationApi.removeLocationUpdates(client,this);
-        }
+
+
 
     }
 
@@ -351,9 +321,19 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         dist = dist * 60 * 1.1515;
 
 
-        dist = dist * 1.609344;
+        dist = dist * 1.609344/1000;
 
+        dist = round(dist,2);
         return dist;
 
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 }
