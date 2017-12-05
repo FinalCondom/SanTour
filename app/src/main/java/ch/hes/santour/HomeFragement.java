@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,6 +26,10 @@ public class HomeFragement extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+        //to see the menu on the top
+        setHasOptionsMenu(true);
 
 
         //set the title on the app
@@ -75,5 +81,13 @@ public class HomeFragement extends Fragment {
 
         return rootView ;
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.language, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
 
 }

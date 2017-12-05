@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -30,6 +32,10 @@ public class DetailsPodFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_details_pod, container, false);
+
+        //to see the menu on the top
+        setHasOptionsMenu(true);
+
 
         podManager = new PODManager();
 
@@ -69,5 +75,12 @@ public class DetailsPodFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.language, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

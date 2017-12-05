@@ -10,6 +10,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -50,6 +52,11 @@ public class CreatePodFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_pod, container, false);
+
+        //to see the menu on the top
+        setHasOptionsMenu(true);
+
+
         imageButton = rootView.findViewById(R.id.ib_pod_take_picture);
         //We set up pod informations
         podName = rootView.findViewById(R.id.et_pod_name);
@@ -131,5 +138,12 @@ public class CreatePodFragment extends Fragment {
 
             imageButton.setImageBitmap(photo);
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.language, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

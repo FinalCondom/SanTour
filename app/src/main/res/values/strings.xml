@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SanTour</string>
+    <string name="app_name" translatable="false">SanTour</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="google_maps_key">AIzaSyArpGeA_rmBS_k7zYJhNoXQPODdM2wLpVk</string>
 
@@ -8,10 +8,8 @@
 
     <string name="track_no_name_msg">Please insert a track name</string>
     <string name="pod_no_name_msg">Please insert a POD name</string>
-    <string name="pod_no_description_msg">Please insert a POD description</string>
     <string name="pod_no_image_msg">Please insert an image for the POD</string>
     <string name="poi_no_name_msg">Please insert a POI name</string>
-    <string name="poi_no_description_msg">Please insert a POI description</string>
     <string name="poi_no_image_msg">Please insert an image for the POI</string>
     <string name="track_no_name_title">no track name</string>
     <string name="action_settings">Settings</string>
@@ -26,23 +24,21 @@
     <string name="pod_name">POD name</string>
     <string name="poi_name">POI name</string>
     <string name="name">Name</string>
-    <string name="km">KM</string>
-    <string name="poi">POI</string>
-    <string name="pod">POD</string>
+    <string name="km" translatable="false">KM</string>
+    <string name="poi" translatable="false">POI</string>
+    <string name="pod" translatable="false">POD</string>
     <string name="longi">Long.</string>
     <string name="lati">Lat.</string>
     <string name="description">Description</string>
     <string name="cancel">CANCEL</string>
     <string name="save">SAVE</string>
-    <string name="ok">OK</string>
+    <string name="ok" translatable="false">OK</string>
     <string name="next">NEXT</string>
     <string name="vertical">Verticality</string>
     <string name="rocks">Rocks</string>
     <string name="slope">Slope</string>
-    <string name="about">About</string>
     <string name="aboutText">This 645-2 project proposes to develop an android application providing specific interfaces for collecting the GPS points of an itinerary while on the way as well as allowing the user to collect Points of Interests (POI) and Points of Difficulty (POD) with specific categorization. Those points may be linked to a picture and have a description and name.</string>
-    <string name="copyright">Copyright ©2017 SanTour</string>
-    <string name="user">User</string>
+    <string name="copyright" translatable="false">Copyright ©2017 SanTour</string>
     <string name="psw">Password</string>
     <string name="login">Login</string>
 
@@ -54,4 +50,7 @@
     <string name="msp_info_title">current location</string>
     <string name="map_info_snippet">this is your location</string>
     <string name="pick_place">Pick your place</string>
+    <string name="pod_no_description_msg">Please insert a POD description</string>
+    <string name="poi_no_description_msg">Please insert a POI description</string>
+    <string name="user">User</string>
 </resources>
