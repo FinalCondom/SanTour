@@ -7,18 +7,19 @@
         android:id="@+id/action_bar_settings"
         android:enabled="true"
         android:orderInCategory="-10"
+        android:icon="@drawable/ic_settings"
         android:title="settings"
         app:showAsAction="always" >
 
         <menu android:id="@+id/sousmenu">
             <item android:id="@+id/french"
-                android:title="francais"   />
+                android:title="@string/french"   />
 
             <item android:id="@+id/german"
-                android:title="german"  />
+                android:title="@string/german"  />
 
             <item android:id="@+id/english"
-                android:title="english"  />
+                android:title="@string/english"  />
         </menu>
     </item>
 

@@ -7,8 +7,8 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tv_about"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/aboutText"
         android:textColor="@color/textColor"
         android:textSize="20dp"

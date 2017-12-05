@@ -41,6 +41,12 @@
     <string name="copyright" translatable="false">Copyright ©2017 SanTour</string>
     <string name="psw">Password</string>
     <string name="login">Login</string>
+    <string name="french">French</string>
+    <string name="english">English</string>
+    <string name="german">German</string>
+    <string name="about">About</string>
+
+
 
 
 
@@ -53,4 +59,5 @@
     <string name="pod_no_description_msg">Please insert a POD description</string>
     <string name="poi_no_description_msg">Please insert a POI description</string>
     <string name="user">User</string>
+
 </resources>

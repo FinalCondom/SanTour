@@ -11,7 +11,7 @@
     <string name="poi_no_name_msg">Bitte geben Sie einen POI-Namen ein</string>
     <string name="poi_no_description_msg">Bitte geben Sie eine POI-Beschreibung ein</string>
     <string name="poi_no_image_msg">Bitte fügen Sie ein Bild für den POI ein</string>
-    <string name="track_name">Titelname</string>
+    <string name="track_name">Track Name </string>
     <string name="create_track">"Track erstellen "</string>
     <string name="create_poi">POI erstellen</string>
     <string name="pod_details">"Details POD "</string>
@@ -38,4 +38,7 @@
     <string name="msp_info_title">"aktueller Standort "</string>
     <string name="map_info_snippet">"Das ist dein Standort "</string>
     <string name="pick_place">Wähle deinen Platz aus</string>
+    <string name="french">Französisch</string>
+    <string name="english">Englisch</string>
+    <string name="german">Deutsch</string>
 </resources>

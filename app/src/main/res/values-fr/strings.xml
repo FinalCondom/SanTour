@@ -38,4 +38,7 @@
     <string name="msp_info_title">location actuelle</string>
     <string name="map_info_snippet">C\'est votre localisation</string>
     <string name="pick_place">Choisissez une place</string>
+    <string name="french">Français</string>
+    <string name="english">Anglais</string>
+    <string name="german">Allemand</string>
 </resources>
