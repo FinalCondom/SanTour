@@ -314,7 +314,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
         if(isRecording == true)
         {
-            kmButton.setText(calculeDistance()+"");
+            kmButton.setText(String.valueOf(calculeDistance()));
 
             trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
         }
@@ -322,7 +322,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title(String.valueOf(R.string.yourPosition));
+        markerOptions.title(getResources().getString(R.string.track_current_location));
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
         currentLocationMarker = mMap.addMarker(markerOptions);

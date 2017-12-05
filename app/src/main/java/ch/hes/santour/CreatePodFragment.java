@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
+
 import BLL.PODManager;
 
 
@@ -84,10 +86,16 @@ public class CreatePodFragment extends Fragment {
         bt_pod_next.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                podManager.createPOD(podName.getText().toString(), podDescription.getText().toString(), photo);
-
+                Bundle bundle = new Bundle();
+                bundle.putString("podName", podName.getText().toString());
+                bundle.putString("podDescription", podDescription.getText().toString());
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                bundle.putByteArray("photo",byteArray);
                 fragmentManager = getFragmentManager();
                 fragment = new DetailsPodFragment();
+                fragment.setArguments(bundle);
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();

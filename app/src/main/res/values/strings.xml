@@ -15,7 +15,7 @@
     <string name="create_poi">Create POI</string>
     <string name="pod_details">Details POD</string>
     <string name="poi_pod_list">POI-POD List</string>
-    <string name="yourPosition">Your current location</string>
+    <string name="track_current_location">Your current location</string>
     <string name="create_pod">Create POD</string>
     <string name="pod_name">POD name</string>
     <string name="poi_name">POI name</string>

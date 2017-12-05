@@ -2,6 +2,8 @@ package ch.hes.santour;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,13 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import BLL.PODManager;
+
 
 public class DetailsPodFragment extends Fragment {
 
 
-    FragmentManager fragmentManager;
-    Fragment fragment;
-    FragmentTransaction transaction ;
+    private PODManager podManager;
 
 
     public DetailsPodFragment() {
@@ -28,6 +30,8 @@ public class DetailsPodFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_details_pod, container, false);
+
+        podManager = new PODManager();
 
         //set the title on the app
         getActivity().setTitle(R.string.pod_details);
@@ -47,7 +51,17 @@ public class DetailsPodFragment extends Fragment {
         bt_pod_details_save.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                // ICI AJOUTER LA METHODE POUR AJOUTER DANS LA BD
+                Bundle bundle = getArguments();
+                if(bundle!=null){
+                    String podName = bundle.getString("podName");
+                    String podDescription =bundle.getString("podDescription");
+                    byte[] byteArray = bundle.getByteArray("photo");
+                    Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+
+                    podManager.createPOD(podName, podDescription, photo);
+
+                }
+
                 getFragmentManager().popBackStack();
                 getFragmentManager().popBackStack("track",0);
 
@@ -56,6 +70,4 @@ public class DetailsPodFragment extends Fragment {
 
         return rootView;
     }
-
-
 }
