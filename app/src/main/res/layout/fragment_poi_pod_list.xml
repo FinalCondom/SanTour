@@ -89,6 +89,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@id/linearlayout_list2"
+            android:paddingRight="10dp"
             android:weightSum="2">
 
             <TextView
@@ -119,6 +120,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@id/linearlayout_list2"
+            android:paddingLeft="10dp"
             android:weightSum="2">
 
             <TextView
