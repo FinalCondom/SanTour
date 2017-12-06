@@ -13,7 +13,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:background="@color/img"
+        android:background="@color/searchbar"
         android:orientation="horizontal"
         android:visibility="visible">
 

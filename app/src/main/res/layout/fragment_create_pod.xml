@@ -125,7 +125,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:background="@color/green"
+            android:background="@color/buttonNav"
             android:text="@string/next"
             android:textColor="@color/white"
             android:textSize="20dp" />
