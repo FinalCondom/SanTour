@@ -309,30 +309,15 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     public void calculeDistance()
     {
 
-       double Rayon = 6378000; //Rayon de la terre en mètre
+        int Rayon = 6378000; //Rayon de la terre en mètre
+        double dist;
 
+       double lat_a = convertRad(lastLocation.getLatitude());
+       double lon_a = convertRad(lastLocation.getLongitude());
+       double lat_b = convertRad(actualLocation.getLatitude());
+       double lon_b = convertRad(actualLocation.getLongitude());
 
-        double lat_a_degre = lastLocation.getLatitude();
-        double lon_a_degre = lastLocation.getLongitude();
-        double lat_b_degre = actualLocation.getLatitude();
-        double lon_b_degre = actualLocation.getLongitude();
-
-
-        double lat_a = convertRad(lat_a_degre);
-        double  lon_a = convertRad(lon_a_degre);
-        double  lat_b = convertRad(lat_b_degre);
-        double lon_b = convertRad(lon_b_degre);
-
-        double theta = lon_a-lon_b;
-        double rtheta = Math.PI * theta/180;
-
-        double dist = Math.sin(lat_a_degre) * Math.sin(lat_b_degre) + Math.cos(lat_a_degre) * Math.cos(lat_b_degre) * Math.cos(rtheta);
-        dist = Math.acos(dist);
-        dist = dist * 180/Math.PI;
-        dist = dist * 60 * 1.1515;
-
-
-        dist = dist * 1.609344;
+        dist = Rayon * (Math.PI/2 - Math.asin( Math.sin(lat_b) * Math.sin(lat_a) + Math.cos(lon_b - lon_a) * Math.cos(lat_b) * Math.cos(lat_a)));
 
         distance += dist/1000;
         distance = round(distance,2);
