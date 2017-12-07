@@ -1,18 +1,14 @@
 package ch.hes.santour;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
-import Models.POD;
 import Models.POI;
 
 /**
@@ -51,7 +47,7 @@ public class ListPoiAdapter extends ArrayAdapter<POI> {
 
         viewHolder.nom.setText(poi.getName());
         viewHolder.description.setText(poi.getDescription());
-        viewHolder.avatar.setImageDrawable(new BitmapDrawable(poi.getPicture()));
+        viewHolder.avatar.setImageDrawable(new BitmapDrawable(getContext().getResources(), poi.getPicture()));
 
         return convertView;
     }

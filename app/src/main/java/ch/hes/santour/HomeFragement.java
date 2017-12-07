@@ -10,6 +10,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import BLL.CurrentRecordingTrack;
 
 public class HomeFragement extends Fragment {
 
@@ -56,12 +59,15 @@ public class HomeFragement extends Fragment {
         POIPODList.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-                fragmentManager = getFragmentManager();
-                fragment = new PoiPodListFragment();
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
+                if(CurrentRecordingTrack.getTrack()==null){
+                    Toast.makeText(rootView.getContext(), R.string.home_no_track_recording, Toast.LENGTH_SHORT).show();
+                }else {
+                    fragmentManager = getFragmentManager();
+                    fragment = new PoiPodListFragment();
+                    transaction = fragmentManager.beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.main_container, fragment).commit();
+                }
             }
         });
 

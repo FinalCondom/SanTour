@@ -5,7 +5,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="home_no_track_recording">No track currently recording</string>
     <string name="track_no_name_msg">Please insert a track name</string>
     <string name="pod_no_name_msg">Please insert a POD name</string>
     <string name="pod_no_image_msg">Please insert an image for the POD</string>

@@ -81,10 +81,10 @@ public class PoiPodListFragment extends Fragment {
     }
 
     private void showPoiList() {
-        Log.i(TAG, CurrentRecordingTrack.getTrack().getPOIs().size()+"");
-        ListPoiAdapter adapter = new ListPoiAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPOIs());
-        mListView.setAdapter(adapter);
-
+        if(CurrentRecordingTrack.getTrack().getPOIs().size()>0) {
+            ListPoiAdapter adapter = new ListPoiAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPOIs());
+            mListView.setAdapter(adapter);
+        }
         /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -109,9 +109,10 @@ public class PoiPodListFragment extends Fragment {
 */
     }
     private void showPodList() {
-        Log.i(TAG, CurrentRecordingTrack.getTrack().getPODs().size()+"");
-        ListPodAdapter adapter = new ListPodAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPODs());
-        mListView.setAdapter(adapter);
+        if(CurrentRecordingTrack.getTrack().getPODs().size()>0){
+            ListPodAdapter adapter = new ListPodAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPODs());
+            mListView.setAdapter(adapter);
+        }
 
         /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
