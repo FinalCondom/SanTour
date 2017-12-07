@@ -19,12 +19,13 @@
         android:textColor="@color/textColor"
         android:textSize="25dp" />
 
-    <ProgressBar
-        android:id="@+id/pb_pod_details_vertical"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="350dp"
+    <SeekBar
+        android:id="@+id/sb_pod_details_vertical"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-
+        android:max="100"
+        android:min="1"
+        android:progress="50"
         android:layout_alignLeft="@+id/cb_pod_delais_vertical"
         android:layout_alignStart="@+id/cb_pod_delais_vertical"
         android:layout_below="@+id/cb_pod_delais_vertical" />
@@ -34,19 +35,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignLeft="@+id/pb_pod_details_vertical"
-        android:layout_alignStart="@+id/pb_pod_details_vertical"
-        android:layout_below="@+id/pb_pod_details_vertical"
+        android:layout_alignLeft="@+id/sb_pod_details_vertical"
+        android:layout_alignStart="@+id/sb_pod_details_vertical"
+        android:layout_below="@+id/sb_pod_details_vertical"
         android:layout_marginTop="27dp"
         android:text="@string/rocks"
         android:textColor="@color/textColor"
         android:textSize="25dp" />
 
-    <ProgressBar
-        android:id="@+id/pb_pod_details_rocks"
+    <SeekBar
+        android:id="@+id/sb_pod_details_rocks"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:max="100"
+        android:min="1"
+        android:progress="50"
         android:layout_alignLeft="@+id/cb_pod_delais_rocks"
         android:layout_alignStart="@+id/cb_pod_delais_rocks"
         android:layout_below="@+id/cb_pod_delais_rocks" />
@@ -55,19 +59,22 @@
         android:id="@+id/cb_pod_delais_slope"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pb_pod_details_rocks"
-        android:layout_alignStart="@+id/pb_pod_details_rocks"
-        android:layout_below="@+id/pb_pod_details_rocks"
+        android:layout_alignLeft="@+id/sb_pod_details_rocks"
+        android:layout_alignStart="@+id/sb_pod_details_rocks"
+        android:layout_below="@+id/sb_pod_details_rocks"
         android:layout_marginTop="27dp"
         android:text="@string/slope"
         android:textColor="@color/textColor"
         android:textSize="25dp" />
 
-    <ProgressBar
-        android:id="@+id/pb_pod_details_slope"
+    <SeekBar
+        android:id="@+id/sb_pod_details_slope"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:max="100"
+        android:min="1"
+        android:progress="50"
         android:layout_alignLeft="@+id/cb_pod_delais_slope"
         android:layout_alignStart="@+id/cb_pod_delais_slope"
         android:layout_below="@+id/cb_pod_delais_slope" />
@@ -76,7 +83,7 @@
         android:id="@+id/linearlayout_details1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/pb_pod_details_slope"
+        android:layout_below="@id/sb_pod_details_slope"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"

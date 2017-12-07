@@ -99,8 +99,18 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
         //KM
         kmButton = rootView.findViewById(R.id.bt_km);
-
         chronometer = rootView.findViewById(R.id.timer);
+
+        //Set up name if something is currently recording
+        trackNameEditText = rootView.findViewById(R.id.et_track_name);
+
+        if(CurrentRecordingTrack.getTrack()!=null){
+            isRecording = true;
+            trackNameEditText.setText(CurrentRecordingTrack.getTrack().getName());
+            chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
+            chronometer.start();
+
+        }
 
         // button POD
         ImageButton ib_create_track_pod =  rootView.findViewById(R.id.ib_create_track_pod);
@@ -137,7 +147,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         });
 
         //Button Start track
-        trackNameEditText = rootView.findViewById(R.id.et_track_name);
         playButton = rootView.findViewById(R.id.ib_play);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,11 +215,6 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     @Override
     public void onResume() {
-        if(CurrentRecordingTrack.getTrack()!=null){
-            isRecording = true;
-            chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
-            chronometer.start();
-        }
         mapView.onResume();
         super.onResume();
     }
