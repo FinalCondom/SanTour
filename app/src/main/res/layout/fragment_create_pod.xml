@@ -16,7 +16,8 @@
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@color/textTitle"/>
+        android:textColor="@color/textTitle"
+        android:singleLine="true"  />
 
     <LinearLayout
         android:layout_width="match_parent"

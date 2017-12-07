@@ -4,118 +4,135 @@
     android:layout_height="match_parent"
     tools:context="ch.hes.santour.DetailsPodFragment">
 
-
-    <CheckBox
-        android:id="@+id/cb_pod_delais_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="51dp"
-        android:text="@string/vertical"
-        android:textColor="@color/textColor"
-        android:textSize="25dp" />
-
-    <SeekBar
-        android:id="@+id/sb_pod_details_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:max="100"
-        android:min="1"
-        android:progress="50"
-        android:layout_alignLeft="@+id/cb_pod_delais_vertical"
-        android:layout_alignStart="@+id/cb_pod_delais_vertical"
-        android:layout_below="@+id/cb_pod_delais_vertical" />
-
-    <CheckBox
-        android:id="@+id/cb_pod_delais_rocks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignLeft="@+id/sb_pod_details_vertical"
-        android:layout_alignStart="@+id/sb_pod_details_vertical"
-        android:layout_below="@+id/sb_pod_details_vertical"
-        android:layout_marginTop="27dp"
-        android:text="@string/rocks"
-        android:textColor="@color/textColor"
-        android:textSize="25dp" />
-
-    <SeekBar
-        android:id="@+id/sb_pod_details_rocks"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:max="100"
-        android:min="1"
-        android:progress="50"
-        android:layout_alignLeft="@+id/cb_pod_delais_rocks"
-        android:layout_alignStart="@+id/cb_pod_delais_rocks"
-        android:layout_below="@+id/cb_pod_delais_rocks" />
-
-    <CheckBox
-        android:id="@+id/cb_pod_delais_slope"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sb_pod_details_rocks"
-        android:layout_alignStart="@+id/sb_pod_details_rocks"
-        android:layout_below="@+id/sb_pod_details_rocks"
-        android:layout_marginTop="27dp"
-        android:text="@string/slope"
-        android:textColor="@color/textColor"
-        android:textSize="25dp" />
-
-    <SeekBar
-        android:id="@+id/sb_pod_details_slope"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:max="100"
-        android:min="1"
-        android:progress="50"
-        android:layout_alignLeft="@+id/cb_pod_delais_slope"
-        android:layout_alignStart="@+id/cb_pod_delais_slope"
-        android:layout_below="@+id/cb_pod_delais_slope" />
-
     <LinearLayout
         android:id="@+id/linearlayout_details1"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/linearlayout_details_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <CheckBox
+                android:id="@+id/cb_pod_delais_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/vertical"
+                android:textColor="@color/textColor"
+                android:textSize="25dp" />
+
+            <SeekBar
+                android:id="@+id/sb_pod_details_vertical"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:max="100"
+                android:min="1"
+                android:progress="0"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_details_rocks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <CheckBox
+                android:id="@+id/cb_pod_delais_rocks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/rocks"
+                android:textColor="@color/textColor"
+                android:textSize="25dp" />
+
+            <SeekBar
+                android:id="@+id/sb_pod_details_rocks"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:min="1"
+                android:progress="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_details_slope"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <CheckBox
+                android:id="@+id/cb_pod_delais_slope"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/slope"
+                android:textColor="@color/textColor"
+                android:textSize="25dp" />
+
+            <SeekBar
+                android:id="@+id/sb_pod_details_slope"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:min="1"
+                android:progress="0" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_details5"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/sb_pod_details_slope"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_below="@id/linearlayout_details1"
         android:layout_marginBottom="20dp"
-        android:weightSum="2"
-        android:gravity="bottom"
-        >
-
-    <Button
-        android:id="@+id/bt_pod_details_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:layout_marginRight="20dp"
-        android:background="@color/red"
-        android:text="@string/cancel"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        />
-
-    <Button
-        android:id="@+id/bt_pod_details_save"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="1"
         android:layout_marginLeft="20dp"
-        android:background="@color/buttonNav"
-        android:text="@string/save"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        />
+        android:layout_marginRight="20dp"
+        android:gravity="bottom"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/bt_pod_details_cancel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/bt_pod_details_save"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@color/buttonNav"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
     </LinearLayout>
 
 </RelativeLayout>

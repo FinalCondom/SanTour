@@ -17,10 +17,14 @@
     <EditText
         android:id="@+id/et_track_name"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         android:layout_below="@+id/mapView"
         android:gravity="center"
         android:hint="@string/track_name"
@@ -28,8 +32,8 @@
         android:textSize="20dp"
         android:textStyle="bold"
         tools:text="Track Name"
-        android:background="@android:color/transparent"
-        />
+        android:background="@drawable/border"
+        android:singleLine="true"        />
 
     <LinearLayout
         android:id="@+id/linearlayout_create_track1"
@@ -38,7 +42,7 @@
         android:layout_below="@id/et_track_name"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:weightSum="2">
 
         <Chronometer
