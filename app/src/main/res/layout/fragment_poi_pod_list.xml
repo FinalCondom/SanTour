@@ -40,15 +40,14 @@
             android:textStyle="bold" />
 
         <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listViewPoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_list_pod"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/textColor"
-        android:layout_weight="1"
-            >
+        android:layout_weight="1">
         </ListView>
 
         <TextView
@@ -63,7 +62,7 @@
             android:textStyle="bold"
             />
         <ListView
-            android:id="@+id/listView2"
+            android:id="@+id/listViewPod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

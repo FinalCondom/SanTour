@@ -1,24 +1,25 @@
 package ch.hes.santour;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import BLL.CurrentRecordingTrack;
 
 public class PoiPodListFragment extends Fragment {
-
+    ListView mListView;
     FragmentManager fragmentManager;
     Fragment fragment;
     FragmentTransaction transaction ;
-
+    public final String TAG = "TAG";
     public PoiPodListFragment() {
         // Required empty public constructor
     }
@@ -36,6 +37,10 @@ public class PoiPodListFragment extends Fragment {
         //set the title on the app
         getActivity().setTitle(R.string.poi_pod_list);
 
+        mListView = rootView.findViewById(R.id.listViewPoi);
+        showPoiList();
+        mListView = rootView.findViewById(R.id.listViewPod);
+        showPodList();
 
         // button POD
         ImageButton ib_pod_add_list =  rootView.findViewById(R.id.ib_pod_add_list);
@@ -75,4 +80,60 @@ public class PoiPodListFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    private void showPoiList() {
+        Log.i(TAG, CurrentRecordingTrack.getTrack().getPOIs().size()+"");
+        ListPoiAdapter adapter = new ListPoiAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPOIs());
+        mListView.setAdapter(adapter);
+
+        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView arg0, View view, int position, long id) {
+                Intent intent = new Intent(HomeOiseaux.this, show_oiseau.class);
+                finish();
+
+                POD pod = (POD) arg0.getItemAtPosition(position);
+                intent.putExtra("ID", ois.getId());
+                intent.putExtra("NOM", ois.getNom());
+                intent.putExtra("COLOR", ois.getColor());
+                intent.putExtra("POIDS", ois.getPoids());
+                intent.putExtra("TEXT", ois.getText());
+                intent.putExtra("TAILLE", ois.getTaille());
+                intent.putExtra("ID_USER", ID_USER);
+
+
+                startActivity(intent);
+
+            }
+        });
+*/
+    }
+    private void showPodList() {
+        Log.i(TAG, CurrentRecordingTrack.getTrack().getPODs().size()+"");
+        ListPodAdapter adapter = new ListPodAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPODs());
+        mListView.setAdapter(adapter);
+
+        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView arg0, View view, int position, long id) {
+                Intent intent = new Intent(HomeOiseaux.this, show_oiseau.class);
+                finish();
+
+                POD pod = (POD) arg0.getItemAtPosition(position);
+                intent.putExtra("ID", ois.getId());
+                intent.putExtra("NOM", ois.getNom());
+                intent.putExtra("COLOR", ois.getColor());
+                intent.putExtra("POIDS", ois.getPoids());
+                intent.putExtra("TEXT", ois.getText());
+                intent.putExtra("TAILLE", ois.getTaille());
+                intent.putExtra("ID_USER", ID_USER);
+
+
+                startActivity(intent);
+
+            }
+        });
+*/
+    }
 }
