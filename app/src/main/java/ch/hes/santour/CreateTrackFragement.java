@@ -12,6 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -79,6 +81,10 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_create_track, container, false);
+
+        //to see the menu on the top
+        setHasOptionsMenu(true);
+
         coordinateManager = new CoordinateManager();
 
 
@@ -335,5 +341,12 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         value = value * factor;
         long tmp = Math.round(value);
         return (double) tmp / factor;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.language, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

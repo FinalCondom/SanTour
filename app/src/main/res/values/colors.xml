@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00796B</color>
-    <color name="colorPrimaryDark">#00695C</color>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#388E3C</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000</color>
     <color name="button">#80CBC4</color>
-    <color name="img">#B2DFDB</color>
-    <color name="green">#009688</color>
-    <color name="red">#E53935</color>
+    <color name="img">#C8E6C9</color>
+    <color name="green">#66BB6A</color>
+    <color name="red">#F4511E</color>
     <color name="cancel">#B71C1C</color>
     <color name="white">#FFFF</color>
     <color name="textColor">#546E7A</color>
     <color name="textTitle">#37474F</color>
+    <color name="searchbar">#C8E6C9</color>
+    <color name="colorPrimar">#00796B</color>
+    <color name="colorPrimaryDar">#00695C</color>
+    <color name="gree">#009688</color>
+    <color name="buttonNav">#4DB6AC</color>
 
 
+    <color name="colorPrimaryvert">#33691E</color>
+    <color name="colorPrimaryDarkvert">#558B2F</color>
+    <color name="greenvert">#9CCC65</color>
 
 
-
-
+    <color name="colorPrimaryorange">#EF6C00</color>
+    <color name="colorPrimaryDarkorange">#F57C00</color>
+    <color name="greenorange">#FFB74D</color>
 
 
 

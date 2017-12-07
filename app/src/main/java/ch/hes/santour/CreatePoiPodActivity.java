@@ -10,4 +10,6 @@ public class CreatePoiPodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_poi_pod);
     }
+
+
 }

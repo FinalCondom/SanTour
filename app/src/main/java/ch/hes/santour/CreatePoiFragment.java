@@ -12,6 +12,8 @@ import android.app.FragmentTransaction;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -46,6 +48,11 @@ public class CreatePoiFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_poi, container, false);
+
+        //to see the menu on the top
+        setHasOptionsMenu(true);
+
+
         imageButton = rootView.findViewById(R.id.ib_poi_take_picture);
         //We set up poi informations
         poiName = rootView.findViewById(R.id.et_poi_name);
@@ -117,5 +124,11 @@ public class CreatePoiFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.language, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
 }
