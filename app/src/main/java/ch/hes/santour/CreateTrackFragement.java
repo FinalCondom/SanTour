@@ -52,7 +52,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     private LocationRequest locationRequest;
     private Location lastLocation;
     private Marker currentLocationMarker;
-    private  static final int REQUEST_LOCATION_CODE = 9;
+    private static final int REQUEST_LOCATION_CODE = 9;
     private MapView mapView;
 
 
@@ -262,39 +262,34 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
-        lastLocation = location;
+        if(isAdded()) {
+            lastLocation = location;
 
-        if(currentLocationMarker != null)
-        {
-            currentLocationMarker.remove();
+            if (currentLocationMarker != null) {
+                currentLocationMarker.remove();
+            }
+
+            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+            if (firstLocation == null)
+                firstLocation = location;
+
+            actualLocation = location;
+
+            if (isRecording == true) {
+                kmButton.setText(String.valueOf(calculeDistance()));
+
+                trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
+            }
+
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLng);
+            markerOptions.title(getResources().getString(R.string.track_current_location));
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
+            currentLocationMarker = mMap.addMarker(markerOptions);
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         }
-
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        if(firstLocation == null)
-            firstLocation = location;
-
-        actualLocation = location;
-
-        if(isRecording == true)
-        {
-            kmButton.setText(String.valueOf(calculeDistance()));
-
-            trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
-        }
-
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title(getResources().getString(R.string.track_current_location));
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-
-        currentLocationMarker = mMap.addMarker(markerOptions);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-
-
-
-
     }
 
     public double convertRad(double input){
