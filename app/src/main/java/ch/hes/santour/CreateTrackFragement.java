@@ -321,7 +321,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         dist = dist * 60 * 1.1515;
 
 
-        dist = dist * 1.609344/1000;
+        dist = dist * 1.609344;
 
         dist = round(dist,2);
         return dist;
