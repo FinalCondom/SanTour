@@ -56,6 +56,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     private MapView mapView;
 
 
+
     private TrackManager trackManager = new TrackManager();
     public final String TAG = "TAG";
     private ImageButton playButton;
@@ -67,8 +68,8 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     private long time;
     private CoordinateManager coordinateManager;
 
-    private Location firstLocation;
     private Location actualLocation;
+    private double distance;
 
 
 
@@ -155,11 +156,11 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                 if(!isRecording) {
                     //TODO remove the comments to manage errors
 //                    if(!trackName.equals("")){
-                        trackManager.createTrack(trackName, firstLocation);
+                        trackManager.createTrack(trackName, actualLocation);
                         isRecording = true;
                         chronometer.setBase(SystemClock.elapsedRealtime());
                         chronometer.start();
-                        kmButton.setText(calculeDistance()+"");
+                        kmButton.setText(distance+"");
 //                    }else{
 //                        //if no name has been written, we will display a message
 //                        Toast.makeText(rootView.getContext(), R.string.track_no_name_msg, Toast.LENGTH_SHORT).show();
@@ -179,7 +180,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
                     time = (SystemClock.elapsedRealtime() - chronometer.getBase());
                     chronometer.stop();
                     isRecording = false;
-                    trackManager.endTrack(time, calculeDistance());
+                    trackManager.endTrack(time, distance);
                     CurrentRecordingTrack.setTrack(null);
                     trackManager.clearTrack();
                 }
@@ -246,7 +247,7 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
         locationRequest.setInterval(1000);
         locationRequest.setFastestInterval(1000);
-        locationRequest.setPriority(locationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setPriority(locationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
         if(ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
@@ -267,20 +268,25 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
         if(isAdded()) {
-            lastLocation = location;
+
 
             if (currentLocationMarker != null) {
                 currentLocationMarker.remove();
             }
 
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-            if (firstLocation == null)
-                firstLocation = location;
+
 
             actualLocation = location;
 
+            if(lastLocation == null)
+                lastLocation = actualLocation;
+
+
             if (isRecording == true) {
-                kmButton.setText(String.valueOf(calculeDistance()));
+
+                calculeDistance();
+                kmButton.setText(String.valueOf(distance));
 
                 trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
             }
@@ -300,14 +306,14 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
         return (Math.PI * input)/180;
     }
 
-    public double calculeDistance()
+    public void calculeDistance()
     {
 
        double Rayon = 6378000; //Rayon de la terre en mètre
 
 
-        double lat_a_degre = firstLocation.getLatitude();
-        double lon_a_degre = firstLocation.getLongitude();
+        double lat_a_degre = lastLocation.getLatitude();
+        double lon_a_degre = lastLocation.getLongitude();
         double lat_b_degre = actualLocation.getLatitude();
         double lon_b_degre = actualLocation.getLongitude();
 
@@ -328,9 +334,10 @@ public class CreateTrackFragement extends Fragment implements OnMapReadyCallback
 
         dist = dist * 1.609344;
 
-        dist = round(dist,2);
-        return dist;
+        distance += dist/1000;
+        distance = round(distance,2);
 
+        lastLocation = actualLocation;
     }
 
     public static double round(double value, int places) {
