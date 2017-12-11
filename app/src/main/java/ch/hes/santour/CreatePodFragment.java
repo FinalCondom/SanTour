@@ -1,14 +1,15 @@
 package ch.hes.santour;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,11 +18,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 
+import BLL.CurrentRecordingTrack;
 import BLL.PODManager;
 
 
@@ -32,6 +35,8 @@ public class CreatePodFragment extends Fragment {
     FragmentTransaction transaction ;
     private EditText podDescription;
     private EditText podName;
+    private TextView podLatitude;
+    private TextView podLongitude;
     private PODManager podManager;
     private final int CAMERA_REQUEST = 1;
     private ImageButton imageButton;
@@ -44,6 +49,7 @@ public class CreatePodFragment extends Fragment {
     @Override
     public void onAttach (Context context) {
         super.onAttach(context);
+        ((MainActivity)getActivity()).pauseTimer();
     }
 
 
@@ -52,6 +58,9 @@ public class CreatePodFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_pod, container, false);
+
+        //We pause the recording
+        ((MainActivity)getActivity()).pauseTimer();
 
         //to see the menu on the top
         setHasOptionsMenu(true);
@@ -62,7 +71,13 @@ public class CreatePodFragment extends Fragment {
         podName = rootView.findViewById(R.id.et_pod_name);
         podDescription = rootView.findViewById(R.id.et_pod_description);
         podManager = new PODManager();
+        podLatitude = rootView.findViewById(R.id.tv_pod_gps_data_latitude);
+        podLongitude = rootView.findViewById(R.id.tv_pod_gps_data_longitude);
 
+        if(CurrentRecordingTrack.getTrack()!=null){
+            podLatitude.setText(String.valueOf(((MainActivity)getActivity()).getActualLocation().getLatitude()));
+            podLongitude.setText(String.valueOf(((MainActivity)getActivity()).getActualLocation().getLongitude()));
+        }
 
         //set the title on the app
         getActivity().setTitle(R.string.create_pod);
@@ -73,6 +88,10 @@ public class CreatePodFragment extends Fragment {
         bt_pod_cancel.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+
+                //We restart the timer
+                ((MainActivity)getActivity()).restartTimer();
+
                 getFragmentManager().popBackStack();
             }
         });

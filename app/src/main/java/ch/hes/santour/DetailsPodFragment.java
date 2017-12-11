@@ -1,11 +1,9 @@
 package ch.hes.santour;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,8 +45,8 @@ public class DetailsPodFragment extends Fragment {
         bt_pod_details_cancel.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                getFragmentManager().popBackStack();
 
+                getFragmentManager().popBackStack();
             }
         });
 
@@ -63,10 +61,12 @@ public class DetailsPodFragment extends Fragment {
                     String podDescription =bundle.getString("podDescription");
                     byte[] byteArray = bundle.getByteArray("photo");
                     Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-
                     podManager.createPOD(podName, podDescription, photo);
 
                 }
+
+                //We restart the timer
+                ((MainActivity)getActivity()).restartTimer();
 
                 getFragmentManager().popBackStack();
                 getFragmentManager().popBackStack("track",0);

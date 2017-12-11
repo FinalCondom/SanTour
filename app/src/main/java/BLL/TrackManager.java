@@ -5,8 +5,6 @@ import android.location.Location;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 import Models.Coordinate;
 import Models.Track;
 
@@ -47,11 +45,9 @@ public class TrackManager {
         mTrackRef.setValue(CurrentRecordingTrack.getTrack());
     }
 
-    public void endTrack(long time, double km){
-        CurrentRecordingTrack.getTrack().setTimer(time);
+    public void endTrack(){
         CurrentRecordingTrack.getTrack().setPODs(CurrentRecordingTrack.getTrack().getPODs());
         CurrentRecordingTrack.getTrack().setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
-        CurrentRecordingTrack.getTrack().setLength(km);
         updateTrack();
     }
 

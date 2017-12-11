@@ -2,15 +2,12 @@ package ch.hes.santour;
 
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,8 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import BLL.CurrentRecordingTrack;
 import BLL.POIManager;
@@ -28,10 +24,8 @@ import BLL.POIManager;
 
 public class CreatePoiFragment extends Fragment {
     private final int CAMERA_REQUEST = 1;
-    FragmentManager fragmentManager;
-    Fragment fragment;
-    FragmentTransaction transaction;
-
+    private TextView poiLatitude;
+    private TextView poiLongitude;
     private EditText poiDescription;
     private EditText poiName;
     private POIManager poiManager;
@@ -42,6 +36,11 @@ public class CreatePoiFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach (Context context) {
+        super.onAttach(context);
+        ((MainActivity)getActivity()).pauseTimer();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +48,8 @@ public class CreatePoiFragment extends Fragment {
 
         final View rootView = inflater.inflate(R.layout.fragment_create_poi, container, false);
 
+        //We pause the recording
+        ((MainActivity)getActivity()).pauseTimer();
         //to see the menu on the top
         setHasOptionsMenu(true);
 
@@ -58,7 +59,13 @@ public class CreatePoiFragment extends Fragment {
         poiName = rootView.findViewById(R.id.et_poi_name);
         poiDescription = rootView.findViewById(R.id.et_poi_description);
         poiManager = new POIManager();
+        poiLatitude = rootView.findViewById(R.id.tv_poi_gps_data_latitude);
+        poiLongitude = rootView.findViewById(R.id.tv_poi_gps_data_longitude);
 
+        if(CurrentRecordingTrack.getTrack()!=null){
+            poiLatitude.setText(String.valueOf(((MainActivity)getActivity()).getActualLocation().getLatitude()));
+            poiLongitude.setText(String.valueOf(((MainActivity)getActivity()).getActualLocation().getLongitude()));
+        }
 
         //set the title on the app
         getActivity().setTitle(R.string.create_poi);
@@ -68,6 +75,9 @@ public class CreatePoiFragment extends Fragment {
         bt_poi_cancel.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                //We restart the timer
+                ((MainActivity)getActivity()).restartTimer();
+
                 getFragmentManager().popBackStack();
             }
         });
@@ -91,8 +101,12 @@ public class CreatePoiFragment extends Fragment {
 //                    Toast.makeText(rootView.getContext(), R.string.poi_no_image_msg, Toast.LENGTH_SHORT).show();
 //                }
 //                else{
-                    poiManager.createPOI(poiName.getText().toString(), poiDescription.getText().toString(), photo);
-                    getFragmentManager().popBackStack();
+                //We restart the timer
+
+                ((MainActivity)getActivity()).restartTimer();
+
+                poiManager.createPOI(poiName.getText().toString(), poiDescription.getText().toString(), photo);
+                getFragmentManager().popBackStack();
 //                }
             }
         });
