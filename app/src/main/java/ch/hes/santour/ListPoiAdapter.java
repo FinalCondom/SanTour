@@ -47,7 +47,9 @@ public class ListPoiAdapter extends ArrayAdapter<POI> {
 
         viewHolder.nom.setText(poi.getName());
         viewHolder.description.setText(poi.getDescription());
-        viewHolder.avatar.setImageDrawable(new BitmapDrawable(getContext().getResources(), poi.getPicture()));
+        BitmapDrawable bd = new BitmapDrawable(getContext().getResources(), poi.getPicture());
+
+        viewHolder.avatar.setImageDrawable(bd);
 
         return convertView;
     }

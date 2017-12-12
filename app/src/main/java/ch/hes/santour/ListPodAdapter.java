@@ -46,7 +46,8 @@ public class ListPodAdapter extends ArrayAdapter<POD> {
         POD pod = getItem(position);
         viewHolder.nom.setText(pod.getName());
         viewHolder.description.setText(pod.getDescription());
-        viewHolder.avatar.setImageDrawable(new BitmapDrawable(getContext().getResources(), pod.getPicture()));
+        BitmapDrawable bd = new BitmapDrawable(getContext().getResources(), pod.getPicture());
+        viewHolder.avatar.setImageDrawable(bd);
 
 
         return convertView;
