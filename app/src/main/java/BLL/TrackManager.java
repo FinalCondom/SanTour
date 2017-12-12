@@ -3,10 +3,11 @@ package BLL;
 import android.location.Location;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import Models.Coordinate;
 import Models.Track;
+
+import static BLL.FirebaseClass.getDatabase;
 
 /**
  * Created by lucien on 24.11.2017.
@@ -22,7 +23,7 @@ public class TrackManager {
     private CoordinateManager coordinateManager;
     public TrackManager(){
         //We get the instance of the firebase DB and we keep data if we are offline
-        mRootRef = FirebaseDatabase.getInstance().getReference();
+        mRootRef = getDatabase().getReference();
         coordinateManager = new CoordinateManager();
     }
 

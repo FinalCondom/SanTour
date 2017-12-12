@@ -222,7 +222,8 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
         {
             ((MainActivity)getActivity()).buildGoogleAPIClient();
             mMap.setMyLocationEnabled(true);
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(46.220556,7.514504)));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(8));
         }
     }
 

@@ -24,7 +24,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Locale;
 
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         super.onCreate(savedInstanceState);
 
