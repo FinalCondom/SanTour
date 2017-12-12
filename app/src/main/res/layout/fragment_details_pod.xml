@@ -4,106 +4,36 @@
     android:layout_height="match_parent"
     tools:context="ch.hes.santour.DetailsPodFragment">
 
-    <LinearLayout
-        android:id="@+id/linearlayout_details1"
+    <TextView
+        android:id="@+id/tv_details_pod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/pod_details"
+        android:textColor="@color/textTitle"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        android:weightSum="3"
-        android:gravity="center_vertical">
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/linearlayout_details_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="2">
+    <ListView
+        android:id="@+id/listViewDetailsPod"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:textColor="@color/textColor"
+        android:layout_below="@+id/tv_details_pod"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+    </ListView>
 
-            <CheckBox
-                android:id="@+id/cb_pod_delais_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/vertical"
-                android:textColor="@color/textColor"
-                android:textSize="25dp" />
-
-            <SeekBar
-                android:id="@+id/sb_pod_details_vertical"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:max="100"
-                android:min="1"
-                android:progress="0"
-
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearlayout_details_rocks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:weightSum="2">
-
-            <CheckBox
-                android:id="@+id/cb_pod_delais_rocks"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/rocks"
-                android:textColor="@color/textColor"
-                android:textSize="25dp" />
-
-            <SeekBar
-                android:id="@+id/sb_pod_details_rocks"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:max="100"
-                android:min="1"
-                android:progress="0" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearlayout_details_slope"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:weightSum="2">
-
-            <CheckBox
-                android:id="@+id/cb_pod_delais_slope"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/slope"
-                android:textColor="@color/textColor"
-                android:textSize="25dp" />
-
-            <SeekBar
-                android:id="@+id/sb_pod_details_slope"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:max="100"
-                android:min="1"
-                android:progress="0" />
-        </LinearLayout>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearlayout_details5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/linearlayout_details1"
+        android:layout_below="@id/listViewDetailsPod"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
