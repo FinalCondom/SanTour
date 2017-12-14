@@ -16,7 +16,7 @@ import static BLL.FirebaseClass.getDatabase;
 public class TrackManager {
     public final String TAG = "TAG";
 
-    private static   DatabaseReference mRootRef;
+    private static DatabaseReference mRootRef;
     private static DatabaseReference mTrackRef;
 
     private Track track;

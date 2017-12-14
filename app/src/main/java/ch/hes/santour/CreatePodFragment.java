@@ -23,9 +23,12 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 import BLL.CurrentRecordingTrack;
+import BLL.DifficultyManager;
 import BLL.PODManager;
+import Models.Difficulty;
 
 
 public class CreatePodFragment extends Fragment {

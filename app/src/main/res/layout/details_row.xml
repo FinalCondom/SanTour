@@ -4,13 +4,12 @@
 
 
     <CheckBox
-        android:id="@+id/cb_pod_delais_vertical"
+        android:id="@+id/checkboxPodDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_details_pod"
         android:layout_marginTop="9dp"
-        android:text="@string/vertical"
+        android:text="detailsType"
         android:textColor="@color/textColor"
         android:textSize="25dp" />
 
@@ -20,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/cb_pod_delais_vertical"
+        android:layout_below="@+id/checkboxPodDetails"
         android:max="100"
         android:min="1"
         android:progress="0" />

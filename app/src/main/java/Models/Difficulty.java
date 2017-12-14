@@ -6,22 +6,20 @@ package Models;
 
 public class Difficulty {
 
-    private int id_difficulty;
+    private String difficulty_id;
     private String name;
     private int gradient;
 
-    public Difficulty(int id_difficulty, String name, int gradient) {
-        this.id_difficulty = id_difficulty;
+    public Difficulty() {
+    }
+
+    public Difficulty(String name) {
+        this.name = name;
+    }
+
+    public Difficulty(String name, int gradient) {
         this.name = name;
         this.gradient = gradient;
-    }
-
-    public int getId_difficulty() {
-        return id_difficulty;
-    }
-
-    public void setId_difficulty(int id_difficulty) {
-        this.id_difficulty = id_difficulty;
     }
 
     public String getName() {
@@ -32,11 +30,12 @@ public class Difficulty {
         this.name = name;
     }
 
-    public int getGradient() {
+   public int getGradient() {
         return gradient;
     }
 
     public void setGradient(int gradient) {
         this.gradient = gradient;
     }
+
 }
