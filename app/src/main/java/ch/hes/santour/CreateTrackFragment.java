@@ -109,7 +109,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
                 if(((MainActivity)getActivity()).isIsRecording()) {
                     chronometer.stop();
                     fragmentManager = getFragmentManager();
-                    fragment = new CreatePodFragment();
+                    fragment = new UpdatePodFragment();
                     transaction = fragmentManager.beginTransaction();
                     transaction.addToBackStack(null);
                     transaction.replace(R.id.main_container, fragment).commit();

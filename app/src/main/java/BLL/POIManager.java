@@ -24,4 +24,13 @@ public class POIManager {
         CurrentRecordingTrack.getTrack().addPoi(poi);
         trackManager.updateTrack();
     }
+
+    //This function update a POI
+    public void updatePoi(String poiName, String poiDescription, POI poi) {
+        poi.setName(poiName);
+        poi.setDescription(poiDescription);
+        trackManager = new TrackManager();
+        CurrentRecordingTrack.getTrack().addPoi(poi);
+        trackManager.updateTrack();
+    }
 }

@@ -2,6 +2,7 @@ package BLL;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Models.Coordinate;
@@ -24,6 +25,18 @@ public class PODManager{
         trackManager = new TrackManager();
         coordinate = CurrentRecordingTrack.getTrack().getCoordinates().get(CurrentRecordingTrack.getTrack().getCoordinates().size()-1);
         pod = new POD(poiName, poiDescription, photo, coordinate);
+        for (Difficulty difficulty: difficultyList) {
+            pod.addDifficulty(difficulty);
+        }
+        CurrentRecordingTrack.getTrack().addPod(pod);
+        trackManager.updateTrack();
+    }
+    //This function update a POD
+    public void updatePod(String poiName, String poiDescription, List<Difficulty> difficultyList, POD pod) {
+        trackManager = new TrackManager();
+        pod.setName(poiName);
+        pod.setDescription(poiDescription);
+        pod.setDifficulties(new ArrayList<Difficulty>());
         for (Difficulty difficulty: difficultyList) {
             pod.addDifficulty(difficulty);
         }

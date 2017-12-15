@@ -2,38 +2,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ch.hes.santour.CreatePoiFragment">
+    tools:context="ch.hes.santour.UpdatePodFragment">
 
     <EditText
-        android:id="@+id/et_poi_name"
+        android:id="@+id/et_pod_name"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@android:color/transparent"
-        android:hint="@string/poi_name"
+        android:hint="@string/pod_name"
         android:textAlignment="center"
-        android:textColor="@color/textTitle"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:textColor="@color/textTitle"
         android:singleLine="true"  />
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_poi_name"
+        android:layout_below="@+id/et_pod_name"
         android:orientation="horizontal"
         android:weightSum="1"
-        android:id="@+id/linearlayout_create_poi1">
+        android:id="@+id/linearlayout_create_pod1">
 
 
         <ImageButton
-            android:id="@+id/ib_poi_take_picture"
+            android:id="@+id/ib_pod_picture"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_below="@+id/et_poi_name"
+            android:layout_below="@+id/et_pod_name"
             android:layout_weight="1"
             android:background="@color/img"
             android:src="@drawable/ic_photo_camera"
@@ -41,18 +40,19 @@
             />
     </LinearLayout>
 
+
     <LinearLayout
-        android:id="@+id/linearlayout_create_poi2"
+        android:id="@+id/linearlayout_create_pod2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linearlayout_create_poi1"
+        android:layout_below="@id/linearlayout_create_pod1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:weightSum="2">
 
         <TextView
-            android:id="@+id/tv_poi_gps_data_longitude"
+            android:id="@+id/tv_pod_gps_data_longitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
@@ -66,7 +66,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/tv_poi_gps_data_latitude"
+            android:id="@+id/tv_pod_gps_data_latitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -81,11 +81,12 @@
 
     </LinearLayout>
 
+
     <EditText
-        android:id="@+id/et_poi_description"
+        android:id="@+id/et_pod_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_create_poi2"
+        android:layout_below="@+id/linearlayout_create_pod2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
@@ -97,10 +98,10 @@
         android:textSize="20dp" />
 
     <LinearLayout
-        android:id="@+id/linearlayout_create_poi3"
+        android:id="@+id/linearlayout_create_pod3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/et_poi_description"
+        android:layout_below="@id/et_pod_description"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -108,28 +109,28 @@
         android:gravity="bottom">
 
         <Button
-            android:id="@+id/bt_poi_cancel"
+            android:id="@+id/bt_pod_cancel"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@color/red"
             android:text="@string/cancel"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            />
 
         <Button
-            android:id="@+id/bt_poi_save"
+            android:id="@+id/bt_pod_next"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:background="@color/buttonNav"
-            android:text="@string/save"
+            android:text="@string/next"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            />
+            android:textSize="20dp" />
     </LinearLayout>
+
 
 </RelativeLayout>

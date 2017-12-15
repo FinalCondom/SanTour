@@ -1,14 +1,10 @@
 package ch.hes.santour;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,13 +16,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-
 import BLL.CurrentRecordingTrack;
 import BLL.PODManager;
+import Models.POD;
 
 
-public class CreatePodFragment extends Fragment {
+public class UpdatePodFragment extends Fragment {
 
     FragmentManager fragmentManager;
     Fragment fragment;
@@ -36,11 +31,11 @@ public class CreatePodFragment extends Fragment {
     private TextView podLatitude;
     private TextView podLongitude;
     private PODManager podManager;
-    private final int CAMERA_REQUEST = 1;
     private ImageButton imageButton;
-    private Bitmap photo;
+    private POD updatedPOD;
+    private int podIndex;
 
-    public CreatePodFragment() {
+    public UpdatePodFragment() {
         // Required empty public constructor
     }
 
@@ -49,7 +44,6 @@ public class CreatePodFragment extends Fragment {
         super.onAttach(context);
         ((MainActivity)getActivity()).pauseTimer();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,23 +56,28 @@ public class CreatePodFragment extends Fragment {
 
         //to see the menu on the top
         setHasOptionsMenu(true);
+        imageButton = rootView.findViewById(R.id.ib_pod_picture);
 
-
-        imageButton = rootView.findViewById(R.id.ib_pod_take_picture);
         //We set up pod informations
         podName = rootView.findViewById(R.id.et_pod_name);
         podDescription = rootView.findViewById(R.id.et_pod_description);
         podManager = new PODManager();
         podLatitude = rootView.findViewById(R.id.tv_pod_gps_data_latitude);
         podLongitude = rootView.findViewById(R.id.tv_pod_gps_data_longitude);
+        Bundle bundle = getArguments();
 
-        if(CurrentRecordingTrack.getTrack()!=null){
-            podLatitude.setText(String.valueOf(((MainActivity)getActivity()).getActualLocation().getLatitude()));
-            podLongitude.setText(String.valueOf(((MainActivity)getActivity()).getActualLocation().getLongitude()));
+        if (bundle != null){
+            podIndex= bundle.getInt("podIndex");
+            updatedPOD = CurrentRecordingTrack.getTrack().getPODs().get(podIndex);
+            podName.setText(updatedPOD.getName());
+            podDescription.setText(updatedPOD.getDescription());
+            imageButton.setImageBitmap(updatedPOD.getPicture());
+            podLatitude.setText(String.valueOf(updatedPOD.getCoordinate().getLatitude()));
+            podLongitude.setText(String.valueOf(updatedPOD.getCoordinate().getLongitude()));
         }
 
         //set the title on the app
-        getActivity().setTitle(R.string.create_pod);
+        getActivity().setTitle(R.string.update_pod);
 
 
         // button CANCEL
@@ -94,18 +93,6 @@ public class CreatePodFragment extends Fragment {
             }
         });
 
-        // button Picture
-        ImageButton ib_pod_take_picture =  rootView.findViewById(R.id.ib_pod_take_picture);
-        ib_pod_take_picture.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,CAMERA_REQUEST);
-            }
-        });
-
-
-
         // button NEXT
         Button bt_pod_next =  rootView.findViewById(R.id.bt_pod_next);
         bt_pod_next.setOnClickListener(new View.OnClickListener() {
@@ -120,40 +107,23 @@ public class CreatePodFragment extends Fragment {
                     //if no name has been written, we will display a message
                     Toast.makeText(rootView.getContext(), R.string.pod_no_description_msg, Toast.LENGTH_SHORT).show();
                 }
-                else if(photo == null) {
-                    //if no name has been written, we will display a message
-                    Toast.makeText(rootView.getContext(), R.string.pod_no_image_msg, Toast.LENGTH_SHORT).show();
-                }
                 else{
-                    Bundle bundle = new Bundle();
-                    bundle.putString("podName", podName.getText().toString());
-                    bundle.putString("podDescription", podDescription.getText().toString());
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    byte[] byteArray = stream.toByteArray();
-                    bundle.putByteArray("photo", byteArray);
-                    fragmentManager = getFragmentManager();
-                    fragment = new UpdateDetailsPodFragment();
-                    fragment.setArguments(bundle);
-                    transaction = fragmentManager.beginTransaction();
-                    transaction.addToBackStack(null);
-                    transaction.replace(R.id.main_container, fragment).commit();
+                    if(podIndex!=-1) {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("podIndex", podIndex);
+                        bundle.putString("podName", podName.getText().toString());
+                        bundle.putString("podDescription", podDescription.getText().toString());
+                        fragmentManager = getFragmentManager();
+                        fragment = new UpdateDetailsPodFragment();
+                        fragment.setArguments(bundle);
+                        transaction = fragmentManager.beginTransaction();
+                        transaction.addToBackStack(null);
+                        transaction.replace(R.id.main_container, fragment).commit();
+                    }
                 }
             }
         });
         return rootView;
-    }
-
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-
-            Bundle extras = data.getExtras();
-            photo = (Bitmap) extras.get("data");
-
-            imageButton.setImageBitmap(photo);
-        }
     }
 
     @Override

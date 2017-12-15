@@ -2,7 +2,6 @@
     <string name="app_name" translatable="false">SanTour</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="google_maps_key">AIzaSyArpGeA_rmBS_k7zYJhNoXQPODdM2wLpVk</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="home_no_track_recording">No track currently recording</string>
@@ -17,6 +16,7 @@
     <string name="track_name">Track name</string>
     <string name="create_track">Create track</string>
     <string name="create_poi">Create POI</string>
+    <string name="update_poi">Update POI</string>
     <string name="pod_details">Details POD</string>
     <string name="pod_added">POD added</string>
     <string name="poi_added">POI added</string>
@@ -24,6 +24,7 @@
     <string name="track_current_location">Your current location</string>
     <string name="track_created">Track created !</string>
     <string name="create_pod">Create POD</string>
+    <string name="update_pod">Update POD</string>
     <string name="pod_name">POD name</string>
     <string name="poi_name">POI name</string>
     <string name="name">Name</string>
@@ -48,13 +49,6 @@
     <string name="english">English</string>
     <string name="german">German</string>
     <string name="about">About</string>
-
-
-
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="msp_info_title">current location</string>
     <string name="map_info_snippet">this is your location</string>
@@ -62,5 +56,4 @@
     <string name="pod_no_description_msg">Please insert a POD description</string>
     <string name="poi_no_description_msg">Please insert a POI description</string>
     <string name="user">User</string>
-
 </resources>

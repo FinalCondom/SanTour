@@ -2,25 +2,19 @@ package ch.hes.santour;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import BLL.CurrentRecordingTrack;
 
@@ -59,7 +53,7 @@ public class PoiPodListFragment extends Fragment {
             public void onClick(View v) {
 
                 fragmentManager = getFragmentManager();
-                fragment = new CreatePodFragment();
+                fragment = new UpdatePodFragment();
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
