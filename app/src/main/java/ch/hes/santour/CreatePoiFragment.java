@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import BLL.CurrentRecordingTrack;
 import BLL.POIManager;
@@ -88,26 +89,27 @@ public class CreatePoiFragment extends Fragment {
 
             public void onClick(View v) {
                 //TODO remove the comments to manage errors
-//                if (poiName.getText().toString().equals("")){
-//                    //if no name has been written, we will display a message
-//                    Toast.makeText(rootView.getContext(), R.string.poi_no_name_msg, Toast.LENGTH_SHORT).show();
-//                }
-//                else if(poiDescription.getText().toString().equals("")){
-//                    //if no name has been written, we will display a message
-//                    Toast.makeText(rootView.getContext(), R.string.poi_no_description_msg, Toast.LENGTH_SHORT).show();
-//                }
-//                else if(photo == null) {
-//                    //if no name has been written, we will display a message
-//                    Toast.makeText(rootView.getContext(), R.string.poi_no_image_msg, Toast.LENGTH_SHORT).show();
-//                }
-//                else{
+                if (poiName.getText().toString().equals("")){
+                    //if no name has been written, we will display a message
+                    Toast.makeText(rootView.getContext(), R.string.poi_no_name_msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(poiDescription.getText().toString().equals("")){
+                    //if no name has been written, we will display a message
+                    Toast.makeText(rootView.getContext(), R.string.poi_no_description_msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(photo == null) {
+                    //if no name has been written, we will display a message
+                    Toast.makeText(rootView.getContext(), R.string.poi_no_image_msg, Toast.LENGTH_SHORT).show();
+                }
+                else{
                 //We restart the timer
 
                 ((MainActivity)getActivity()).restartTimer();
 
                 poiManager.createPOI(poiName.getText().toString(), poiDescription.getText().toString(), photo);
                 getFragmentManager().popBackStack();
-//                }
+                Toast.makeText(rootView.getContext(), R.string.poi_added, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

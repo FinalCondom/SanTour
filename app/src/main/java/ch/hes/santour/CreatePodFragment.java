@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,16 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
-import java.util.List;
 
 import BLL.CurrentRecordingTrack;
-import BLL.DifficultyManager;
 import BLL.PODManager;
-import Models.Difficulty;
 
 
 public class CreatePodFragment extends Fragment {
@@ -117,36 +112,35 @@ public class CreatePodFragment extends Fragment {
 
             public void onClick(View v) {
                 //TODO remove the comments to manage errors
-//                if (podName.getText().toString().equals("")){
-//                    //if no name has been written, we will display a message
-//                    Toast.makeText(rootView.getContext(), R.string.pod_no_name_msg, Toast.LENGTH_SHORT).show();
-//                }
-//                else if(podDescription.getText().toString().equals("")){
-//                    //if no name has been written, we will display a message
-//                    Toast.makeText(rootView.getContext(), R.string.pod_no_description_msg, Toast.LENGTH_SHORT).show();
-//                }
-//                else if(photo == null) {
-//                    //if no name has been written, we will display a message
-//                    Toast.makeText(rootView.getContext(), R.string.pod_no_image_msg, Toast.LENGTH_SHORT).show();
-//                }
-//                else{
-                Bundle bundle = new Bundle();
-                bundle.putString("podName", podName.getText().toString());
-                bundle.putString("podDescription", podDescription.getText().toString());
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-                bundle.putByteArray("photo", byteArray);
-                fragmentManager = getFragmentManager();
-                fragment = new DetailsPodFragment();
-                fragment.setArguments(bundle);
-                transaction = fragmentManager.beginTransaction();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.main_container, fragment).commit();
+                if (podName.getText().toString().equals("")){
+                    //if no name has been written, we will display a message
+                    Toast.makeText(rootView.getContext(), R.string.pod_no_name_msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(podDescription.getText().toString().equals("")){
+                    //if no name has been written, we will display a message
+                    Toast.makeText(rootView.getContext(), R.string.pod_no_description_msg, Toast.LENGTH_SHORT).show();
+                }
+                else if(photo == null) {
+                    //if no name has been written, we will display a message
+                    Toast.makeText(rootView.getContext(), R.string.pod_no_image_msg, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Bundle bundle = new Bundle();
+                    bundle.putString("podName", podName.getText().toString());
+                    bundle.putString("podDescription", podDescription.getText().toString());
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+                    bundle.putByteArray("photo", byteArray);
+                    fragmentManager = getFragmentManager();
+                    fragment = new DetailsPodFragment();
+                    fragment.setArguments(bundle);
+                    transaction = fragmentManager.beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.main_container, fragment).commit();
+                }
             }
-            //    }
         });
-
         return rootView;
     }
 

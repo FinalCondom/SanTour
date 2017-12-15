@@ -10,7 +10,10 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -77,16 +80,17 @@ public class DetailsPodFragment extends Fragment {
                     String podDescription = bundle.getString("podDescription");
                     byte[] byteArray = bundle.getByteArray("photo");
                     Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                    podManager.createPOD(podName, podDescription, photo);
+                    List<Difficulty>difficulties = getDifficulties();
 
+                    podManager.createPOD(podName, podDescription, photo, difficulties);
                 }
 
                 //We restart the timer
                 ((MainActivity) getActivity()).restartTimer();
 
                 getFragmentManager().popBackStack();
-                getFragmentManager().popBackStack("track", 0);
-
+                getFragmentManager().popBackStack();
+                Toast.makeText(rootView.getContext(), R.string.poi_added, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,6 +102,22 @@ public class DetailsPodFragment extends Fragment {
         menu.clear();
         inflater.inflate(R.menu.language, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private List<Difficulty>getDifficulties(){
+        List<Difficulty>difficulties = new ArrayList<>();
+        for(int i=0; i<mListView.getCount(); i++){
+            View v = mListView.getChildAt(i);
+            CheckBox checkBox = v.findViewById(R.id.checkboxPodDetails);
+            SeekBar seekBar = v.findViewById(R.id.sb_pod_details_horizontal);
+            if(checkBox.isChecked()){
+                difficulties.add(new Difficulty(
+                        checkBox.getText().toString(),
+                        seekBar.getProgress()
+                ));
+            }
+        }
+        return difficulties;
     }
 
     private void showDetailsList() {

@@ -25,14 +25,11 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-import java.util.List;
 import java.util.Locale;
 
 import BLL.CoordinateManager;
 import BLL.CurrentRecordingTrack;
-import BLL.DifficultyManager;
 import BLL.TrackManager;
-import Models.Difficulty;
 
 public class MainActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 

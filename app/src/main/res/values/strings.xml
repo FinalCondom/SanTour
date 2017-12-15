@@ -18,8 +18,11 @@
     <string name="create_track">Create track</string>
     <string name="create_poi">Create POI</string>
     <string name="pod_details">Details POD</string>
+    <string name="pod_added">POD added</string>
+    <string name="poi_added">POI added</string>
     <string name="poi_pod_list">POI-POD List</string>
     <string name="track_current_location">Your current location</string>
+    <string name="track_created">Track created !</string>
     <string name="create_pod">Create POD</string>
     <string name="pod_name">POD name</string>
     <string name="poi_name">POI name</string>

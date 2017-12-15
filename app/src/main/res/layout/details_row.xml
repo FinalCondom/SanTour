@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="10dp" >
-
-
-
     <CheckBox
         android:id="@+id/checkboxPodDetails"
         android:layout_width="wrap_content"
@@ -14,13 +11,13 @@
         android:textSize="25dp" />
 
     <SeekBar
-        android:id="@+id/sb_pod_details_vertical"
+        android:id="@+id/sb_pod_details_horizontal"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/checkboxPodDetails"
-        android:max="100"
+        android:max="10"
         android:min="1"
         android:progress="0" />
 
