@@ -85,6 +85,20 @@ public class HomeFragement extends Fragment {
             }
         });
 
+        // button settings
+        Button btnSettings =  rootView.findViewById(R.id.bt_settings);
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                fragmentManager = getFragmentManager();
+                fragment = new SettingsFragment();
+                transaction = fragmentManager.beginTransaction();
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.main_container, fragment).commit();
+            }
+        });
+
         return rootView ;
     }
 
