@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -21,7 +22,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -30,12 +30,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import BLL.CoordinateManager;
 import BLL.CurrentRecordingTrack;
 import BLL.TrackManager;
 
-public class CreateTrackFragment extends Fragment implements OnMapReadyCallback, LocationListener {
+public class CreateTrackFragment extends Fragment implements OnMapReadyCallback {
 
     FragmentManager fragmentManager;
     Fragment fragment;
@@ -44,6 +46,8 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
     //Google Map
     private GoogleMap mMap;
     private Marker currentLocationMarker;
+    private Polyline polyline;
+    private PolylineOptions rectOptions = new PolylineOptions().width(10).color(Color.BLUE);
     private static final int REQUEST_LOCATION_CODE = 9;
     private MapView mapView;
 
@@ -72,10 +76,8 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
 
         coordinateManager = new CoordinateManager();
 
-
         //set the title on the app
         getActivity().setTitle(R.string.create_track);
-
 
         //MAP
         mapView = rootView.findViewById(R.id.mapView);
@@ -97,6 +99,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
             kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
             chronometer.setBase(((MainActivity)getActivity()).getChronometer().getBase());
             chronometer.start();
+
         }else{
             ((MainActivity)getActivity()).setChronometer(chronometer);
         }
@@ -129,6 +132,11 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
                     transaction = fragmentManager.beginTransaction();
                     transaction.addToBackStack(null);
                     transaction.replace(R.id.main_container, fragment).commit();
+
+
+
+                    //méthode pour changer la précision et vitesse
+                    ((MainActivity)getActivity()).setConnection(1,3);
                 }
             }
         });
@@ -211,8 +219,8 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
             chronometer.setBase(((MainActivity) getActivity()).getChronometer().getBase());
             chronometer.start();
             trackNameEditText.setText(CurrentRecordingTrack.getTrack().getName());
-                    kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
-        }
+            kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
+            }
         mapView.onResume();
         super.onResume();
     }
@@ -225,8 +233,10 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
         {
             ((MainActivity)getActivity()).buildGoogleAPIClient();
             mMap.setMyLocationEnabled(true);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(46.220556,7.514504)));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(8));
+            if( ((MainActivity) getActivity()).getActualLocation()!= null)
+            {
+                ZoomMap( ((MainActivity) getActivity()).getActualLocation());
+            }
         }
     }
 
@@ -237,23 +247,46 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback,
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    //This function Update the map
-    @Override
-    public void onLocationChanged(Location location) {
+    public void ZoomMap(Location location)
+    {
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(),location.getLongitude())));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+    }
+
+    public void updateMap(Location location)
+    {
         if(isAdded()) {
             if (currentLocationMarker != null) {
                 currentLocationMarker.remove();
             }
 
+            if(polyline !=null)
+            {
+                polyline.remove();
+            }
+
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
 
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);
             markerOptions.title(getResources().getString(R.string.track_current_location));
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
+            //Add the location to the polyline
+            rectOptions.add(latLng);
+            rectOptions.visible(true);
+
+            // Get back the mutable Polyline
+            polyline = mMap.addPolyline(rectOptions);
+
+            //Add marker at the actual location
             currentLocationMarker = mMap.addMarker(markerOptions);
 
+            //Set the text of the button
+            kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
+
+            //Move the camera to the new location
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         }
     }

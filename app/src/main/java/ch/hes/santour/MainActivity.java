@@ -13,6 +13,7 @@ import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     private double distance;
     private TrackManager trackManager;
     private CoordinateManager coordinateManager;
+
+    //Change location precision and delay
+    private int choosedTime = 10000;
+    private int choosedPrecision = locationRequest.PRIORITY_BALANCED_POWER_ACCURACY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,26 +144,73 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
             }
      }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onLocationChanged(Location location) {
-        actualLocation = location;
 
-        if(lastLocation == null)
-            lastLocation = actualLocation;
+        Fragment frag = getFragmentManager().findFragmentByTag("track");
 
-        if (isRecording == true) {
-            calculeDistance();
-
-            trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
+        if(isRecording == false)
+        {
+            ((CreateTrackFragment) frag).ZoomMap(location);
         }
+
+            actualLocation = location;
+
+
+            if (lastLocation == null)
+                lastLocation = actualLocation;
+
+            if (isRecording == true) {
+                calculeDistance();
+                trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
+
+                if(frag!=null)
+                {
+                    ((CreateTrackFragment) frag).updateMap(location);
+                }
+            }
+    }
+
+    public void setConnection(int time, int precision)
+    {
+        switch (time)
+        {
+            case 1:
+                choosedTime = 1000;
+                break;
+            case 2:
+                choosedTime = 5000;
+                break;
+            case 3:
+                choosedTime = 10000;
+                break;
+        }
+        switch (precision)
+        {
+            case 1:
+                choosedPrecision = locationRequest.PRIORITY_LOW_POWER;
+                break;
+            case 2:
+                choosedPrecision = locationRequest.PRIORITY_BALANCED_POWER_ACCURACY;
+                break;
+            case 3:
+                choosedPrecision = locationRequest.PRIORITY_HIGH_ACCURACY;
+                break;
+        }
+
+        locationRequest.setInterval(choosedTime);
+        locationRequest.setFastestInterval(choosedTime);
+        locationRequest.setPriority(choosedPrecision);
+
     }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         locationRequest = new LocationRequest();
-        locationRequest.setInterval(10000);
-        locationRequest.setFastestInterval(10000);
-        locationRequest.setPriority(locationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        locationRequest.setInterval(choosedTime);
+        locationRequest.setFastestInterval(choosedTime);
+        locationRequest.setPriority(choosedPrecision);
 
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
