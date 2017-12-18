@@ -107,9 +107,10 @@
     <LinearLayout
         android:id="@+id/linearlayout_create_track3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/linearlayout_create_track2"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
         android:gravity="bottom|center_horizontal"
         android:weightSum="2">
 

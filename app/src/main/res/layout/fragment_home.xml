@@ -1,4 +1,4 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_container"
@@ -14,76 +14,85 @@
         android:src="@drawable/mountain"
         tools:ignore="MissingConstraints"
         android:scaleType="fitXY"
-
         />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        >
 
     <Button
         android:id="@+id/createTrack"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:background="@color/green"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/create_track"
         android:textColor="@color/white"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="63dp" />
+        android:layout_weight="1"
+        />
 
     <Button
         android:id="@+id/CreatePoiPod"
-        android:layout_width="135dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginBottom="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:background="@color/green"
         android:text="Create POI-POD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createTrack"
+        android:layout_below="@id/createTrack"
         android:textColor="@color/white"
         android:textSize="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_weight="1"
         />
 
     <Button
         android:id="@+id/POIPODList"
-        android:layout_width="135dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:background="@color/green"
         android:text="@string/poi_pod_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreatePoiPod"
+        android:layout_below="@id/CreatePoiPod"
         android:textColor="@color/white"
         android:textSize="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_weight="1"
+
         />
 
     <Button
         android:id="@+id/about"
-        android:layout_width="135dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@color/green"
         android:text="@string/about"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/POIPODList"
+        android:layout_below="@id/POIPODList"
         android:textColor="@color/white"
         android:textSize="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_weight="1"
         />
 
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>

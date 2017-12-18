@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.hes.santour.SettingsFragment">
+
+    <TextView
+        android:id="@+id/tv_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textColor="@color/textTitle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_settings"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearlayout_settings_precision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearlayout_settings"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_settings_precision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/precision"
+                android:textColor="@color/textTitle"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+
+            <CheckBox
+                android:id="@+id/checkbox_precision_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="@string/low"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+            <CheckBox
+                android:id="@+id/checkbox_precision_middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="@string/middle"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+            <CheckBox
+                android:id="@+id/checkbox_precision_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="@string/high"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearlayout_settings_syncro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearlayout_settings_precision"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_settings_syncro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/syncro"
+                android:textColor="@color/textTitle"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+
+            <CheckBox
+                android:id="@+id/checkbox_syncro_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="5"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+            <CheckBox
+                android:id="@+id/checkbox_syncro_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="10"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+            <CheckBox
+                android:id="@+id/checkbox_syncro_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="15"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
