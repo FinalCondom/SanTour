@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:alpha="0.7"
         android:src="@drawable/mountain"
         tools:ignore="MissingConstraints"
@@ -19,20 +19,17 @@
 
     <Button
         android:id="@+id/createTrack"
-        android:layout_width="135dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
         android:background="@color/green"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="@string/create_track"
-        app:layout_constraintHorizontal_bias="0.177"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
         android:textColor="@color/white"
         android:textSize="15dp"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="63dp" />
 
     <Button
         android:id="@+id/CreatePoiPod"
