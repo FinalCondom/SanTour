@@ -20,7 +20,7 @@
         android:id="@+id/linearlayout_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="4"
+        android:weightSum="5"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         android:orientation="vertical"
@@ -51,7 +51,6 @@
         android:paddingRight="20dp"
         android:background="@color/green"
         android:text="Create POI-POD"
-        android:layout_below="@id/createTrack"
         android:textColor="@color/white"
         android:textSize="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
@@ -67,7 +66,6 @@
         android:paddingRight="20dp"
         android:background="@color/green"
         android:text="@string/poi_pod_list"
-        android:layout_below="@id/CreatePoiPod"
         android:textColor="@color/white"
         android:textSize="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
@@ -84,12 +82,26 @@
         android:layout_marginBottom="40dp"
         android:background="@color/green"
         android:text="@string/about"
-        android:layout_below="@id/POIPODList"
         android:textColor="@color/white"
         android:textSize="15dp"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_weight="1"
         />
+
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/green"
+            android:text="@string/settings"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_weight="1"
+            />
 
     </LinearLayout>
 
