@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,7 +17,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+
 import BLL.CurrentRecordingTrack;
+import Models.Difficulty;
 
 public class PoiPodListFragment extends Fragment {
     private ListView mListView;
@@ -53,7 +56,7 @@ public class PoiPodListFragment extends Fragment {
             public void onClick(View v) {
 
                 fragmentManager = getFragmentManager();
-                fragment = new UpdatePodFragment();
+                fragment = new CreatePodFragment();
                 transaction = fragmentManager.beginTransaction();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.main_container, fragment).commit();
@@ -89,9 +92,8 @@ public class PoiPodListFragment extends Fragment {
             ListPoiAdapter adapter = new ListPoiAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPOIs());
             mListView.setAdapter(adapter);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
                 @Override
-                public void onItemClick(AdapterView arg0, View view, int position, long id) {
+                public void onItemClick(AdapterView arg0, View view, final int position, long id) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                     alert.setTitle("Details of "+CurrentRecordingTrack.getTrack().getPOIs().get(position).getName());
                     alert.setMessage("Coordinates" +"\n"+
@@ -110,47 +112,25 @@ public class PoiPodListFragment extends Fragment {
                                     dialog.dismiss();
                                 }
                             });
+                    alert.setNeutralButton("Edit",
+                            new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    Bundle bundle = new Bundle();
+                                    bundle.putInt("poiIndex", position);
+                                    fragmentManager = getFragmentManager();
+                                    fragment = new UpdatePoiFragment();
+                                    fragment.setArguments(bundle);
+                                    transaction = fragmentManager.beginTransaction();
+                                    transaction.addToBackStack(null);
+                                    transaction.replace(R.id.main_container, fragment).commit();
+                                    dialog.dismiss();
+                                }
+                            });
                     alert.show();
                 }
             });
-           /* mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
-
-                    final Bitmap pic = CurrentRecordingTrack.getTrack().getPOIs().get(position).getPicture();
-                    final AlertDialog dialog = builder.create();
-
-                    LayoutInflater inflater = getActivity().getLayoutInflater();
-                    final View dialogLayout = inflater.inflate(R.layout.dialog_image, null);
-
-                    dialog.setView(dialogLayout);
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    dialog.setCanceledOnTouchOutside(true);
-
-                    dialog.setOnShowListener(new DialogInterface.OnShowListener() {
-                        @Override
-                        public void onShow(DialogInterface d) {
-                            ImageView image = dialogLayout.findViewById(R.id.imageLongPressed);
-                            image.setImageBitmap(pic);
-                            float imageWidthInPX = (float)image.getWidth();
-
-                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Math.round(imageWidthInPX),
-                                    Math.round(imageWidthInPX * (float)pic.getHeight() / (float)pic.getWidth()));
-                            image.setLayoutParams(layoutParams);
-
-
-                        }});
-                    dialog.show();
-                    return true;
-                }
-            });*/
         }
     }
     private void showPodList() {
@@ -158,17 +138,21 @@ public class PoiPodListFragment extends Fragment {
             ListPodAdapter adapter = new ListPodAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPODs());
             mListView.setAdapter(adapter);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
                 @Override
-                public void onItemClick(AdapterView arg0, View view, int position, long id) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                    alert.setTitle("Details of "+CurrentRecordingTrack.getTrack().getPODs().get(position).getName());
-                    alert.setMessage("Coordinates" +"\n"+
+                public void onItemClick(AdapterView arg0, View view, final int position, long id) {
+                    String message = "Coordinates" +"\n"+
                             "Latitude : " + CurrentRecordingTrack.getTrack().getPODs().get(position).getCoordinate().getLatitude()+"\n"+
                             "Longitude : "+CurrentRecordingTrack.getTrack().getPODs().get(position).getCoordinate().getLongitude()+"\n"+"\n"+
                             "Description"+"\n"+
-                            CurrentRecordingTrack.getTrack().getPODs().get(position).getDescription()
-                    );
+                            CurrentRecordingTrack.getTrack().getPODs().get(position).getDescription()+"\n"+"\n"+
+                            "Categories"+"\n";
+                    for (Difficulty difficulty: CurrentRecordingTrack.getTrack().getPODs().get(position).getDifficulties()
+                         ) {
+                        message+= difficulty.getName()+" : " + difficulty.getGradient()+"\n";
+                    }
+                    AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                    alert.setTitle("Details of "+CurrentRecordingTrack.getTrack().getPODs().get(position).getName());
+                    alert.setMessage(message);
                     Drawable d = new BitmapDrawable(getResources(), CurrentRecordingTrack.getTrack().getPODs().get(position).getPicture());
                     alert.setIcon(d);
                     alert.setPositiveButton(R.string.ok,
@@ -179,39 +163,25 @@ public class PoiPodListFragment extends Fragment {
                                     dialog.dismiss();
                                 }
                             });
+                    alert.setNeutralButton("Edit",
+                            new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    Bundle bundle = new Bundle();
+                                    bundle.putInt("podIndex", position);
+                                    fragmentManager = getFragmentManager();
+                                    fragment = new UpdatePodFragment();
+                                    fragment.setArguments(bundle);
+                                    transaction = fragmentManager.beginTransaction();
+                                    transaction.addToBackStack(null);
+                                    transaction.replace(R.id.main_container, fragment).commit();
+                                    dialog.dismiss();
+                                }
+                    });
                     alert.show();
                 }
             });
-           /* mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
-
-                    AlertDialog dialog = builder.create();
-
-                    LayoutInflater inflater = getActivity().getLayoutInflater();
-                    View dialogLayout = inflater.inflate(R.layout.dialog_image, null);
-
-                    dialog.setView(dialogLayout);
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    dialog.setCanceledOnTouchOutside(true);
-
-                    ImageView image = dialogLayout.findViewById(R.id.imageLongPressed);
-                    Log.d(TAG,CurrentRecordingTrack.getTrack().getPODs().get(0).getPicture().getHeight()+" TESTEST");
-                    image.setImageBitmap(CurrentRecordingTrack.getTrack().getPODs().get(position).getPicture());
-
-                    dialog.show();
-
-
-                    return true;
-                }
-            });*/
         }
     }
 }

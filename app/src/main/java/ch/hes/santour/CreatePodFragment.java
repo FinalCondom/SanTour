@@ -133,7 +133,7 @@ public class CreatePodFragment extends Fragment {
                     byte[] byteArray = stream.toByteArray();
                     bundle.putByteArray("photo", byteArray);
                     fragmentManager = getFragmentManager();
-                    fragment = new UpdateDetailsPodFragment();
+                    fragment = new DetailsPodFragment();
                     fragment.setArguments(bundle);
                     transaction = fragmentManager.beginTransaction();
                     transaction.addToBackStack(null);

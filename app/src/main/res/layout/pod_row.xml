@@ -31,7 +31,7 @@
         tools:text="Dexcription"
         android:textSize="15dp"/>
 
-    <ImageButton
+    <!--ImageButton
         android:id="@+id/ib_pod_list_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_marginLeft="30dp"
         android:layout_toEndOf="@+id/description"
         android:background="@null"
-        android:src="@drawable/ic_edit" />
+        android:src="@drawable/ic_edit" /-->
 
 
 </RelativeLayout>

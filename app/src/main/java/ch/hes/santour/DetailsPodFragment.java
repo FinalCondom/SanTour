@@ -90,7 +90,7 @@ public class DetailsPodFragment extends Fragment {
 
                 getFragmentManager().popBackStack();
                 getFragmentManager().popBackStack();
-                Toast.makeText(rootView.getContext(), R.string.poi_added, Toast.LENGTH_SHORT).show();
+                Toast.makeText(rootView.getContext(), R.string.pod_added, Toast.LENGTH_SHORT).show();
             }
         });
 
