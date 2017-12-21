@@ -30,7 +30,6 @@ public class POIManager {
         poi.setName(poiName);
         poi.setDescription(poiDescription);
         trackManager = new TrackManager();
-        CurrentRecordingTrack.getTrack().addPoi(poi);
         trackManager.updateTrack();
     }
 }

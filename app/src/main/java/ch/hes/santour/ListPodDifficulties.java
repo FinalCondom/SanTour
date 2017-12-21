@@ -42,6 +42,11 @@ public class ListPodDifficulties extends ArrayAdapter<Difficulty> {
         //getItem(position) va récupérer l'item [position]
         Difficulty difficulty = getItem(position);
         viewHolder.checkboxPodDetails.setText(difficulty.getName());
+        if(difficulty.getGradient()>0){
+            viewHolder.checkboxPodDetails.setChecked(true);
+            viewHolder.seekBarPodDetails = convertView.findViewById(R.id.sb_pod_details_horizontal);
+            viewHolder.seekBarPodDetails.setProgress(difficulty.getGradient());
+        }
 
         return convertView;
     }

@@ -75,6 +75,9 @@ public class DetailsPodFragment extends Fragment {
 
             public void onClick(View v) {
                 Bundle bundle = getArguments();
+                //We restart the timer
+                ((MainActivity) getActivity()).restartTimer();
+
                 if (bundle != null) {
                     String podName = bundle.getString("podName");
                     String podDescription = bundle.getString("podDescription");
@@ -84,9 +87,6 @@ public class DetailsPodFragment extends Fragment {
 
                     podManager.createPOD(podName, podDescription, photo, difficulties);
                 }
-
-                //We restart the timer
-                ((MainActivity) getActivity()).restartTimer();
 
                 getFragmentManager().popBackStack();
                 getFragmentManager().popBackStack();

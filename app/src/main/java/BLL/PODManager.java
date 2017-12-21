@@ -40,7 +40,6 @@ public class PODManager{
         for (Difficulty difficulty: difficultyList) {
             pod.addDifficulty(difficulty);
         }
-        CurrentRecordingTrack.getTrack().addPod(pod);
         trackManager.updateTrack();
     }
 }

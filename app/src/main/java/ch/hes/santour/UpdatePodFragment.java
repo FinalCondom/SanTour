@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -49,18 +50,18 @@ public class UpdatePodFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.fragment_create_pod, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_update_pod, container, false);
 
         //We pause the recording
         ((MainActivity)getActivity()).pauseTimer();
 
         //to see the menu on the top
         setHasOptionsMenu(true);
-        imageButton = rootView.findViewById(R.id.ib_pod_picture);
 
         //We set up pod informations
         podName = rootView.findViewById(R.id.et_pod_name);
         podDescription = rootView.findViewById(R.id.et_pod_description);
+        imageButton = rootView.findViewById(R.id.ib_pod_picture);
         podManager = new PODManager();
         podLatitude = rootView.findViewById(R.id.tv_pod_gps_data_latitude);
         podLongitude = rootView.findViewById(R.id.tv_pod_gps_data_longitude);
@@ -78,7 +79,6 @@ public class UpdatePodFragment extends Fragment {
 
         //set the title on the app
         getActivity().setTitle(R.string.update_pod);
-
 
         // button CANCEL
         Button bt_pod_cancel =  rootView.findViewById(R.id.bt_pod_cancel);

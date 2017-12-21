@@ -150,26 +150,27 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
         Fragment frag = getFragmentManager().findFragmentByTag("track");
 
-        if(isRecording == false)
-        {
-            ((CreateTrackFragment) frag).ZoomMap(location);
+        actualLocation = location;
+
+
+        if (lastLocation == null)
+            lastLocation = actualLocation;
+
+        if (isRecording) {
+            calculeDistance();
+            trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
         }
 
-            actualLocation = location;
-
-
-            if (lastLocation == null)
-                lastLocation = actualLocation;
-
-            if (isRecording == true) {
-                calculeDistance();
-                trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
-
-                if(frag!=null)
-                {
-                    ((CreateTrackFragment) frag).updateMap(location);
-                }
+        if(frag!=null)
+        {
+            if(!isRecording)
+            {
+                ((CreateTrackFragment) frag).ZoomMap(location);
+            }else{
+                ((CreateTrackFragment) frag).updateMap(location);
             }
+
+        }
     }
 
     public void setConnection(int time, int precision)

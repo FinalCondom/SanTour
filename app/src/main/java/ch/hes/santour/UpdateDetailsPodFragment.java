@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,7 +51,7 @@ public class UpdateDetailsPodFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.fragment_details_pod, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_update_details_pod, container, false);
         //to see the menu on the top
         setHasOptionsMenu(true);
 
@@ -69,7 +70,6 @@ public class UpdateDetailsPodFragment extends Fragment {
         }
 
         showDetailsList();
-        getInitialDifficulties();
         // button CANCEL
         Button bt_pod_details_cancel = rootView.findViewById(R.id.bt_pod_details_cancel);
         bt_pod_details_cancel.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +99,7 @@ public class UpdateDetailsPodFragment extends Fragment {
 
                 getFragmentManager().popBackStack();
                 getFragmentManager().popBackStack();
-                Toast.makeText(rootView.getContext(), R.string.poi_added, Toast.LENGTH_SHORT).show();
+                Toast.makeText(rootView.getContext(), R.string.pod_updated, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -111,21 +111,6 @@ public class UpdateDetailsPodFragment extends Fragment {
         menu.clear();
         inflater.inflate(R.menu.language, menu);
         super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    private void getInitialDifficulties(){
-        List<Difficulty>difficulties = updatedPod.getDifficulties();
-        for(int i=0; i<mListView.getCount(); i++){
-            View v = mListView.getChildAt(i);
-            CheckBox checkBox = v.findViewById(R.id.checkboxPodDetails);
-            SeekBar seekBar = v.findViewById(R.id.sb_pod_details_horizontal);
-            for(int j=0; j<difficulties.size(); j++) {
-                if (checkBox.getText().toString().equals(difficulties.get(j).getName())) {
-                    checkBox.setChecked(true);
-                    seekBar.setProgress(difficulties.get(j).getGradient());
-                }
-            }
-        }
     }
 
     private List<Difficulty>getDifficulties(){
@@ -149,12 +134,19 @@ public class UpdateDetailsPodFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listDifficultiesBD = new ArrayList<>();
+                List<Difficulty>difficulties = updatedPod.getDifficulties();
                 for (DataSnapshot diffDataSnapShot : dataSnapshot.getChildren()) {
                     Difficulty difficulty = diffDataSnapShot.getValue(Difficulty.class);
+                    for(int j=0; j<difficulties.size(); j++) {
+                        if (difficulty.getName().equals(difficulties.get(j).getName())) {
+                            difficulty.setGradient(difficulties.get(j).getGradient());
+                        }
+                    }
                     listDifficultiesBD.add(difficulty);
                 }
                 ListPodDifficulties adapter = new ListPodDifficulties(getActivity(), listDifficultiesBD);
                 mListView.setAdapter(adapter);
+
             }
 
             @Override

@@ -44,7 +44,7 @@ public class UpdatePoiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.fragment_create_poi, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_update_poi, container, false);
 
         //We pause the recording
         ((MainActivity)getActivity()).pauseTimer();
@@ -63,7 +63,8 @@ public class UpdatePoiFragment extends Fragment {
             updatedPOI = CurrentRecordingTrack.getTrack().getPOIs().get(poiIndex);
             poiName.setText(updatedPOI.getName());
             poiDescription.setText(updatedPOI.getDescription());
-            imageButton.setImageBitmap(updatedPOI.getPicture());
+            ImageButton ib_pod_take_picture =  rootView.findViewById(R.id.ib_poi_picture);
+            ib_pod_take_picture.setImageBitmap(updatedPOI.getPicture());
             poiLatitude.setText(String.valueOf(updatedPOI.getCoordinate().getLatitude()));
             poiLongitude.setText(String.valueOf(updatedPOI.getCoordinate().getLongitude()));
         }
@@ -104,7 +105,7 @@ public class UpdatePoiFragment extends Fragment {
 
                     poiManager.updatePoi(poiName.getText().toString(), poiDescription.getText().toString(), updatedPOI);
                     getFragmentManager().popBackStack();
-                    Toast.makeText(rootView.getContext(), R.string.poi_added, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(rootView.getContext(), R.string.poi_updated, Toast.LENGTH_SHORT).show();
                 }
             }
         });

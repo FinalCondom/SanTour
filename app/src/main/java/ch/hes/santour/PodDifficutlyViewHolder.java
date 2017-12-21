@@ -1,6 +1,7 @@
 package ch.hes.santour;
 
 import android.widget.CheckBox;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
@@ -9,4 +10,5 @@ import android.widget.TextView;
 
  class PodDifficutlyViewHolder {
         public CheckBox checkboxPodDetails;
+        public SeekBar seekBarPodDetails;
 }
