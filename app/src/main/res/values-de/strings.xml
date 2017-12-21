@@ -41,4 +41,16 @@
     <string name="french">Französisch</string>
     <string name="english">Englisch</string>
     <string name="german">Deutsch</string>
+    <string name="home_no_track_recording">Kein Track, der gerade aufnimmt</string>
+    <string name="update_poi">"POI aktualisieren "</string>
+    <string name="pod_added">"POD hinzugefügt "</string>
+    <string name="poi_added">"POI hinzugefügt "</string>
+    <string name="track_created">"Track erstellt ! "</string>
+    <string name="update_pod">"POD aktualisieren "</string>
+    <string name="settings">Einstellungen</string>
+    <string name="precision">"Präzision der Karte "</string>
+    <string name="syncro">Synchronisation in Sekunden</string>
+    <string name="low">Niedrig</string>
+    <string name="middle">Mitte</string>
+    <string name="high">"hoch "</string>
 </resources>

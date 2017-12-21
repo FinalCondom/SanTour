@@ -37,8 +37,8 @@
                 android:textStyle="bold"
                 />
 
-            <CheckBox
-                android:id="@+id/checkbox_precision_low"
+            <RadioButton
+                android:id="@+id/rb_precision_low"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
@@ -48,8 +48,8 @@
                 android:layout_weight="1"
                 />
 
-            <CheckBox
-                android:id="@+id/checkbox_precision_middle"
+            <RadioButton
+                android:id="@+id/rb_precision_middle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
@@ -58,8 +58,8 @@
                 android:textSize="20dp"
                 android:layout_weight="1"
                 />
-            <CheckBox
-                android:id="@+id/checkbox_precision_high"
+            <RadioButton
+                android:id="@+id/rb_precision_high"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
@@ -94,8 +94,8 @@
                 android:textStyle="bold"
                 />
 
-            <CheckBox
-                android:id="@+id/checkbox_syncro_5"
+            <RadioButton
+                android:id="@+id/rb_syncro_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
@@ -105,8 +105,8 @@
                 android:layout_weight="1"
                 />
 
-            <CheckBox
-                android:id="@+id/checkbox_syncro_10"
+            <RadioButton
+                android:id="@+id/rb_syncro_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
@@ -115,8 +115,8 @@
                 android:textSize="20dp"
                 android:layout_weight="1"
                 />
-            <CheckBox
-                android:id="@+id/checkbox_syncro_15"
+            <RadioButton
+                android:id="@+id/rb_syncro_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
@@ -125,6 +125,8 @@
                 android:textSize="20dp"
                 android:layout_weight="1"
                 />
+
+
 
         </LinearLayout>
 

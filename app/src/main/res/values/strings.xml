@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">SanTour</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="google_maps_key">AIzaSyArpGeA_rmBS_k7zYJhNoXQPODdM2wLpVk</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="google_maps_key" translatable="false">AIzaSyArpGeA_rmBS_k7zYJhNoXQPODdM2wLpVk</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="home_no_track_recording">No track currently recording</string>
@@ -12,7 +12,7 @@
     <string name="poi_no_image_msg">Please insert an image for the POI</string>
     <string name="track_no_name_title">no track name</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main3">MainActivity3</string>
+    <string name="title_activity_main3" translatable="false">MainActivity3</string>
     <string name="track_name">Track name</string>
     <string name="create_track">Create track</string>
     <string name="create_poi">Create POI</string>
@@ -49,7 +49,7 @@
     <string name="english">English</string>
     <string name="german">German</string>
     <string name="about">About</string>
-    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_activity_navigation" translatable="false">NavigationActivity</string>
     <string name="msp_info_title">current location</string>
     <string name="map_info_snippet">this is your location</string>
     <string name="pick_place">Pick your place</string>
@@ -57,15 +57,11 @@
     <string name="poi_no_description_msg">Please insert a POI description</string>
     <string name="user">User</string>
     <string name="settings">Settings</string>
-    <string name="precision">Precision of the map</string>
-    <string name="syncro">Syncronization in seconds</string>
+    <string name="syncro">Synchronization in seconds</string>
     <string name="low">Low</string>
     <string name="middle">Middle</string>
     <string name="high">High</string>
+    <string name="precision">Precision of the map</string>
 
 
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
