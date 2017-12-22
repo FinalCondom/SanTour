@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.Locale;
 
@@ -34,7 +38,7 @@ import BLL.TrackManager;
 
 public class MainActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
-    private  static final int REQUEST_LOCATION_CODE = 9;
+    private static final int REQUEST_LOCATION_CODE = 9;
     private static boolean isRecording = false;
     private LocationRequest locationRequest;
     private GoogleApiClient client;
@@ -44,10 +48,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     private double distance;
     private TrackManager trackManager;
     private CoordinateManager coordinateManager;
+    private Polyline polyline;
+    private PolylineOptions rectOptions = new PolylineOptions().width(10).color(Color.BLUE);
 
     //Change location precision and delay
     private int choosedTime = 10000;
     private int choosedPrecision = locationRequest.PRIORITY_BALANCED_POWER_ACCURACY;
+    private int intPrecision;
+    private int intChoosedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,18 +73,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
         setContentView(R.layout.activity_main);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
     }
 
-    public void changeLanguage (String toLoad) {
+    public void changeLanguage(String toLoad) {
         Locale locale = new Locale(toLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         //noinspection deprecation
-        config.locale= locale;
+        config.locale = locale;
         //noinspection deprecation
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANGUAGE", toLoad).commit();
@@ -124,25 +131,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     }
 
     //Demande la localisation
-    public boolean checkLocationPermission()
-     {
-         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            {
-                if(ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION))
-                {
-                    ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_CODE);
-                }
-                else
-                {
-                    ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION_CODE);
-                }
+    public boolean checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_CODE);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_CODE);
+            }
             return false;
-            }
-            else
-            {
-                return true;
-            }
-     }
+        } else {
+            return true;
+        }
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -159,52 +159,65 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         if (isRecording) {
             calculeDistance();
             trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
+            SetPolyline(location);
         }
 
-        if(frag!=null)
-        {
-            if(!isRecording)
-            {
+        if (frag != null) {
+            if (!isRecording) {
                 ((CreateTrackFragment) frag).ZoomMap(location);
-            }else{
+            } else {
                 ((CreateTrackFragment) frag).updateMap(location);
             }
-
         }
+
     }
 
-    public void setConnection(int time, int precision)
-    {
-        switch (time)
-        {
-            case 1:
-                choosedTime = 1000;
-                break;
-            case 2:
-                choosedTime = 5000;
-                break;
-            case 3:
-                choosedTime = 10000;
-                break;
-        }
-        switch (precision)
-        {
+    public void DefineLocalisation(int precision, int time) {
+
+        switch (precision) {
             case 1:
                 choosedPrecision = locationRequest.PRIORITY_LOW_POWER;
+                intPrecision = 1;
                 break;
             case 2:
                 choosedPrecision = locationRequest.PRIORITY_BALANCED_POWER_ACCURACY;
+                intPrecision = 2;
                 break;
             case 3:
                 choosedPrecision = locationRequest.PRIORITY_HIGH_ACCURACY;
+                intPrecision = 3;
                 break;
         }
 
-        locationRequest.setInterval(choosedTime);
-        locationRequest.setFastestInterval(choosedTime);
-        locationRequest.setPriority(choosedPrecision);
+        switch (time) {
+            case 1:
+                choosedTime = 5000;
+                intChoosedTime = 1;
+                break;
+            case 2:
+                choosedTime = 10000;
+                intChoosedTime = 2;
+                break;
+            case 3:
+                choosedTime = 15000;
+                intChoosedTime = 3;
+                break;
+        }
 
+        if (locationRequest != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
+
+            locationRequest.setInterval(choosedTime);
+            locationRequest.setFastestInterval(choosedTime);
+            locationRequest.setPriority(choosedPrecision);
+
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            LocationServices.FusedLocationApi.requestLocationUpdates(client, locationRequest, this);
+        }
     }
+
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -291,6 +304,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    public void SetPolyline(Location location)
+    {
+
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+        //Add the location to the polyline
+        rectOptions.add(latLng);
+        rectOptions.visible(true);
+    }
+
+    public PolylineOptions GetPolyline()
+    {
+        return rectOptions;
+    }
+
     public void endTrack(){
         CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
     }
@@ -337,4 +365,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     public void setDistance(double distance) {
         this.distance = distance;
     }
+
+
+    public int getIntPrecision() {
+        return intPrecision;
+    }
+
+    public int getIntChoosedTime() {
+        return intChoosedTime;
+    }
+
 }

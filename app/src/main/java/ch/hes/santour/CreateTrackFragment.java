@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -47,9 +46,9 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
     private GoogleMap mMap;
     private Marker currentLocationMarker;
     private Polyline polyline;
-    private PolylineOptions rectOptions = new PolylineOptions().width(10).color(Color.BLUE);
     private static final int REQUEST_LOCATION_CODE = 9;
     private MapView mapView;
+    private PolylineOptions rectOptions;
 
     private TrackManager trackManager = new TrackManager();
     public final String TAG = "TAG";
@@ -134,10 +133,6 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     transaction.addToBackStack(null);
                     transaction.replace(R.id.main_container, fragment).commit();
 
-
-
-                    //méthode pour changer la précision et vitesse
-                    ((MainActivity)getActivity()).setConnection(1,3);
                 }
             }
         });
@@ -279,12 +274,13 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
             markerOptions.title(getResources().getString(R.string.track_current_location));
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
-            //Add the location to the polyline
-            rectOptions.add(latLng);
-            rectOptions.visible(true);
+            rectOptions = ((MainActivity)getActivity()).GetPolyline();
 
-            // Get back the mutable Polyline
-            polyline = mMap.addPolyline(rectOptions);
+            if(rectOptions != null)
+            {
+                // Get back the mutable Polyline
+                polyline = mMap.addPolyline(rectOptions);
+            }
 
             //Add marker at the actual location
             currentLocationMarker = mMap.addMarker(markerOptions);

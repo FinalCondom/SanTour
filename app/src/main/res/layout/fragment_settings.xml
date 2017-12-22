@@ -37,37 +37,42 @@
                 android:textStyle="bold"
                 />
 
-            <RadioButton
-                android:id="@+id/rb_precision_low"
-                android:layout_width="wrap_content"
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rb_group1"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="@string/low"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                />
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/rb_precision_middle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="@string/middle"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                />
-            <RadioButton
-                android:id="@+id/rb_precision_high"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="@string/high"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                />
+                <RadioButton
+                    android:id="@+id/rb_precision_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_weight="1"
+                    android:text="@string/low"
+                    android:textColor="@color/textColor"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_precision_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_weight="1"
+                    android:text="@string/middle"
+                    android:textColor="@color/textColor"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_precision_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_weight="1"
+                    android:text="@string/high"
+                    android:textColor="@color/textColor"
+                    android:textSize="20dp" />
+            </RadioGroup>
 
         </LinearLayout>
 
@@ -94,45 +99,57 @@
                 android:textStyle="bold"
                 />
 
-            <RadioButton
-                android:id="@+id/rb_syncro_5"
-                android:layout_width="wrap_content"
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rb_group2"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="5"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                />
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/rb_syncro_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="10"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                />
-            <RadioButton
-                android:id="@+id/rb_syncro_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="15"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                />
+                <RadioButton
+                    android:id="@+id/rb_syncro_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_weight="1"
+                    android:text="5"
+                    android:textColor="@color/textColor"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_syncro_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_weight="1"
+                    android:text="10"
+                    android:textColor="@color/textColor"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_syncro_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_weight="1"
+                    android:text="15"
+                    android:textColor="@color/textColor"
+                    android:textSize="20dp" />
+            </RadioGroup>
 
 
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/bt_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/bt_save"
+            android:layout_alignBottom="@+id/bt_save"
+            android:layout_alignStart="@+id/bt_save"
+            android:text="Save" />
+
     </LinearLayout>
-
-
 
 
 </RelativeLayout>
