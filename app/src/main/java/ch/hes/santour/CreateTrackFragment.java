@@ -157,6 +157,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                         ((MainActivity)getActivity()).getChronometer().start();
                         trackNameEditText.setEnabled(false);
                         kmButton.setText(String.valueOf(((MainActivity)getActivity()).getDistance()));
+
                     }else{
                         //if no name has been written, we will display a message
                         Toast.makeText(rootView.getContext(), R.string.track_no_name_msg, Toast.LENGTH_SHORT).show();
@@ -177,6 +178,9 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     chronometer.stop();
                     CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - ((MainActivity)getActivity()).getChronometer().getBase());
                     CurrentRecordingTrack.getTrack().setLength(((MainActivity)getActivity()).getDistance());
+                    trackNameEditText.setEnabled(true);
+                    trackNameEditText.setText("");
+                    kmButton.setText("KM");
                     trackManager.endTrack();
                     CurrentRecordingTrack.setTrack(null);
                     trackManager.clearTrack();
@@ -286,7 +290,9 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
             currentLocationMarker = mMap.addMarker(markerOptions);
 
             //Set the text of the button
-            kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
+            if(CurrentRecordingTrack.getTrack()!=null){
+                kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
+            }
 
             //Move the camera to the new location
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
