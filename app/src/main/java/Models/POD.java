@@ -67,6 +67,7 @@ public class POD{
         this.description = description;
     }
 
+    @Exclude
     public Bitmap getPicture() {
         return picture;
     }

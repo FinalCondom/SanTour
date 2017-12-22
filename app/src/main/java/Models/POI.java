@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.lang.annotation.Annotation;
-
 /**
  * Created by kevin on 17.11.2017.
  */
@@ -64,6 +62,7 @@ public class POI {
         this.description = description;
     }
 
+    @Exclude
     public Bitmap getPicture() {
         return picture;
     }
