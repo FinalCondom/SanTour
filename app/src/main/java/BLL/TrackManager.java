@@ -18,7 +18,6 @@ public class TrackManager {
 
     private static DatabaseReference mRootRef;
     private static DatabaseReference mTrackRef;
-
     private Track track;
     private CoordinateManager coordinateManager;
     public TrackManager(){
@@ -47,8 +46,6 @@ public class TrackManager {
     }
 
     public void endTrack(){
-        CurrentRecordingTrack.getTrack().setPODs(CurrentRecordingTrack.getTrack().getPODs());
-        CurrentRecordingTrack.getTrack().setPOIs(CurrentRecordingTrack.getTrack().getPOIs());
         updateTrack();
     }
 

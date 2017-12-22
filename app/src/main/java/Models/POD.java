@@ -2,17 +2,22 @@ package Models;
 
 import android.graphics.Bitmap;
 
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.ArrayList;
 
 /**
  * Created by kevin on 17.11.2017.
  */
 
+@IgnoreExtraProperties
 public class POD{
 
     private String id_POD;
     private String name;
     private String description;
+    @Exclude
     private Bitmap picture;
     private Coordinate coordinate;
     private ArrayList<Difficulty> difficulties;

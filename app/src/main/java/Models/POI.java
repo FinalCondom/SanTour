@@ -2,15 +2,22 @@ package Models;
 
 import android.graphics.Bitmap;
 
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.lang.annotation.Annotation;
+
 /**
  * Created by kevin on 17.11.2017.
  */
 
+@IgnoreExtraProperties
 public class POI {
 
     protected String id_POI;
     protected String name;
     protected String description;
+    @Exclude
     protected Bitmap picture;
     protected Coordinate coordinate;
 
