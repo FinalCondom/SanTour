@@ -53,4 +53,6 @@
     <string name="low">Niedrig</string>
     <string name="middle">Mitte</string>
     <string name="high">"hoch "</string>
+    <string name="poi_updated">"POI aktualisiert "</string>
+    <string name="pod_updated">"POD aktualisiert "</string>
 </resources>
