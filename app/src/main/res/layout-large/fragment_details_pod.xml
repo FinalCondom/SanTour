@@ -8,22 +8,22 @@
         android:id="@+id/tv_details_pod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
         android:text="@string/pod_details"
         android:textColor="@color/textTitle"
-        android:textSize="20dp"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listViewDetailsPod"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="500dp"
         android:layout_below="@+id/tv_details_pod"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:textColor="@color/textColor"></ListView>
 
 
@@ -32,35 +32,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/listViewDetailsPod"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:gravity="bottom"
         android:weightSum="2">
 
         <Button
             android:id="@+id/bt_pod_details_cancel"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
             android:background="@color/red"
             android:text="@string/cancel"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/bt_pod_details_save"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
             android:layout_weight="1"
             android:background="@color/buttonNav"
             android:text="@string/save"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
 </RelativeLayout>
-

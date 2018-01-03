@@ -10,10 +10,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="9dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:text="detailsType"
         android:textColor="@color/textColor"
-        android:textSize="25dp" />
+        android:textSize="35dp" />
 
     <SeekBar
         android:id="@+id/sb_pod_details_horizontal"

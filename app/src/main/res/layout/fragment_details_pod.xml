@@ -8,25 +8,23 @@
         android:id="@+id/tv_details_pod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pod_details"
-        android:textColor="@color/textTitle"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:textSize="25dp"
+        android:text="@string/pod_details"
+        android:textColor="@color/textTitle"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listViewDetailsPod"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:textColor="@color/textColor"
         android:layout_below="@+id/tv_details_pod"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        >
-    </ListView>
+        android:textColor="@color/textColor"></ListView>
 
 
     <LinearLayout
@@ -43,9 +41,8 @@
         <Button
             android:id="@+id/bt_pod_details_cancel"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@color/red"
             android:text="@string/cancel"
@@ -55,7 +52,7 @@
         <Button
             android:id="@+id/bt_pod_details_save"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"

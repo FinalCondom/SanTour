@@ -7,7 +7,7 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="350dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
@@ -18,60 +18,59 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
         android:layout_below="@+id/mapView"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/border"
         android:gravity="center"
         android:hint="@string/track_name"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
         android:textColor="@color/textTitle"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        tools:text="Track Name"
-        android:background="@drawable/border"
-        android:singleLine="true"        />
+        tools:text="Track Name" />
 
     <LinearLayout
         android:id="@+id/linearlayout_create_track1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_track_name"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
         android:weightSum="2">
 
         <Chronometer
             android:id="@+id/timer"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="40dp"
             android:layout_weight="1"
             android:background="@color/green"
             android:countDown="false"
             android:gravity="center"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="35dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="327dp" />
 
         <Button
             android:id="@+id/bt_km"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="40dp"
             android:layout_weight="1"
             android:background="@color/green"
             android:text="@string/km"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            tools:text="Km"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            />
+            android:textSize="35dp"
+            tools:text="Km" />
     </LinearLayout>
 
 
@@ -80,16 +79,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearlayout_create_track1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
         android:weightSum="2">
 
         <ImageButton
             android:id="@+id/ib_play"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="40dp"
             android:layout_weight="1"
             android:background="@color/green"
             android:src="@drawable/ic_play" />
@@ -97,8 +96,8 @@
         <ImageButton
             android:id="@+id/ib_stop"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="40dp"
             android:layout_weight="1"
             android:background="@color/green"
             android:src="@drawable/ic_stop" />
@@ -109,8 +108,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearlayout_create_track2"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="50dp"
         android:gravity="bottom|center_horizontal"
         android:weightSum="2">
 
@@ -118,7 +117,7 @@
             android:id="@+id/linearlayout_create_track4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="40dp"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -126,12 +125,12 @@
                 android:id="@+id/tv_create_track_poi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:layout_marginBottom="5dp"
                 android:text="@string/poi"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 tools:text="POI" />
 
@@ -158,12 +157,12 @@
                 android:id="@+id/tv_create_track_pod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:layout_marginBottom="5dp"
                 android:text="@string/pod"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 tools:text="POD" />
 

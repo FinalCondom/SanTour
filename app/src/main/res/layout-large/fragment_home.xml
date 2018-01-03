@@ -18,7 +18,7 @@
     <LinearLayout
         android:id="@+id/linearlayout_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         android:orientation="vertical"
@@ -27,62 +27,62 @@
         <Button
             android:id="@+id/createTrack"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="60dp"
             android:layout_weight="1"
             android:background="@color/green"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:text="@string/create_track"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="30dp" />
 
 
         <Button
             android:id="@+id/POIPODList"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="80dp"
             android:layout_weight="1"
             android:background="@color/green"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:text="@string/poi_pod_list"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="30dp"
 
             />
 
         <Button
             android:id="@+id/about"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="80dp"
             android:layout_weight="1"
             android:background="@color/green"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:text="@string/about"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/bt_settings"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="80dp"
             android:layout_weight="1"
             android:background="@color/green"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:text="@string/settings"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="30dp" />
 
     </LinearLayout>
 

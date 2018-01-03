@@ -9,10 +9,10 @@
     <SearchView
         android:id="@+id/sv_poi_pod_list"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
         android:background="@color/searchbar"
         android:orientation="horizontal"
         android:visibility="visible">
@@ -22,9 +22,9 @@
     <LinearLayout
         android:id="@+id/linearlayout_list1"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="550dp"
         android:layout_below="@id/sv_poi_pod_list"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
         android:weightSum="2">
 
@@ -33,10 +33,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/listView"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:text="@string/poi"
             android:textColor="@color/textTitle"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <ListView
@@ -44,30 +44,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_list_pod"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_weight="1"
             android:textColor="@color/textColor" />
-
 
         <TextView
             android:id="@+id/tv_list_pod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/listView2"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:text="@string/pod"
             android:textColor="@color/textTitle"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <ListView
             android:id="@+id/listViewPod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_weight="1"
             android:textColor="@color/textColor" />
 
@@ -78,8 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearlayout_list1"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
         android:gravity="bottom|center_horizontal"
         android:weightSum="2">
 
@@ -88,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearlayout_list2"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="40dp"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -96,12 +95,12 @@
                 android:id="@+id/tv_poi_add_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:text="@string/poi"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 tools:text="POI" />
 
@@ -121,18 +120,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/linearlayout_list2"
             android:orientation="vertical"
+            android:paddingLeft="10dp"
             android:weightSum="2">
 
             <TextView
                 android:id="@+id/tv_pod_add_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:text="@string/pod"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 tools:text="POD" />
 

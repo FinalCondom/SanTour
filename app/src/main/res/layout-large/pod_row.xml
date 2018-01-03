@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         tools:background="#AAA" />
 
     <TextView
@@ -16,10 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/avatar"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_toRightOf="@+id/avatar"
         android:textColor="@android:color/black"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         tools:text="nom" />
 
@@ -30,7 +30,7 @@
         android:layout_alignLeft="@+id/nom"
         android:layout_below="@+id/nom"
         android:textColor="@android:color/black"
-        android:textSize="15dp"
+        android:textSize="25dp"
         tools:text="Dexcription" />
 
 

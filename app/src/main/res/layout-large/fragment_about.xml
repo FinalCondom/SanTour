@@ -9,11 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:text="@string/aboutText"
         android:textColor="@color/textColor"
-        android:textSize="20dp"
+        android:textSize="35dp"
 
         />
 
@@ -22,8 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/copyright" />
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="40dp"
+        android:text="@string/copyright"
+        android:textSize="20dp" />
 
 </FrameLayout>
