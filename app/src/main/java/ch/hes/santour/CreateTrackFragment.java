@@ -146,6 +146,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                 if(!((MainActivity)getActivity()).isIsRecording()) {
                     //TODO remove the comments to manage errors
                     if(!trackName.equals("")){
+
                         trackManager.createTrack(trackName, ((MainActivity)getActivity()).getActualLocation());
                         ((MainActivity)getActivity()).setIsRecording(true);
                         ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());
