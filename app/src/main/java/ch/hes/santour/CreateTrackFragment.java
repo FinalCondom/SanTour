@@ -189,6 +189,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     CurrentRecordingTrack.setTrack(null);
                     trackManager.clearTrack();
                     ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());
+                    chronometer.setBase(SystemClock.elapsedRealtime());
                     if(polyline !=null)
                     {
                         polyline.remove();
