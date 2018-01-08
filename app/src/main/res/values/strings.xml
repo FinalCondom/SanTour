@@ -33,7 +33,7 @@
     <string name="pod" translatable="false">POD</string>
     <string name="longi">Long.</string>
     <string name="lati">Lat.</string>
-
+    <string name="description">Description</string>
     <string name="cancel">CANCEL</string>
     <string name="save">SAVE</string>
     <string name="ok" translatable="false">OK</string>
@@ -64,6 +64,6 @@
     <string name="precision">Precision of the map</string>
     <string name="poi_updated">POI updated</string>
     <string name="pod_updated">POD Updated</string>
-    <string name="description">Description</string>
+    <string name="track_no_gps_msg">Please enable your GPS</string>
 
 </resources>
