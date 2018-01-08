@@ -130,6 +130,7 @@ public class SettingsFragment extends Fragment {
 
                 //méthode pour changer la précision et vitesse
                 ((MainActivity)getActivity()).DefineLocalisation(precision,time);
+                getFragmentManager().popBackStack();
             }
         });
 
