@@ -144,7 +144,6 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
             public void onClick(View view) {
                 String trackName = trackNameEditText.getText().toString();
                 if(!((MainActivity)getActivity()).isIsRecording()) {
-                    //TODO remove the comments to manage errors
                     if(!trackName.equals("")){
                         if(((MainActivity)getActivity()).getActualLocation()!=null)
                         {
@@ -188,7 +187,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     trackManager.endTrack();
                     CurrentRecordingTrack.setTrack(null);
                     trackManager.clearTrack();
-                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());
                     Toast.makeText(rootView.getContext(), R.string.track_created, Toast.LENGTH_SHORT).show();
                 }
             }
