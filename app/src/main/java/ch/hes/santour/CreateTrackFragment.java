@@ -146,13 +146,21 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                 if(!((MainActivity)getActivity()).isIsRecording()) {
                     //TODO remove the comments to manage errors
                     if(!trackName.equals("")){
+                        if(((MainActivity)getActivity()).getActualLocation()!=null)
+                        {
+                            trackManager.createTrack(trackName, ((MainActivity)getActivity()).getActualLocation());
+                            ((MainActivity)getActivity()).setIsRecording(true);
+                            ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());
+                            ((MainActivity)getActivity()).getChronometer().start();
+                            trackNameEditText.setEnabled(false);
+                            kmButton.setText(String.valueOf(((MainActivity)getActivity()).getDistance()));
+                        }
+                        else
+                        {
+                            //if the GPS is not enable, we will display a message
+                            Toast.makeText(rootView.getContext(), R.string.track_no_gps_msg, Toast.LENGTH_SHORT).show();
+                        }
 
-                        trackManager.createTrack(trackName, ((MainActivity)getActivity()).getActualLocation());
-                        ((MainActivity)getActivity()).setIsRecording(true);
-                        ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());
-                        ((MainActivity)getActivity()).getChronometer().start();
-                        trackNameEditText.setEnabled(false);
-                        kmButton.setText(String.valueOf(((MainActivity)getActivity()).getDistance()));
 
                     }else{
                         //if no name has been written, we will display a message

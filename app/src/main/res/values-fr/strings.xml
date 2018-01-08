@@ -55,4 +55,5 @@
     <string name="high">Haut</string>
     <string name="poi_updated">POI mis à jour</string>
     <string name="pod_updated">POD mis à jour</string>
+    <string name="track_no_gps_msg">Veuillez activer votre GPS</string>
 </resources>

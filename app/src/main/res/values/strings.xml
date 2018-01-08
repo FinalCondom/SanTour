@@ -64,5 +64,6 @@
     <string name="precision">Precision of the map</string>
     <string name="poi_updated">POI updated</string>
     <string name="pod_updated">POD Updated</string>
+    <string name="track_no_gps_msg">Please enable your GPS</string>
 
 </resources>
