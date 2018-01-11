@@ -8,6 +8,10 @@ You can find the web interface project here: https://github.com/Centoroma/SanTou
 
 In order to run this project, you will need to upload this project on your android studio, 
 
+* You can download visual studio here: https://www.visualstudio.com/downloads/
+
+* You can register to firebase here: https://firebase.google.com/ using a google account for your project
+
 configure your firebase database and allow the modification of the database by everyone, 
 
 configure the firebase Storage and allow its modification for everyone
@@ -19,7 +23,7 @@ and simply run the programm using your smartphone or an android emulator.
 The prerequisites of this project are: 
 ```
 Android Studio 3.0.1 or higher
-An android SDK 18 or higher (target build:  android SDK 26)
+An android SDK 18 or higher (target build: android SDK 26)
 GPS emulator (if you want to use the android emulator)
 ```
 
@@ -116,11 +120,13 @@ We have implemented only one activity in order to manage the recording of our tr
 
 ## Technical choices
 
-When we arrive on our application, you first need to start creating a track, this will enable the recording on firebase, we have also enable the offline registration.
-
-In order to be certain to record only one track at a time, we create a class CurrentRecordingTrack that have a track in static, with that we are certain to have only one track at a time.
-
-To store pictures inside our database we choose to use the storage of firebase. The path to the image is image/[Id_Track]/POD(POI)/picture[numbeer of the POD/POI in the track].jpg
+We made several technical choices for this project: 
+* When we arrive on our application, you first need to start creating a track, this will enable the recording on firebase, we have also enable the offline registration.
+* In order to be certain to record only one track at a time, we create a class CurrentRecordingTrack that have a track in static, with that we are certain to have only one track at a time.
+* To store pictures inside our database we choose to use the storage of firebase. The path to the image is image/[Id_Track]/POD(POI)/picture[number of the POD/POI in the track].jpg
+* For the localisation, we use the default localisation tool of google with give us a localisation in latitude and longitude.
+* For displaying the map, we use the google map API.
+* The graphical part of the application has been made with relative layout.
 
 ## Authors
 
@@ -132,4 +138,13 @@ To store pictures inside our database we choose to use the storage of firebase. 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
+The MIT License (MIT)
+
+Copyright (c) 2015 Chris Kibble
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
