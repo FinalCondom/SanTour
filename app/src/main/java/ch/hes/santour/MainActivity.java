@@ -174,6 +174,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     public void DefineLocalisation(int precision, int time) {
 
+        if (locationRequest != null)
+        {
+            LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
+        }
         switch (precision) {
             case 1:
                 choosedPrecision = locationRequest.PRIORITY_LOW_POWER;
@@ -221,15 +225,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(choosedTime);
-        locationRequest.setFastestInterval(choosedTime);
-        locationRequest.setPriority(choosedPrecision);
 
-        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+    if(locationRequest == null)
         {
-            LocationServices.FusedLocationApi.requestLocationUpdates(client,locationRequest,this);
+            locationRequest = new LocationRequest();
+            locationRequest.setInterval(choosedTime);
+            locationRequest.setFastestInterval(choosedTime);
+            locationRequest.setPriority(choosedPrecision);
+
+            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            {
+                LocationServices.FusedLocationApi.requestLocationUpdates(client,locationRequest,this);
+            }
         }
+
+
     }
 
     protected synchronized void buildGoogleAPIClient()
