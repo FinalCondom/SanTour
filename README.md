@@ -8,7 +8,7 @@ You can find the web interface project here: https://github.com/Centoroma/SanTou
 
 In order to run this project, you will need to upload this project on your android studio, 
 
-* You can download visual studio here: https://www.visualstudio.com/downloads/
+* You can download android studio here: https://developer.android.com/studio/index.html
 
 * You can register to firebase here: https://firebase.google.com/ using a google account for your project
 
