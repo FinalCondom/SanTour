@@ -13,6 +13,7 @@ import Models.POD;
 
 /**
  * Created by Cento on 04.12.2017.
+ * This is a list of POD
  */
 
 public class ListPodAdapter extends ArrayAdapter<POD> {
@@ -24,6 +25,7 @@ public class ListPodAdapter extends ArrayAdapter<POD> {
         this.pods = pods;
     }
 
+    //This function will display each part of the list
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

@@ -57,7 +57,7 @@ public class DetailsPodFragment extends Fragment {
         getActivity().setTitle(R.string.pod_details);
 
         mListView = rootView.findViewById(R.id.listViewDetailsPod);
-        showDetailsList();
+        showDifficultiesList();
 
         // button CANCEL
         Button bt_pod_details_cancel = rootView.findViewById(R.id.bt_pod_details_cancel);
@@ -104,6 +104,7 @@ public class DetailsPodFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    //This function will return the list of difficulties selected
     private List<Difficulty>getDifficulties(){
         List<Difficulty>difficulties = new ArrayList<>();
         for(int i=0; i<mListView.getCount(); i++){
@@ -120,7 +121,8 @@ public class DetailsPodFragment extends Fragment {
         return difficulties;
     }
 
-    private void showDetailsList() {
+    //Thsi function will show the difficulties list as an asynchronous method
+    private void showDifficultiesList() {
         mRootRef.child("difficulties").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

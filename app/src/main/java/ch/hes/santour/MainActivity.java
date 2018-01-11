@@ -27,7 +27,6 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.Locale;
@@ -36,6 +35,9 @@ import BLL.CoordinateManager;
 import BLL.CurrentRecordingTrack;
 import BLL.TrackManager;
 
+/*
+ * this is the main activity of our programm
+ */
 public class MainActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     private static final int REQUEST_LOCATION_CODE = 9;
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     private double distance;
     private TrackManager trackManager;
     private CoordinateManager coordinateManager;
-    private Polyline polyline;
     private PolylineOptions rectOptions = new PolylineOptions().width(10).color(Color.BLUE);
 
     //Change location precision and delay
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    //This is the function called when we change the language
     public void changeLanguage(String toLoad) {
         Locale locale = new Locale(toLoad);
         Locale.setDefault(locale);
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         return false;
     }
 
-
+    //This function will return the last loaded language
     private void loadLastLanguage() {
         String language = PreferenceManager.getDefaultSharedPreferences(this).getString("LANGUAGE", "en");
         Locale locale = new Locale(language);
@@ -306,6 +308,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     //timer
     public void pauseTimer(){
+        //we pause the timer
         if(CurrentRecordingTrack.getTrack()!=null) {
             CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
             chronometer.stop();
@@ -314,6 +317,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
     public void restartTimer(){
+        //we restart the timer
         if(CurrentRecordingTrack.getTrack()!=null) {
             chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
             chronometer.start();
@@ -336,13 +340,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         return rectOptions;
     }
 
-    public void endTrack(){
-        CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
-    }
-
 
     //Getter and Setter
-
     public static boolean isIsRecording() {
         return isRecording;
     }

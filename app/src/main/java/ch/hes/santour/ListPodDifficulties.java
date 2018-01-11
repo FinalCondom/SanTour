@@ -12,6 +12,7 @@ import Models.Difficulty;
 
 /**
  * Created by Cento on 12.12.2017.
+ * this function will display a list of pod
  */
 
 public class ListPodDifficulties extends ArrayAdapter<Difficulty> {

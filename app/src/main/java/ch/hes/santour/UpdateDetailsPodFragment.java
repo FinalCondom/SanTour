@@ -1,10 +1,7 @@
 package ch.hes.santour;
 
 import android.app.Fragment;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,7 +29,6 @@ import Models.POD;
 
 
 public class UpdateDetailsPodFragment extends Fragment {
-    private String TAG = "TAG";
     private ListView mListView;
     private PODManager podManager;
     private DatabaseReference mRootRef;
@@ -69,7 +65,7 @@ public class UpdateDetailsPodFragment extends Fragment {
             updatedPod = CurrentRecordingTrack.getTrack().getPODs().get(podIndex);
         }
         //See the list of details
-        showDetailsList();
+        showDifficultiesList();
         // button CANCEL
         Button bt_pod_details_cancel = rootView.findViewById(R.id.bt_pod_details_cancel);
         bt_pod_details_cancel.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +109,7 @@ public class UpdateDetailsPodFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    //This function will return the selected difficulties
     private List<Difficulty>getDifficulties(){
         List<Difficulty>difficulties = new ArrayList<>();
         for(int i=0; i<mListView.getCount(); i++){
@@ -129,7 +126,8 @@ public class UpdateDetailsPodFragment extends Fragment {
         return difficulties;
     }
 
-    private void showDetailsList() {
+    //This function will show the list of difficulties
+    private void showDifficultiesList() {
         mRootRef.child("difficulties").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

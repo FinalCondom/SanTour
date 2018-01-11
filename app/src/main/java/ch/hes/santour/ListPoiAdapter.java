@@ -13,6 +13,7 @@ import Models.POI;
 
 /**
  * Created by Cento on 04.12.2017.
+ * this function is the list of poi adaptater
  */
 
 public class ListPoiAdapter extends ArrayAdapter<POI> {

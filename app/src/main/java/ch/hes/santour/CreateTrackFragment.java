@@ -192,7 +192,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     trackNameEditText.setEnabled(true);
                     trackNameEditText.setText("");
                     kmButton.setText("KM");
-                    trackManager.endTrack();
+                    trackManager.updateTrack();
                     CurrentRecordingTrack.setTrack(null);
                     trackManager.clearTrack();
                     ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());

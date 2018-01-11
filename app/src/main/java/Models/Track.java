@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by kevin on 17.11.2017.
+ * this class will create a track
  */
 
 
@@ -13,21 +14,9 @@ public class Track {
     private String name;
     private long timer;
     private double length;
-    private int userId;
     private ArrayList<POD> PODs;
     private ArrayList<POI> POIs;
     private ArrayList<Coordinate>coordinates;
-
-    public Track(String id_track, String name, long timer, double length, int userId) {
-        this.id_track = id_track;
-        this.name = name;
-        this.timer = timer;
-        this.length = length;
-        this.userId = userId;
-        POIs = new ArrayList<>();
-        PODs = new ArrayList<>();
-        coordinates = new ArrayList<>();
-    }
 
     public Track(String name, long timer, double length, int userId) {
         this.name = name;

@@ -50,7 +50,7 @@ public class CreatePodFragment extends Fragment {
         ((MainActivity)getActivity()).pauseTimer();
     }
 
-
+    //This function will create the pod fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -144,7 +144,7 @@ public class CreatePodFragment extends Fragment {
         return rootView;
     }
 
-
+    //This function is used to get the photo taken
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {

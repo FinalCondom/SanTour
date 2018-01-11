@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import BLL.CurrentRecordingTrack;
 
+/*
+ * this fragment is the home menu fragment
+ */
 public class HomeFragement extends Fragment {
 
     FragmentManager fragmentManager ;
@@ -54,7 +57,7 @@ public class HomeFragement extends Fragment {
         });
 
 
-        // button PoIDPODList
+        // button PoiPODList
         Button POIPODList =  rootView.findViewById(R.id.POIPODList);
         POIPODList.setOnClickListener(new View.OnClickListener() {
 

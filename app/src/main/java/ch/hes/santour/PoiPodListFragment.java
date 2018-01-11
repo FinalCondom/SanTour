@@ -1,14 +1,13 @@
 package ch.hes.santour;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +25,7 @@ public class PoiPodListFragment extends Fragment {
     private FragmentManager fragmentManager;
     private Fragment fragment;
     private FragmentTransaction transaction ;
-    public final String TAG = "TAG";
+
     public PoiPodListFragment() {
         // Required empty public constructor
     }
