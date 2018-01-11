@@ -87,14 +87,17 @@ public class PoiPodListFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    //function to see the list of POI
     private void showPoiList() {
         if (CurrentRecordingTrack.getTrack().getPOIs().size() > 0) {
             ListPoiAdapter adapter = new ListPoiAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPOIs());
+            //Set the adapter for poi list
             mListView.setAdapter(adapter);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView arg0, View view, final int position, long id) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                    //Title of the dialog
                     alert.setTitle("Details of "+CurrentRecordingTrack.getTrack().getPOIs().get(position).getName());
                     alert.setMessage("Coordinates" +"\n"+
                                     "Latitude : " + CurrentRecordingTrack.getTrack().getPOIs().get(position).getCoordinate().getLatitude()+"\n"+
@@ -104,6 +107,7 @@ public class PoiPodListFragment extends Fragment {
                     );
                    Drawable d = new BitmapDrawable(getResources(), CurrentRecordingTrack.getTrack().getPOIs().get(position).getPicture());
                     alert.setIcon(d);
+                    //Set the back button
                     alert.setPositiveButton(R.string.ok,
                             new DialogInterface.OnClickListener() {
 
@@ -112,6 +116,7 @@ public class PoiPodListFragment extends Fragment {
                                     dialog.dismiss();
                                 }
                             });
+                    //Set the edit button, we need to pass information in the bundle
                     alert.setNeutralButton("Edit",
                             new DialogInterface.OnClickListener(){
                                 @Override
@@ -133,10 +138,13 @@ public class PoiPodListFragment extends Fragment {
             });
         }
     }
+    //function to see the list of POD
     private void showPodList() {
         if(CurrentRecordingTrack.getTrack().getPODs().size()>0){
             ListPodAdapter adapter = new ListPodAdapter(getActivity(), CurrentRecordingTrack.getTrack().getPODs());
+            //Set the adapter for pod list
             mListView.setAdapter(adapter);
+            //Fill the dialog
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView arg0, View view, final int position, long id) {
@@ -151,10 +159,12 @@ public class PoiPodListFragment extends Fragment {
                         message+= difficulty.getName()+" : " + difficulty.getGradient()+"\n";
                     }
                     AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                    //Title of the dialog
                     alert.setTitle("Details of "+CurrentRecordingTrack.getTrack().getPODs().get(position).getName());
                     alert.setMessage(message);
                     Drawable d = new BitmapDrawable(getResources(), CurrentRecordingTrack.getTrack().getPODs().get(position).getPicture());
                     alert.setIcon(d);
+                    //Set the back button
                     alert.setPositiveButton(R.string.ok,
                             new DialogInterface.OnClickListener() {
 
@@ -163,6 +173,7 @@ public class PoiPodListFragment extends Fragment {
                                     dialog.dismiss();
                                 }
                             });
+                    //Set the edit button, we need to pass information in the bundle
                     alert.setNeutralButton("Edit",
                             new DialogInterface.OnClickListener(){
                                 @Override

@@ -9,6 +9,8 @@ import android.widget.TextView;
  */
 
  class PodDifficutlyViewHolder {
+        //Check box for difficulties
         public CheckBox checkboxPodDetails;
+        //Seek bar for difficulties
         public SeekBar seekBarPodDetails;
 }

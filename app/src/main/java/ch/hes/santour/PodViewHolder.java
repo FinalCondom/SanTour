@@ -8,7 +8,10 @@ import android.widget.TextView;
  */
 
 class PodViewHolder {
+    //Name pod
     public TextView nom;
+    //Description pod
     public TextView description;
+    //Image pod
     public ImageView avatar;
 }

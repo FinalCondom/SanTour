@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 /**
  * This class has not been implemented yet but will be implemented later
  */
+//We create the framgment to do login, but we didn't have enough time to manage it
 public class LoginFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

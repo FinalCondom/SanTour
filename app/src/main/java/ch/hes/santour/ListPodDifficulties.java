@@ -17,6 +17,8 @@ import Models.Difficulty;
 public class ListPodDifficulties extends ArrayAdapter<Difficulty> {
     private List<Difficulty> difficulties = new ArrayList<>();
 
+    //Adpater to see a list of difficutlies in a POD
+
     public ListPodDifficulties(Context context, List<Difficulty> difficulties) {
         super(context, 0, difficulties);
         this.difficulties = difficulties;

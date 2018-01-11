@@ -18,6 +18,7 @@ import Models.POD;
 public class ListPodAdapter extends ArrayAdapter<POD> {
     private List<POD> pods ;
 
+    //Adpater to fill a list view with data and a picture
     public ListPodAdapter(Context context, List<POD> pods) {
         super(context, 0, pods);
         this.pods = pods;
