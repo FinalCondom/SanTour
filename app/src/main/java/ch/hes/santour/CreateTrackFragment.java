@@ -95,7 +95,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         if(CurrentRecordingTrack.getTrack()!=null) {
             ((MainActivity) getActivity()).setIsRecording(true);
             trackNameEditText.setText(CurrentRecordingTrack.getTrack().getName());
-            kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
+            kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
             chronometer.setBase(((MainActivity)getActivity()).getChronometer().getBase());
             chronometer.start();
             trackNameEditText.setEnabled(false);
@@ -233,11 +233,12 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
             chronometer.setBase(((MainActivity) getActivity()).getChronometer().getBase());
             chronometer.start();
             trackNameEditText.setText(CurrentRecordingTrack.getTrack().getName());
-            kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
+            kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
             trackNameEditText.setEnabled(false);
         }
         mapView.onResume();
         super.onResume();
+
     }
 
     @Override
