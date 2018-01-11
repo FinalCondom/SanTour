@@ -68,7 +68,7 @@ public class UpdateDetailsPodFragment extends Fragment {
             podIndex= bundle.getInt("podIndex");
             updatedPod = CurrentRecordingTrack.getTrack().getPODs().get(podIndex);
         }
-
+        //See the list of details
         showDetailsList();
         // button CANCEL
         Button bt_pod_details_cancel = rootView.findViewById(R.id.bt_pod_details_cancel);
