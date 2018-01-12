@@ -27,7 +27,6 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.Locale;
@@ -36,6 +35,9 @@ import BLL.CoordinateManager;
 import BLL.CurrentRecordingTrack;
 import BLL.TrackManager;
 
+/*
+ * this is the main activity of our programm
+ */
 public class MainActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     private static final int REQUEST_LOCATION_CODE = 9;
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     private double distance;
     private TrackManager trackManager;
     private CoordinateManager coordinateManager;
-    private Polyline polyline;
     private PolylineOptions rectOptions = new PolylineOptions().width(10).color(Color.BLUE);
 
     //Change location precision and delay
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    //This is the function called when we change the language
     public void changeLanguage(String toLoad) {
         Locale locale = new Locale(toLoad);
         Locale.setDefault(locale);
@@ -92,10 +94,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         startActivity(intent);
     }
 
-    //Méthode qui se déclenchera au clic sur un item
+    //Method that is called when we click on an item
     public boolean onOptionsItemSelected(MenuItem item) {
         String languageToLoad;
-        //On regarde quel item a été cliqué grâce à son id et on déclenche une action
+        //We check which item has been selected with is ID and we start an action
         switch (item.getItemId()) {
             case R.id.action_bar_settings:
                 return true;
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         return false;
     }
 
+    //This function will return the last loaded language
     private void loadLastLanguage() {
         String language = PreferenceManager.getDefaultSharedPreferences(this).getString("LANGUAGE", "en");
         Locale locale = new Locale(language);
@@ -130,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
                 getBaseContext().getResources().getDisplayMetrics());
     }
 
-    //Demande la localisation
+    //Ask the permission to use the localisation of the device
     public boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -144,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    //When the location of the device change its update the variables related to the position
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onLocationChanged(Location location) {
@@ -152,10 +156,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
         actualLocation = location;
 
-
         if (lastLocation == null)
             lastLocation = actualLocation;
 
+        //Check if a track is currently being recording
         if (isRecording) {
             calculeDistance();
             trackManager.addCoordinate(coordinateManager.createCoordonateFromLocation(actualLocation));
@@ -163,6 +167,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
 
         if (frag != null) {
+            //if a track is currently recording we update the map otherwise we zoom on the map
             if (!isRecording) {
                 ((CreateTrackFragment) frag).ZoomMap(location);
             } else {
@@ -172,8 +177,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     }
 
+    //Set the precision and the timing between two points of the GPS
     public void DefineLocalisation(int precision, int time) {
 
+        //Remove the old location request
+        if (locationRequest != null)
+        {
+            LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
+        }
         switch (precision) {
             case 1:
                 choosedPrecision = locationRequest.PRIORITY_LOW_POWER;
@@ -204,8 +215,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
                 break;
         }
 
+        //Create the new request Location who update the location of the user
         if (locationRequest != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
 
             locationRequest.setInterval(choosedTime);
             locationRequest.setFastestInterval(choosedTime);
@@ -219,19 +230,25 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     }
 
 
+    //Override the method onConnect of the LocationListener
+    //It set the request location if it's not already set
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(choosedTime);
-        locationRequest.setFastestInterval(choosedTime);
-        locationRequest.setPriority(choosedPrecision);
-
-        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+    if(locationRequest == null)
         {
-            LocationServices.FusedLocationApi.requestLocationUpdates(client,locationRequest,this);
+            locationRequest = new LocationRequest();
+            locationRequest.setInterval(choosedTime);
+            locationRequest.setFastestInterval(choosedTime);
+            locationRequest.setPriority(choosedPrecision);
+
+            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            {
+                LocationServices.FusedLocationApi.requestLocationUpdates(client,locationRequest,this);
+            }
         }
     }
 
+    //Create the client for the GoogleAPI
     protected synchronized void buildGoogleAPIClient()
     {
         client = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).addOnConnectionFailedListener(this).addApi(LocationServices.API).build(); {
@@ -256,13 +273,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     }
 
     //Distance Functions
-
     public double convertRad(double input){
         return (Math.PI * input)/180;
     }
+
+    //Calculated the distance we made with the GPS points
     public void calculeDistance()
     {
-        int Rayon = 6378000; //Rayon de la terre en mètre
+        int Rayon = 6378000; //Radius of the earth
         double dist;
 
         double lat_a = convertRad(lastLocation.getLatitude());
@@ -278,6 +296,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         lastLocation = actualLocation;
     }
 
+    //Round the values of the distance made
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -289,6 +308,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     //timer
     public void pauseTimer(){
+        //we pause the timer
         if(CurrentRecordingTrack.getTrack()!=null) {
             CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
             chronometer.stop();
@@ -297,6 +317,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
     public void restartTimer(){
+        //we restart the timer
         if(CurrentRecordingTrack.getTrack()!=null) {
             chronometer.setBase(SystemClock.elapsedRealtime() - CurrentRecordingTrack.getTrack().getTimer());
             chronometer.start();
@@ -304,28 +325,23 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    //Set the polyline who display the track on the map
     public void SetPolyline(Location location)
     {
-
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
         //Add the location to the polyline
         rectOptions.add(latLng);
         rectOptions.visible(true);
     }
-
+    //Get the polyline who display the track on the map
     public PolylineOptions GetPolyline()
     {
         return rectOptions;
     }
 
-    public void endTrack(){
-        CurrentRecordingTrack.getTrack().setTimer(SystemClock.elapsedRealtime() - chronometer.getBase());
-    }
-
 
     //Getter and Setter
-
     public static boolean isIsRecording() {
         return isRecording;
     }

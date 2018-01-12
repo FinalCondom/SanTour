@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +20,9 @@ import BLL.CurrentRecordingTrack;
 import BLL.PODManager;
 import Models.POD;
 
-
+/*
+ * this class will be called once we update a POD
+ */
 public class UpdatePodFragment extends Fragment {
 
     FragmentManager fragmentManager;

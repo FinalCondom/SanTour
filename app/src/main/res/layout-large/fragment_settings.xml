@@ -26,6 +26,17 @@
             android:weightSum="4">
 
             <TextView
+                android:id="@+id/tv_settings_battery_warning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/battery_warning"
+                android:textColor="@color/textTitle"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
                 android:id="@+id/tv_settings_precision"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

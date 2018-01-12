@@ -2,6 +2,7 @@ package Models;
 
 /**
  * Created by kevin on 17.11.2017.
+ * this class will save a coordinate
  */
 
 public class Coordinate {

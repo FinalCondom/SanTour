@@ -13,16 +13,19 @@ import Models.POD;
 
 /**
  * Created by Cento on 04.12.2017.
+ * This is a list of POD
  */
 
 public class ListPodAdapter extends ArrayAdapter<POD> {
     private List<POD> pods ;
 
+    //Adpater to fill a list view with data and a picture
     public ListPodAdapter(Context context, List<POD> pods) {
         super(context, 0, pods);
         this.pods = pods;
     }
 
+    //This function will display each part of the list
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

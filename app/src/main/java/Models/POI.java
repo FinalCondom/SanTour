@@ -7,6 +7,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 /**
  * Created by kevin on 17.11.2017.
+ * This class will create a POI
  */
 
 @IgnoreExtraProperties

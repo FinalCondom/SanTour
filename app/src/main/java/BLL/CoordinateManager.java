@@ -7,6 +7,7 @@ import Models.Coordinate;
 
 /**
  * Created by lucien on 04.12.2017.
+ * This class is creating a Coordinate object with a given location
  */
 
 public class CoordinateManager {

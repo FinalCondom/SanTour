@@ -41,28 +41,12 @@ public class TrackManager {
         CurrentRecordingTrack.getTrack().setId_track(mTrackRef.getKey());
     }
 
+    //This function will update the track with the current recording track
     public void updateTrack(){
         mTrackRef.setValue(CurrentRecordingTrack.getTrack());
     }
 
-    public void endTrack(){
-        updateTrack();
-    }
-
-    public long getSeconds(){
-        long second = getMinutes()%60000;
-        return second/1000;
-    }
-
-    public long getMinutes(){
-        long minute = getHours()%3600000;
-        return minute/60000;
-    }
-
-    public long getHours(){
-        return track.getTimer()/3600000;
-    }
-
+    //This function will add a coordinate to a track
     public void addCoordinate(Coordinate coordinate){
         CurrentRecordingTrack.getTrack().addCoordinate(coordinate);
         updateTrack();

@@ -1,30 +1,24 @@
 package ch.hes.santour;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
+/*
+ * this class is the about fragment
+ */
 
 public class AboutFragment extends Fragment {
 
-    FragmentManager fragmentManager;
     Fragment fragment;
-    FragmentTransaction transaction ;
-
 
     public AboutFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

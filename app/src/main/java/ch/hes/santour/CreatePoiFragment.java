@@ -22,6 +22,9 @@ import android.widget.Toast;
 import BLL.CurrentRecordingTrack;
 import BLL.POIManager;
 
+/*
+ * This will create a POI
+ */
 
 public class CreatePoiFragment extends Fragment {
     private final int CAMERA_REQUEST = 1;
@@ -129,6 +132,7 @@ public class CreatePoiFragment extends Fragment {
         return rootView;
     }
 
+    //This function is used to get the photo taken
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {

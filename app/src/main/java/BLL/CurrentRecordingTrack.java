@@ -4,6 +4,7 @@ import Models.Track;
 
 /**
  * Created by lucien on 01.12.2017.
+ * This class have a static Track that will ensure that only one is recording
  */
 
 public class CurrentRecordingTrack {

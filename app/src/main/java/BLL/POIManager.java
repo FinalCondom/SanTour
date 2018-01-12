@@ -19,6 +19,7 @@ import static BLL.FirebaseClass.getStorage;
 
 /**
  * Created by lucien on 01.12.2017.
+ * This class is a POI manager
  */
 
 public class POIManager {

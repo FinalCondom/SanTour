@@ -6,6 +6,7 @@ import com.google.firebase.storage.StorageReference;
 
 /**
  * Created by Colin on 12.12.2017.
+ * This class is used to be sure that only one Firebase instance is called
  */
 
 public class FirebaseClass {

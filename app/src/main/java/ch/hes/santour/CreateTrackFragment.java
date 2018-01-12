@@ -92,10 +92,11 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         //Fragment chronometer (ONLY FOR DISPLAY)
         chronometer = rootView.findViewById(R.id.timer);
 
+        //Check if a track is currently being recorded
         if(CurrentRecordingTrack.getTrack()!=null) {
             ((MainActivity) getActivity()).setIsRecording(true);
             trackNameEditText.setText(CurrentRecordingTrack.getTrack().getName());
-            kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
+            kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
             chronometer.setBase(((MainActivity)getActivity()).getChronometer().getBase());
             chronometer.start();
             trackNameEditText.setEnabled(false);
@@ -109,6 +110,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         ib_create_track_pod.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                //Check that a track is being recorded
                 if(((MainActivity)getActivity()).isIsRecording()) {
                     chronometer.stop();
                     fragmentManager = getFragmentManager();
@@ -125,6 +127,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         ib_create_track_poi.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                //Check that a track is being recorded
                 if(((MainActivity)getActivity()).isIsRecording()) {
                     chronometer.stop();
                     fragmentManager = getFragmentManager();
@@ -143,9 +146,12 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
             @Override
             public void onClick(View view) {
                 String trackName = trackNameEditText.getText().toString();
+                //Check that a track is being recorded
                 if(!((MainActivity)getActivity()).isIsRecording()) {
                     //TODO remove the comments to manage errors
+                    //Check the track have a name
                     if(!trackName.equals("")){
+                        //Check the GPS location is enable on the device
                         if(((MainActivity)getActivity()).getActualLocation()!=null)
                         {
                             trackManager.createTrack(trackName, ((MainActivity)getActivity()).getActualLocation());
@@ -161,7 +167,6 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                             Toast.makeText(rootView.getContext(), R.string.track_no_gps_msg, Toast.LENGTH_SHORT).show();
                         }
 
-
                     }else{
                         //if no name has been written, we will display a message
                         Toast.makeText(rootView.getContext(), R.string.track_no_name_msg, Toast.LENGTH_SHORT).show();
@@ -176,6 +181,8 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //If a track was being recording we stop it and save it to the database
+                //Then it reset all the variables we used for the track
                 if(((MainActivity)getActivity()).isIsRecording()) {
                     ((MainActivity)getActivity()).setIsRecording(false);
                     ((MainActivity)getActivity()).pauseTimer();
@@ -185,10 +192,15 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     trackNameEditText.setEnabled(true);
                     trackNameEditText.setText("");
                     kmButton.setText("KM");
-                    trackManager.endTrack();
+                    trackManager.updateTrack();
                     CurrentRecordingTrack.setTrack(null);
                     trackManager.clearTrack();
+                    ((MainActivity)getActivity()).getChronometer().setBase(SystemClock.elapsedRealtime());
                     chronometer.setBase(SystemClock.elapsedRealtime());
+                    if(polyline !=null)
+                    {
+                        polyline.remove();
+                    }
                     Toast.makeText(rootView.getContext(), R.string.track_created, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -196,6 +208,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         return rootView;
     }
 
+    //Method that check if the permission to access the device location is enable
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode)
@@ -214,13 +227,14 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     }
                     else //permission is denied
                     {
-                        Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
                     }
                     return;
                 }
         }
     }
 
+    //Method that is call when we come back to the fragment
     @Override
     public void onResume() {
         if(CurrentRecordingTrack.getTrack()!=null){
@@ -228,13 +242,16 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
             chronometer.setBase(((MainActivity) getActivity()).getChronometer().getBase());
             chronometer.start();
             trackNameEditText.setText(CurrentRecordingTrack.getTrack().getName());
-            kmButton.setText(String.valueOf(CurrentRecordingTrack.getTrack().getLength()));
+            kmButton.setText(((MainActivity)getActivity()).getDistance()+"");
             trackNameEditText.setEnabled(false);
         }
         mapView.onResume();
         super.onResume();
+
     }
 
+    //Method that is call when we initialise the map
+    //Set the device location on the map and zoom on it
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -257,19 +274,24 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    //Define the zoom on the map
     public void ZoomMap(Location location)
     {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(),location.getLongitude())));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
 
+    //Update the device location on the map
     public void updateMap(Location location)
     {
         if(isAdded()) {
+
+            //remove the old marker
             if (currentLocationMarker != null) {
                 currentLocationMarker.remove();
             }
 
+            //remove the old polyline
             if(polyline !=null)
             {
                 polyline.remove();
@@ -277,7 +299,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
 
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-
+            //Create the marker for the map
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);
             markerOptions.title(getResources().getString(R.string.track_current_location));

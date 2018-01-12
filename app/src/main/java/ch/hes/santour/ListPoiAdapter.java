@@ -13,11 +13,13 @@ import Models.POI;
 
 /**
  * Created by Cento on 04.12.2017.
+ * this function is the list of poi adaptater
  */
 
 public class ListPoiAdapter extends ArrayAdapter<POI> {
     private List<POI> pois;
 
+    //Adpater to fill a list view with data and a picture
     public ListPoiAdapter(Context context, List<POI> pois) {
 
         super(context, 0, pois);

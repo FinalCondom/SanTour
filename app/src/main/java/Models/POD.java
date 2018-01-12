@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  * Created by kevin on 17.11.2017.
+ * this class will create a POD
  */
 
 @IgnoreExtraProperties

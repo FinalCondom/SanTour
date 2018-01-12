@@ -5,26 +5,26 @@
     android:layout_height="match_parent"
     tools:context="ch.hes.santour.PoiPodListFragment">
 
-
+    <!-- coming soon-->
     <SearchView
         android:id="@+id/sv_poi_pod_list"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="40dp"
         android:background="@color/searchbar"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="invisible">
 
     </SearchView>
 
     <LinearLayout
         android:id="@+id/linearlayout_list1"
         android:layout_width="wrap_content"
-        android:layout_height="550dp"
+        android:layout_height="600dp"
         android:layout_below="@id/sv_poi_pod_list"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:weightSum="2">
 
@@ -75,10 +75,9 @@
     <LinearLayout
         android:id="@+id/linearlayout_list2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/linearlayout_list1"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:gravity="bottom|center_horizontal"
         android:weightSum="2">
 

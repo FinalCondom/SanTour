@@ -90,7 +90,7 @@ public class SettingsFragment extends Fragment {
         int precisionChecked = R.id.rb_precision_middle;
         int timeChecked = R.id.rb_syncro_10;
 
-
+        //Check the button who match the value of the application
         switch(((MainActivity)getActivity()).getIntPrecision())
         {
             case 1:
@@ -102,9 +102,9 @@ public class SettingsFragment extends Fragment {
             case 3:
                 precisionChecked = R.id.rb_precision_high;
                 break;
-
-
         }
+
+        //Check the button who match the value of the application
         switch(((MainActivity)getActivity()).getIntChoosedTime())
         {
             case 1:
@@ -119,6 +119,7 @@ public class SettingsFragment extends Fragment {
 
         }
 
+        //Check the checkbox group
         rb_group1.check(precisionChecked);
         rb_group2.check(timeChecked);
 
@@ -128,13 +129,11 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //méthode pour changer la précision et vitesse
+                //method to update the precision and the speed of the GPS
                 ((MainActivity)getActivity()).DefineLocalisation(precision,time);
                 getFragmentManager().popBackStack();
             }
         });
-
-
 
         return rootView;
     }
