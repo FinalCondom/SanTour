@@ -56,14 +56,16 @@
     <string name="pod_no_description_msg">Please insert a POD description</string>
     <string name="poi_no_description_msg">Please insert a POI description</string>
     <string name="user">User</string>
-    <string name="settings">Settings</string>
-    <string name="syncro">Synchronization in seconds</string>
-    <string name="low">Low</string>
-    <string name="middle">Middle</string>
-    <string name="high">High</string>
-    <string name="precision">Precision of the map</string>
+    <string name="settings">GPS Settings</string>
+    <string name="syncro">GPS synchronization delay</string>
+    <string name="low">Low (10km)</string>
+    <string name="middle">Middle (100m)</string>
+    <string name="high">High (5m)</string>
+    <string name="precision">Precision of the localisation</string>
     <string name="poi_updated">POI updated</string>
     <string name="pod_updated">POD Updated</string>
     <string name="track_no_gps_msg">Please enable your GPS</string>
+    <string name="permission_denied">permission denied</string>
+    <string name="battery_warning">A higher precision or a lower synchronization rate can affect the battery negatively</string>
 
 </resources>

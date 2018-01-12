@@ -227,7 +227,7 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                     }
                     else //permission is denied
                     {
-                        Toast.makeText(getActivity(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
                     }
                     return;
                 }

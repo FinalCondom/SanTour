@@ -50,10 +50,12 @@
     <string name="settings">Réglages</string>
     <string name="precision">Précision de la carte</string>
     <string name="syncro">"Synchronisation en secondes "</string>
-    <string name="low">Faible</string>
-    <string name="middle">Moyen</string>
-    <string name="high">Haut</string>
+    <string name="low">Faible (10km)</string>
+    <string name="middle">Moyen (100m)</string>
+    <string name="high">Haut (5m)</string>
     <string name="poi_updated">POI mis à jour</string>
     <string name="pod_updated">POD mis à jour</string>
     <string name="track_no_gps_msg">Veuillez activer votre GPS</string>
+    <string name="permission_denied">permission non accordée</string>
+    <string name="battery_warning">Une précision plus élevée ou une synchronisation plus faible peut affecter la batterie négativement</string>
 </resources>
