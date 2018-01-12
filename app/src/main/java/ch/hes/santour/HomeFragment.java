@@ -17,13 +17,13 @@ import BLL.CurrentRecordingTrack;
 /*
  * this fragment is the home menu fragment
  */
-public class HomeFragement extends Fragment {
+public class HomeFragment extends Fragment {
 
     FragmentManager fragmentManager ;
     Fragment fragment ;
     FragmentTransaction transaction ;
 
-    public HomeFragement() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 

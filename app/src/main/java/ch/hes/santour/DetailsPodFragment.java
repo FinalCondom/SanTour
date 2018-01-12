@@ -121,7 +121,7 @@ public class DetailsPodFragment extends Fragment {
         return difficulties;
     }
 
-    //Thsi function will show the difficulties list as an asynchronous method
+    //This function will show the difficulties list as an asynchronous method
     private void showDifficultiesList() {
         mRootRef.child("difficulties").addValueEventListener(new ValueEventListener() {
             @Override

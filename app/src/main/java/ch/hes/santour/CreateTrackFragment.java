@@ -148,7 +148,6 @@ public class CreateTrackFragment extends Fragment implements OnMapReadyCallback 
                 String trackName = trackNameEditText.getText().toString();
                 //Check that a track is being recorded
                 if(!((MainActivity)getActivity()).isIsRecording()) {
-                    //TODO remove the comments to manage errors
                     //Check the track have a name
                     if(!trackName.equals("")){
                         //Check the GPS location is enable on the device

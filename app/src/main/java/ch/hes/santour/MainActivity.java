@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         trackManager = new TrackManager();
         coordinateManager = new CoordinateManager();
         FragmentManager fragmentManager = getFragmentManager();
-        Fragment fragment = new HomeFragement();
+        Fragment fragment = new HomeFragment();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_container, fragment).commit();
 

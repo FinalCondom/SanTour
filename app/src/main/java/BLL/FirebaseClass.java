@@ -26,5 +26,4 @@ public class FirebaseClass {
             mStorageRef = FirebaseStorage.getInstance();
         return mStorageRef;
     }
-
 }

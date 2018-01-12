@@ -32,11 +32,13 @@ public class PODManager{
     private Coordinate coordinate;
     private TrackManager trackManager;
     private StorageReference mStorageRef;
+
     //This function will create a POD
     public void createPOD(String poiName, String poiDescription, Bitmap photo, List<Difficulty> difficultyList){
         trackManager = new TrackManager();
         mStorageRef = getStorage().getReference();
-        coordinate = CurrentRecordingTrack.getTrack().getCoordinates().get(CurrentRecordingTrack.getTrack().getCoordinates().size()-1);
+        coordinate = CurrentRecordingTrack.getTrack().getCoordinates().get(CurrentRecordingTrack.getTrack().
+                getCoordinates().size()-1);
         pod = new POD(poiName, poiDescription, photo, coordinate);
         for (Difficulty difficulty: difficultyList) {
             pod.addDifficulty(difficulty);
@@ -59,7 +61,8 @@ public class PODManager{
 
     //This method will add the POD picture to the storage
     public void addPictureToStorage(){
-        StorageReference PodRef = mStorageRef.child("images/"+CurrentRecordingTrack.getTrack().getId_track()+"/POD/picture"+(CurrentRecordingTrack.getTrack().getPODs().size()-1)+".jpg");
+        StorageReference PodRef = mStorageRef.child("images/"+CurrentRecordingTrack.getTrack().getId_track()+
+                "/POD/picture"+(CurrentRecordingTrack.getTrack().getPODs().size()-1)+".jpg");
         Bitmap bitmap = pod.getPicture();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);

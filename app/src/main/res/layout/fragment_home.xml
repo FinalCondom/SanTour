@@ -4,7 +4,7 @@
     android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ch.hes.santour.HomeFragement">
+    tools:context="ch.hes.santour.HomeFragment">
 
     <ImageView
         android:id="@+id/imageView3"
